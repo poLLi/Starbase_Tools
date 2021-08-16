@@ -1,0 +1,16 @@
+/**
+* ---------------------
+* - Main SCSS Entry
+* ---------------------
+*/
+
+// Import custom variables (overrides Bootstrap default variables)
+@import './variables';
+
+// Import Bootstrap
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-vue/src/index';
+
+// Custom Addition
+@import './mixins/mixins';
+@import './custom';

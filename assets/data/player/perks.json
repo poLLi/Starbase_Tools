@@ -1,0 +1,636 @@
+[
+    {
+        "id": "1",
+        "title": "CPR_TRAINING_TITLE",
+        "description": "CPR_TRAINING_DESCRIPTION",
+        "type": "PERK_SELECTION_TRAIT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": ""
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "2",
+        "title": "ASTRONOMER_TITLE",
+        "description": "ASTRONOMER_DESCRIPTION",
+        "type": "PERK_SELECTION_TRAIT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": ""
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "3",
+        "title": "OBSERVANT_TITLE",
+        "description": "OBSERVANT_DESCRIPTION",
+        "type": "PERK_SELECTION_TRAIT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": ""
+        },
+        "perkPoints": 6,
+        "perkType": "negative"
+    },
+    {
+        "id": "4",
+        "title": "HERBALIST_TITLE",
+        "description": "HERBALIST_DESCRIPTION",
+        "type": "PERK_SELECTION_TRAIT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": ""
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "5",
+        "title": "PEANUT_ALLERGY_TITLE",
+        "description": "PEANUT_ALLERGY_DESCRIPTION",
+        "type": "PERK_SELECTION_TRAIT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": ""
+        },
+        "perkPoints": 4,
+        "perkType": "positive"
+    },
+    {
+        "id": "6",
+        "title": "PARANOID_TITLE",
+        "description": "PARANOID_DESCRIPTION",
+        "type": "PERK_SELECTION_TRAIT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": ""
+        },
+        "perkPoints": 4,
+        "perkType": "positive"
+    },
+    {
+        "id": "7",
+        "title": "UNIVERSAL_RECEIVER_TITLE",
+        "description": "UNIVERSAL_RECEIVER_DESCRIPTION",
+        "type": "PERK_SELECTION_TRAIT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "Blood Type: AB+"
+        },
+        "perkPoints": 4,
+        "perkType": "negative"
+    },
+    {
+        "id": "8",
+        "title": "UNIVERSAL_DONOR_TITLE",
+        "description": "UNIVERSAL_DONOR_DESCRIPTION",
+        "type": "PERK_SELECTION_TRAIT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "Blood Type: O-"
+        },
+        "perkPoints": 6,
+        "perkType": "negative"
+    },
+    {
+        "id": "9",
+        "title": "JOGGER_TITLE",
+        "description": "JOGGER_DESCRIPTION",
+        "type": "PERK_SELECTION_HOBBY",
+        "effect": {
+            "attribut": [
+                {
+                    "agility": 2,
+                    "type": "positive"
+                }
+            ],
+            "skill": [],
+            "stat": ""
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "10",
+        "title": "NERD_TITLE",
+        "description": "NERD_DESCRIPTION",
+        "type": "PERK_SELECTION_HOBBY",
+        "effect": {
+            "attribut": [
+                {
+                    "strength": 2,
+                    "type": "negative"
+                }
+            ],
+            "skill": [],
+            "stat": ""
+        },
+        "perkPoints": 2,
+        "perkType": "positive"
+    },
+    {
+        "id": "11",
+        "title": "CHESS_PLAYER_TITLE",
+        "description": "CHESS_PLAYER_DESCRIPTION",
+        "type": "PERK_SELECTION_HOBBY",
+        "effect": {
+            "attribut": [
+                {
+                    "intelligence": 2,
+                    "type": "positive"
+                }
+            ],
+            "skill": [],
+            "stat": ""
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "12",
+        "title": "PARTY_BOY_TITLE",
+        "description": "PARTY_BOY_DESCRIPTION",
+        "type": "PERK_SELECTION_HOBBY",
+        "effect": {
+            "attribut": [
+                {
+                    "intelligence": 2,
+                    "type": "negative"
+                }
+            ],
+            "skill": [],
+            "stat": ""
+        },
+        "perkPoints": 2,
+        "perkType": "positive"
+    },
+    {
+        "id": "13",
+        "title": "RUNNER_TITLE",
+        "description": "RUNNER_DESCRIPTION",
+        "type": "PERK_SELECTION_HOBBY",
+        "effect": {
+            "attribut": [
+                {
+                    "agility": 1,
+                    "type": "positive"
+                }
+            ],
+            "skill": [],
+            "stat": "+300s Sprint Time"
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "14",
+        "title": "STRENGTH_TRAINING_TITLE",
+        "description": "STRENGTH_TRAINING_DESCRIPTION",
+        "type": "PERK_SELECTION_HOBBY",
+        "effect": {
+            "attribut": [
+                {
+                    "strength": 2,
+                    "type": "positive"
+                }
+            ],
+            "skill": [],
+            "stat": ""
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "15",
+        "title": "WEEKEND_BARTENDER_TITLE",
+        "description": "WEEKEND_BARTENDER_DESCRIPTION",
+        "type": "PERK_SELECTION_HOBBY",
+        "effect": {
+            "attribut": [
+                {
+                    "charisma": 2,
+                    "type": "positive"
+                }
+            ],
+            "skill": [],
+            "stat": ""
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "16",
+        "title": "WRESTLER_TITLE",
+        "description": "WRESTLER_DESCRIPTION",
+        "type": "PERK_SELECTION_HOBBY",
+        "effect": {
+            "attribut": [
+                {
+                    "endurance": 2,
+                    "type": "positive"
+                }
+            ],
+            "skill": [],
+            "stat": ""
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "17",
+        "title": "AMATEUR_COOK_TITLE",
+        "description": "AMATEUR_COOK_DESCRIPTION",
+        "type": "PERK_SELECTION_SKILL",
+        "effect": {
+            "attribut": [],
+            "skill": [
+                {
+                    "cooking": 25,
+                    "type": "positive"
+                }
+            ],
+            "stat": ""
+        },
+        "perkPoints": 4,
+        "perkType": "negative"
+    },
+    {
+        "id": "18",
+        "title": "AWFUL_COOK_TITLE",
+        "description": "AWFUL_COOK_DESCRIPTION",
+        "type": "PERK_SELECTION_SKILL",
+        "effect": {
+            "attribut": [],
+            "skill": [
+                {
+                    "cooking": 25,
+                    "type": "negative"
+                }
+            ],
+            "stat": ""
+        },
+        "perkPoints": 4,
+        "perkType": "positive"
+    },
+    {
+        "id": "19",
+        "title": "METALWORKER_TITLE",
+        "description": "METALWORKER_DESCRIPTION",
+        "type": "PERK_SELECTION_SKILL",
+        "effect": {
+            "attribut": [],
+            "skill": [
+                {
+                    "lockpicking": 25,
+                    "type": "positive"
+                }
+            ],
+            "stat": ""
+        },
+        "perkPoints": 4,
+        "perkType": "negative"
+    },
+    {
+        "id": "20",
+        "title": "GREEN_THUMB_TITLE",
+        "description": "GREEN_THUMB_DESCRIPTION",
+        "type": "PERK_SELECTION_SKILL",
+        "effect": {
+            "attribut": [],
+            "skill": [
+                {
+                    "farming": 25,
+                    "type": "positive"
+                }
+            ],
+            "stat": ""
+        },
+        "perkPoints": 4,
+        "perkType": "negative"
+    },
+    {
+        "id": "21",
+        "title": "HOBBYIST_TITLE",
+        "description": "HOBBYIST_DESCRIPTION",
+        "type": "PERK_SELECTION_SKILL",
+        "effect": {
+            "attribut": [],
+            "skill": [
+                {
+                    "crafting": 25,
+                    "type": "positive"
+                }
+            ],
+            "stat": ""
+        },
+        "perkPoints": 4,
+        "perkType": "negative"
+    },
+    {
+        "id": "22",
+        "title": "GEARHEAD_TITLE",
+        "description": "GEARHEAD_DESCRIPTION",
+        "type": "PERK_SELECTION_SKILL",
+        "effect": {
+            "attribut": [],
+            "skill": [
+                {
+                    "mechanic": 25,
+                    "type": "positive"
+                }
+            ],
+            "stat": ""
+        },
+        "perkPoints": 4,
+        "perkType": "negative"
+    },
+    {
+        "id": "23",
+        "title": "VOLUNTEER_FIRE_FIGHTER_TITLE",
+        "description": "VOLUNTEER_FIRE_FIGHTER_DESCRIPTION",
+        "type": "PERK_SELECTION_SKILL",
+        "effect": {
+            "attribut": [],
+            "skill": [
+                {
+                    "medical": 25,
+                    "type": "positive"
+                }
+            ],
+            "stat": ""
+        },
+        "perkPoints": 4,
+        "perkType": "negative"
+    },
+    {
+        "id": "24",
+        "title": "BIG_BONED_TITLE",
+        "description": "BIG_BONED_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "+750ml Blood Capacity"
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "25",
+        "title": "OSTEOPOROSIS_TITLE",
+        "description": "OSTEOPOROSIS_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "Take more Limb damage"
+        },
+        "perkPoints": 2,
+        "perkType": "positive"
+    },
+    {
+        "id": "26",
+        "title": "BRAVE_TITLE",
+        "description": "BRAVE_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "Take less Supression"
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "27",
+        "title": "FEARFUL_TITLE",
+        "description": "FEARFUL_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "Take more Supression"
+        },
+        "perkPoints": 2,
+        "perkType": "positive"
+    },
+    {
+        "id": "28",
+        "title": "NO_FEAR_TITLE",
+        "description": "NO_FEAR_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "-80% Supression"
+        },
+        "perkPoints": 6,
+        "perkType": "negative"
+    },
+    {
+        "id": "29",
+        "title": "FRIGHTFUL_TITLE",
+        "description": "FRIGHTFUL_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "+80% Supression"
+        },
+        "perkPoints": 6,
+        "perkType": "positive"
+    },
+    {
+        "id": "30",
+        "title": "FAST_METABOLISM_TITLE",
+        "description": "FAST_METABOLISM_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "+50% Metabolism"
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "31",
+        "title": "SLOW_METABOLISM_TITLE",
+        "description": "SLOW_METABOLISM_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "-50% Metabolism"
+        },
+        "perkPoints": 2,
+        "perkType": "positive"
+    },
+    {
+        "id": "32",
+        "title": "IRON_STOMACH_TITLE",
+        "description": "IRON_STOMACH_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "Get less often sick"
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "33",
+        "title": "WEAK_STOMACH_TITLE",
+        "description": "WEAK_STOMACH_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "Get more often sick"
+        },
+        "perkPoints": 2,
+        "perkType": "positive"
+    },
+    {
+        "id": "34",
+        "title": "SILENT_SEARCH_TITLE",
+        "description": "SILENT_SEARCH_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "-50% Searching Noise"
+        },
+        "perkPoints": 4,
+        "perkType": "negative"
+    },
+    {
+        "id": "35",
+        "title": "NOISY_SEARCH_TITLE",
+        "description": "NOISY_SEARCH_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "+50% Searching Noise"
+        },
+        "perkPoints": 4,
+        "perkType": "positive"
+    },
+    {
+        "id": "36",
+        "title": "THICK_SKINNED_TITLE",
+        "description": "THICK_SKINNED_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "-15% Damage take from melee"
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "37",
+        "title": "THIN_SKINNED_TITLE",
+        "description": "THIN_SKINNED_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "+15% Damage take from melee"
+        },
+        "perkPoints": 2,
+        "perkType": "positive"
+    },
+    {
+        "id": "38",
+        "title": "NIMBLE_FINGERS_TITLE",
+        "description": "NIMBLE_FINGERS_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "+50% Container Search Speed"
+        },
+        "perkPoints": 4,
+        "perkType": "negative"
+    },
+    {
+        "id": "39",
+        "title": "SAUSAGE_FINGERS_TITLE",
+        "description": "SAUSAGE_FINGERS_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "-50% Container Search Speed"
+        },
+        "perkPoints": 4,
+        "perkType": "positive"
+    },
+    {
+        "id": "40",
+        "title": "HEAVY_WEIGHT_TITLE",
+        "description": "HEAVY_WEIGHT_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "Get Drunk less easily"
+        },
+        "perkPoints": 2,
+        "perkType": "negative"
+    },
+    {
+        "id": "41",
+        "title": "LIGHT_WEIGHT_TITLE",
+        "description": "LIGHT_WEIGHT_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "Get Drunk more easily"
+        },
+        "perkPoints": 2,
+        "perkType": "positive"
+    },
+    {
+        "id": "42",
+        "title": "LIGTH_STEP_TITLE",
+        "description": "LIGTH_STEP_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "+30% Footstep Noise"
+        },
+        "perkPoints": 4,
+        "perkType": "negative"
+    },
+    {
+        "id": "43",
+        "title": "HEAVY_STEP_TITLE",
+        "description": "HEAVY_STEP_DESCRIPTION",
+        "type": "PERK_SELECTION_STAT",
+        "effect": {
+            "attribut": [],
+            "skill": [],
+            "stat": "-30% Footstep Noise"
+        },
+        "perkPoints": 2,
+        "perkType": "positive"
+    }
+]

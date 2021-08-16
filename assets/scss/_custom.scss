@@ -1,0 +1,25 @@
+/**
+* ---------------------
+* - Custom SCSS Stuff
+* ---------------------
+*/
+
+// First Container padding for navbar
+.first-container {
+    padding-top: 10vh;
+}
+
+.full-height {
+    min-height: 90vh;
+    padding-top: 10vh;
+}
+
+@include responsive(lg) {
+    .first-container {
+        padding-top: 8vh;
+    }
+}
+
+.btn:focus {
+    box-shadow: none;
+}

@@ -1,0 +1,50 @@
+/**
+* ---------------------
+* - Variable Overwrite
+* ---------------------
+*/
+
+// Options
+//$enable-rounded: false;
+
+// Color Settings
+$primary: #6a91fc;
+$secondary: #5c6166;
+$dark: #16171a;
+$light: #aaaaaa;
+
+// Global Background / Text-Color
+$body-bg: #222831;
+$body-color: #ececec;
+
+// Card Settings
+$card-bg: $dark;
+
+// Input Settings
+$input-bg: $secondary;
+$input-color: #fff;
+$input-border-color: $light;
+$input-border-color: transparent;
+$input-focus-border-color: $primary;
+$input-focus-box-shadow: none;
+$input-group-addon-bg: $primary;
+$input-group-addon-color: $dark;
+$input-group-addon-border-color: transparent;
+
+// Navbar Settings
+$nav-link-padding-x: 1rem !important;
+
+// Grid container
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1400px
+);
+
+$breakpoints: (
+    xs: 576px,
+    sm: 768px,
+    md: 992px,
+    lg: 1200px
+);
