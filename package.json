@@ -1,22 +1,22 @@
 {
-    "name": "dm_tools",
-    "version": "1.2.3",
+    "name": "starbase_tools",
+    "version": "0.0.1",
     "private": true,
     "author": "PoLLi",
     "scripts": {
-        "dev": "cross-env NUXT_HOST=0.0.0.0 NUXT_PORT=3333 nuxt",
+        "dev": "nuxt",
         "build": "nuxt build",
-        "start": "cross-env NUXT_HOST=0.0.0.0 NUXT_PORT=3333 nuxt start",
+        "start": "nuxt start",
         "generate": "nuxt generate",
         "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
         "lint": "npm run lint:js"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/poLLi/DM_Tools.git"
+        "url": "git+https://github.com/poLLi/Starbase_Tools.git"
     },
     "bugs": {
-        "url": "https://github.com/poLLi/DM_Tools/issues"
+        "url": "https://github.com/poLLi/Starbase_Tools/issues"
     },
     "dependencies": {
         "@nuxtjs/axios": "^5.12.0",
