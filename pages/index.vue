@@ -23,15 +23,15 @@
                                 Buy me a Coffee
                             </a>
                         </p>
-                        <a class="btn btn-primary" href="https://discord.gg/8YG8XtT" target="_blank" rel="noopener">
-                            Discord
-                        </a>
                         <a
-                            class="btn btn-secondary"
-                            href="https://github.com/poLLi/DM_Tools_Localization"
+                            class="btn btn-primary"
+                            href="https://discord.com/invite/starbase"
                             target="_blank"
                             rel="noopener"
                         >
+                            Discord
+                        </a>
+                        <a class="btn btn-secondary" href="https://github.com/poLLi/" target="_blank" rel="noopener">
                             Github
                         </a>
                     </b-col>
