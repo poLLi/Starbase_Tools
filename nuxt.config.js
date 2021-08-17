@@ -127,6 +127,9 @@ export default {
      ** Build configuration
      ** See https://nuxtjs.org/api/configuration-build/
      */
+    generate: {
+        fallback: true
+    },
     build: {
         extractCSS: true
     }
