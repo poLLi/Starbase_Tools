@@ -32,8 +32,8 @@
                     <div class="forwardThruster">
                         <div class="h3">Forward Thruster</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'forwardThruster_' + i">
-                            <b-col sm="9">{{ thruster.title }} </b-col>
-                            <b-col sm="3">
+                            <b-col sm="8">{{ thruster.title }} </b-col>
+                            <b-col sm="4">
                                 <b-form-input type="number" v-model="thrusters[i].forwardCount"></b-form-input>
                             </b-col>
                         </b-row>
@@ -42,8 +42,8 @@
                     <div class="backwardThruster">
                         <div class="h3">Backward Thruster</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'backwardThruster_' + i">
-                            <b-col sm="9">{{ thruster.title }} </b-col>
-                            <b-col sm="3">
+                            <b-col sm="8">{{ thruster.title }} </b-col>
+                            <b-col sm="4">
                                 <b-form-input type="number" v-model="thrusters[i].backwardCount"></b-form-input>
                             </b-col>
                         </b-row>
@@ -52,8 +52,8 @@
                     <div class="maneuverThruster">
                         <div class="h3">Maneuver Thruster</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'maneuverThruster_' + i">
-                            <b-col sm="9">{{ thruster.title }} </b-col>
-                            <b-col sm="3">
+                            <b-col sm="8">{{ thruster.title }} </b-col>
+                            <b-col sm="4">
                                 <b-form-input type="number" v-model="thrusters[i].maneuverCount"></b-form-input>
                             </b-col>
                         </b-row>
@@ -72,8 +72,8 @@
                             <div class="propList">
                                 <div class="h3">Propellant Tank</div>
                                 <b-row v-for="(tank, i) in propellantTanks" :key="'propellantTank_' + i">
-                                    <b-col sm="9">{{ tank.title }} </b-col>
-                                    <b-col sm="3">
+                                    <b-col sm="8">{{ tank.title }} </b-col>
+                                    <b-col sm="4">
                                         <b-form-input type="number" v-model="tank.count"></b-form-input>
                                     </b-col>
                                 </b-row>
@@ -82,8 +82,8 @@
                             <div class="fuelList">
                                 <div class="h3">Fuel Chamber</div>
                                 <b-row v-for="(chamber, i) in fuelChambers" :key="'chamber_' + i">
-                                    <b-col sm="9">{{ chamber.title }} </b-col>
-                                    <b-col sm="3">
+                                    <b-col sm="8">{{ chamber.title }} </b-col>
+                                    <b-col sm="4">
                                         <b-form-input type="number" v-model="chamber.count"></b-form-input>
                                     </b-col>
                                 </b-row>
@@ -92,8 +92,8 @@
                             <div class="genList">
                                 <div class="h3">Generator</div>
                                 <b-row v-for="(generator, i) in generators" :key="'generator_' + i">
-                                    <b-col sm="9">{{ generator.title }} </b-col>
-                                    <b-col sm="3">
+                                    <b-col sm="8">{{ generator.title }} </b-col>
+                                    <b-col sm="4">
                                         <b-form-input type="number" v-model="generator.count"></b-form-input>
                                     </b-col>
                                 </b-row>
@@ -102,8 +102,8 @@
                             <div class="batList">
                                 <div class="h3">Battery</div>
                                 <b-row v-for="(battery, i) in batteries" :key="'battery_' + i">
-                                    <b-col sm="9">{{ battery.title }} </b-col>
-                                    <b-col sm="3">
+                                    <b-col sm="8">{{ battery.title }} </b-col>
+                                    <b-col sm="4">
                                         <b-form-input type="number" v-model="battery.count"></b-form-input>
                                     </b-col>
                                 </b-row>
@@ -121,15 +121,15 @@
 
                             <div class="propList">
                                 <b-row>
-                                    <b-col sm="9">Overall weight in Kg </b-col>
-                                    <b-col sm="3">
-                                        <b-form-input id="asd" type="number"></b-form-input>
+                                    <b-col sm="8">Overall weight in tons </b-col>
+                                    <b-col sm="4">
+                                        <b-form-input type="number" v-model="shipMass"></b-form-input>
                                     </b-col>
                                 </b-row>
                                 <b-row>
-                                    <b-col sm="9">Overall Ore Crates </b-col>
-                                    <b-col sm="3">
-                                        <b-form-input id="asd" type="number"></b-form-input>
+                                    <b-col sm="8">Number of Ore Crates </b-col>
+                                    <b-col sm="4">
+                                        <b-form-input type="number" v-model="oreCrates"></b-form-input>
                                     </b-col>
                                 </b-row>
                             </div>
@@ -147,20 +147,20 @@
                             <div class="toolsList">
                                 <div v-for="(tool, i) in tools" :key="'tool_' + i">
                                     <b-row v-if="tool.title != 'Ore Collector'">
-                                        <b-col sm="9">{{ tool.title }} </b-col>
-                                        <b-col sm="3">
+                                        <b-col sm="8">{{ tool.title }} </b-col>
+                                        <b-col sm="4">
                                             <b-form-input type="number" v-model="tool.count"></b-form-input>
                                         </b-col>
                                     </b-row>
                                     <b-row v-if="tool.title == 'Ore Collector'">
-                                        <b-col sm="9">{{ tool.title }} </b-col>
-                                        <b-col sm="3">
+                                        <b-col sm="8">{{ tool.title }} </b-col>
+                                        <b-col sm="4">
                                             <b-form-input type="number" v-model="tool.count"></b-form-input>
                                         </b-col>
                                     </b-row>
                                     <b-row v-if="tool.title == 'Ore Collector' && tool.count >= 1">
-                                        <b-col sm="9">{{ tool.title }} Power </b-col>
-                                        <b-col sm="3">
+                                        <b-col sm="8">{{ tool.title }} Power </b-col>
+                                        <b-col sm="4">
                                             <b-form-input type="number" v-model="tool.energy"></b-form-input>
                                         </b-col>
                                     </b-row>
@@ -184,9 +184,13 @@
 
                         Total Propellant: {{ totalPropellant }} <br />
                         Total Fuel: {{ totalFuelRod }} <br />
-                        Total Energy Output: {{ totalEnergyOutput }} <br />
+                        Total Energy Output: {{ totalEnergyOutput }} e/s<br />
                         Total Fuel Consumption(Gen): {{ totalFuelInput }} <br />
-                        Total Heat: {{ totalHeat }} <br />
+                        Total Heat: {{ totalHeat }} <br /><br />
+
+                        Max Speed: {{ maxSpeed }} m/s<br />
+                        Max Speed (half Crates): {{ maxSpeedHalf }} m/s<br />
+                        Max Speed (Full Crates): {{ maxSpeedFull }} m/s<br />
                     </div>
                 </b-card>
             </b-col>
@@ -390,6 +394,8 @@ export default {
                     mass: 282
                 }
             ],
+            shipMass: 0,
+            oreCrates: 0,
             tooltip: {
                 delay: {
                     show: 500,
@@ -467,6 +473,45 @@ export default {
                 res += this.generators[i].input * this.generators[i].count;
             }
             return res;
+        },
+
+        maxSpeed() {
+            let a = 36.96 * Math.min(this.totalForwardThrust / 1000.0 / this.shipMass, 8.0);
+            let b = 2.375 * Math.pow(Math.min(this.totalForwardThrust / 1000.0 / this.shipMass, 8.0), 2);
+
+            if (this.totalForwardThrust == 0) {
+                return (a - b).toFixed(2);
+            } else {
+                return (a - b + 4.625).toFixed(2);
+            }
+        },
+
+        maxSpeedHalf() {
+            let oreCrateMass = this.oreCrates * 14;
+            let totalShipMass = oreCrateMass + new Number(this.shipMass);
+
+            let a = 36.96 * Math.min(this.totalForwardThrust / 1000.0 / totalShipMass, 8.0);
+            let b = 2.375 * Math.pow(Math.min(this.totalForwardThrust / 1000.0 / totalShipMass, 8.0), 2);
+
+            if (this.totalForwardThrust == 0) {
+                return (a - b).toFixed(2);
+            } else {
+                return (a - b + 4.625).toFixed(2);
+            }
+        },
+
+        maxSpeedFull() {
+            let oreCrateMass = this.oreCrates * 26;
+            let totalShipMass = oreCrateMass + new Number(this.shipMass);
+
+            let a = 36.96 * Math.min(this.totalForwardThrust / 1000.0 / totalShipMass, 8.0);
+            let b = 2.375 * Math.pow(Math.min(this.totalForwardThrust / 1000.0 / totalShipMass, 8.0), 2);
+
+            if (this.totalForwardThrust == 0) {
+                return (a - b).toFixed(2);
+            } else {
+                return (a - b + 4.625).toFixed(2);
+            }
         }
     },
 
