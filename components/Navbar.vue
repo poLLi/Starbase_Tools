@@ -18,8 +18,6 @@
                     <b-nav-item :to="localePath('/build')">{{ $t('MENU.DESIGNER') }}</b-nav-item>
                     <b-nav-item :to="localePath('/map')">{{ $t('MENU.MAP') }}</b-nav-item>
 
-                    <b-nav-item :to="localePath('/database')">{{ $t('MENU.DATABASE') }}</b-nav-item>
-
                     <b-nav-item :to="localePath('/contact')">{{ $t('MENU.CONTACT') }}</b-nav-item>
 
                     <b-dropdown variant="link" toggle-class="text-decoration-none" no-caret right>

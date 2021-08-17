@@ -26,15 +26,17 @@
                 <hr />
                 <h2 class="title">Zusätzliche Angaben</h2>
                 <p class="font-weight-light">
-                    Dead Matter and the Dead Matter Logo are Trademarks of
-                    <a href="https://qisoftware.ca/" target="_blank" rel="noopener noreferrer">
-                        Quantum Integrity Software Inc.
-                    </a>
+                    Starbase and the Starbase Logo are Trademarks of
+                    <a href="https://www.frozenbyte.com" target="_blank" rel="noopener noreferrer"> Frozenbyte Oy. </a>
                     <br />
-                    Just-Look Network is not associated with Qi Software Inc. <br />
-                    Official Dead Matter Website:
-                    <a href="https://playdeadmatter.com" target="_blank" rel="noopener noreferrer">
-                        https://playdeadmatter.com
+                    Just-Look Network is not associated with Frozenbyte Oy. <br /><br />
+                    Official Starbase Website:
+                    <a href="https://www.starbasegame.com" target="_blank" rel="noopener noreferrer">
+                        https://www.starbasegame.com </a
+                    ><br />
+                    Official Frozenbyte Oy Website:
+                    <a href="https://www.frozenbyte.com" target="_blank" rel="noopener noreferrer">
+                        https://www.frozenbyte.com
                     </a>
                 </p>
             </div>

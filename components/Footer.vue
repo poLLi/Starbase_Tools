@@ -4,10 +4,12 @@
             <b-row class="d-flex">
                 <b-col class="align-self-end">
                     <p class="text-muted font-weight-light small">
-                        "Starbase" is a registered trademark
-                        <a href="https://www.frozenbyte.com" target="_blank" rel="noopener noreferrer"> Frozenbyte</a>
+                        Starbase is a registered trademark of
+                        <a href="https://www.frozenbyte.com" target="_blank" rel="noopener noreferrer">
+                            Frozenbyte Oy</a
+                        >
                         <br />
-                        Just-Look Network is not associated with Frozenbyte. <br />
+                        Just-Look Network is not associated with Frozenbyte Oy. <br />
                         Official Starbase Website:
                         <a href="https://www.starbasegame.com" target="_blank" rel="noopener noreferrer">
                             https://www.starbasegame.com

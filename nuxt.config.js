@@ -30,7 +30,7 @@ export default {
             {
                 name: 'keywords',
                 content:
-                    'starbase tools, community web tools, interactive map, database, character builder, open world, zombie, survival, game'
+                    'starbase tools, community web tools, interactive map, database, ship builder, calculator, open world, game'
             },
 
             // Twitter Meta Tags
@@ -120,9 +120,9 @@ export default {
      ** Axios module configuration
      ** See https://axios.nuxtjs.org/options
      */
-    axios: {
-        baseURL: 'https://api.deadmatter.tools/'
-    },
+    // axios: {
+    //     baseURL: 'https://api.deadmatter.tools/'
+    // },
     /*
      ** Build configuration
      ** See https://nuxtjs.org/api/configuration-build/

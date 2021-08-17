@@ -30,31 +30,31 @@
                     </b-card-title>
 
                     <div class="forwardThruster">
-                        <div class="h3">Forward Thruster</div>
+                        <div class="h3">{{ $t('DESIGNER.THRUSTER.FORWARD_THRUSTER') }}</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'forwardThruster_' + i">
-                            <b-col sm="8">{{ thruster.title }} </b-col>
+                            <b-col sm="8">{{ $t(thruster.title) }}</b-col>
                             <b-col sm="4">
-                                <b-form-input type="number" v-model="thrusters[i].forwardCount"></b-form-input>
+                                <b-form-input type="number" v-model="thrusters[i].forwardCount" min="0"></b-form-input>
                             </b-col>
                         </b-row>
                     </div>
                     <hr />
                     <div class="backwardThruster">
-                        <div class="h3">Backward Thruster</div>
+                        <div class="h3">{{ $t('DESIGNER.THRUSTER.BACKWARD_THRUSTER') }}</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'backwardThruster_' + i">
-                            <b-col sm="8">{{ thruster.title }} </b-col>
+                            <b-col sm="8">{{ $t(thruster.title) }}</b-col>
                             <b-col sm="4">
-                                <b-form-input type="number" v-model="thrusters[i].backwardCount"></b-form-input>
+                                <b-form-input type="number" v-model="thrusters[i].backwardCount" min="0"></b-form-input>
                             </b-col>
                         </b-row>
                     </div>
                     <hr />
                     <div class="maneuverThruster">
-                        <div class="h3">Maneuver Thruster</div>
+                        <div class="h3">{{ $t('DESIGNER.THRUSTER.MANEUVER_THRUSTER') }}</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'maneuverThruster_' + i">
-                            <b-col sm="8">{{ thruster.title }} </b-col>
+                            <b-col sm="8">{{ $t(thruster.title) }}</b-col>
                             <b-col sm="4">
-                                <b-form-input type="number" v-model="thrusters[i].maneuverCount"></b-form-input>
+                                <b-form-input type="number" v-model="thrusters[i].maneuverCount" min="0"></b-form-input>
                             </b-col>
                         </b-row>
                     </div>
@@ -70,41 +70,41 @@
                             </b-card-title>
 
                             <div class="propList">
-                                <div class="h3">Propellant Tank</div>
+                                <div class="h3">{{ $t('DESIGNER.PROPELLANT.PROPELLANT_HEADLINE') }}</div>
                                 <b-row v-for="(tank, i) in propellantTanks" :key="'propellantTank_' + i">
-                                    <b-col sm="8">{{ tank.title }} </b-col>
+                                    <b-col sm="8">{{ $t(tank.title) }}</b-col>
                                     <b-col sm="4">
-                                        <b-form-input type="number" v-model="tank.count"></b-form-input>
+                                        <b-form-input type="number" v-model="tank.count" min="0"></b-form-input>
                                     </b-col>
                                 </b-row>
                             </div>
                             <hr />
                             <div class="fuelList">
-                                <div class="h3">Fuel Chamber</div>
+                                <div class="h3">{{ $t('DESIGNER.FUEL_CHAMBER.FUEL_CHAMBER_HEADLINE') }}</div>
                                 <b-row v-for="(chamber, i) in fuelChambers" :key="'chamber_' + i">
-                                    <b-col sm="8">{{ chamber.title }} </b-col>
+                                    <b-col sm="8">{{ $t(chamber.title) }} </b-col>
                                     <b-col sm="4">
-                                        <b-form-input type="number" v-model="chamber.count"></b-form-input>
+                                        <b-form-input type="number" v-model="chamber.count" min="0"></b-form-input>
                                     </b-col>
                                 </b-row>
                             </div>
                             <hr />
                             <div class="genList">
-                                <div class="h3">Generator</div>
+                                <div class="h3">{{ $t('DESIGNER.GENERATOR.GENERATOR_HEADLINE') }}</div>
                                 <b-row v-for="(generator, i) in generators" :key="'generator_' + i">
-                                    <b-col sm="8">{{ generator.title }} </b-col>
+                                    <b-col sm="8">{{ $t(generator.title) }} </b-col>
                                     <b-col sm="4">
-                                        <b-form-input type="number" v-model="generator.count"></b-form-input>
+                                        <b-form-input type="number" v-model="generator.count" min="0"></b-form-input>
                                     </b-col>
                                 </b-row>
                             </div>
                             <hr />
                             <div class="batList">
-                                <div class="h3">Battery</div>
+                                <div class="h3">{{ $t('DESIGNER.BATTERY.BATTERY_HEADLINE') }}</div>
                                 <b-row v-for="(battery, i) in batteries" :key="'battery_' + i">
-                                    <b-col sm="8">{{ battery.title }} </b-col>
+                                    <b-col sm="8">{{ $t(battery.title) }} </b-col>
                                     <b-col sm="4">
-                                        <b-form-input type="number" v-model="battery.count"></b-form-input>
+                                        <b-form-input type="number" v-model="battery.count" min="0"></b-form-input>
                                     </b-col>
                                 </b-row>
                             </div>
@@ -121,15 +121,15 @@
 
                             <div class="propList">
                                 <b-row>
-                                    <b-col sm="8">Overall weight in tons </b-col>
+                                    <b-col sm="8">{{ $t('DESIGNER.WEIGHT_CARGO.WEIGHT') }}</b-col>
                                     <b-col sm="4">
-                                        <b-form-input type="number" v-model="shipMass"></b-form-input>
+                                        <b-form-input type="number" v-model="shipMass" min="0"></b-form-input>
                                     </b-col>
                                 </b-row>
                                 <b-row>
-                                    <b-col sm="8">Number of Ore Crates </b-col>
+                                    <b-col sm="8">{{ $t('DESIGNER.WEIGHT_CARGO.CRATES') }}</b-col>
                                     <b-col sm="4">
-                                        <b-form-input type="number" v-model="oreCrates"></b-form-input>
+                                        <b-form-input type="number" v-model="oreCrates" min="0"></b-form-input>
                                     </b-col>
                                 </b-row>
                             </div>
@@ -137,7 +137,7 @@
                     </b-col>
                 </b-row>
 
-                <b-row class="mb-4">
+                <!-- <b-row class="mb-4">
                     <b-col>
                         <b-card class="shadow">
                             <b-card-title class="text-center p-2 title-rounded">
@@ -149,48 +149,163 @@
                                     <b-row v-if="tool.title != 'Ore Collector'">
                                         <b-col sm="8">{{ tool.title }} </b-col>
                                         <b-col sm="4">
-                                            <b-form-input type="number" v-model="tool.count"></b-form-input>
+                                            <b-form-input type="number" v-model="tool.count" min="0"></b-form-input>
                                         </b-col>
                                     </b-row>
                                     <b-row v-if="tool.title == 'Ore Collector'">
                                         <b-col sm="8">{{ tool.title }} </b-col>
                                         <b-col sm="4">
-                                            <b-form-input type="number" v-model="tool.count"></b-form-input>
+                                            <b-form-input type="number" v-model="tool.count" min="0"></b-form-input>
                                         </b-col>
                                     </b-row>
                                     <b-row v-if="tool.title == 'Ore Collector' && tool.count >= 1">
                                         <b-col sm="8">{{ tool.title }} Power </b-col>
                                         <b-col sm="4">
-                                            <b-form-input type="number" v-model="tool.energy"></b-form-input>
+                                            <b-form-input type="number" v-model="tool.energy" min="0"></b-form-input>
                                         </b-col>
                                     </b-row>
                                 </div>
                             </div>
                         </b-card>
                     </b-col>
-                </b-row>
+                </b-row> -->
             </b-col>
 
             <b-col lg="4" class="no-select mb-4">
                 <b-card class="shadow">
                     <b-card-title class="text-center p-2 title-rounded">
-                        {{ $t('DESIGNER.CARD.ENDRESAULT_TITLE') }}
+                        {{ $t('DESIGNER.CARD.CALCULATION_TITLE') }}
                     </b-card-title>
 
                     <div class="resList">
-                        Total Forward Thrust: {{ totalForwardThrust }} <br />
-                        Total Backward Thrust: {{ totalBackwardThrust }} <br />
-                        Total Maneuver Thrust: {{ totalManeuverThrust }} <br /><br />
+                        <div class="h3">{{ $t('DESIGNER.CALCULATION.SPEED') }}</div>
 
-                        Total Propellant: {{ totalPropellant }} <br />
-                        Total Fuel: {{ totalFuelRod }} <br />
-                        Total Energy Output: {{ totalEnergyOutput }} e/s<br />
-                        Total Fuel Consumption(Gen): {{ totalFuelInput }} <br />
-                        Total Heat: {{ totalHeat }} <br /><br />
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_SPEED') }}</b-col>
+                            <b-col sm="4">{{ maxSpeed }} m/s</b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.BACKWARD_SPEED') }}</b-col>
+                            <b-col sm="4">{{ maxSpeedBackwards }} m/s</b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_SPEED_HALF') }}</b-col>
+                            <b-col sm="4">{{ maxSpeedHalf }} m/s</b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_SPEED_FULL') }}</b-col>
+                            <b-col sm="4">{{ maxSpeedFull }} m/s</b-col>
+                        </b-row>
+                        <hr />
 
-                        Max Speed: {{ maxSpeed }} m/s<br />
-                        Max Speed (half Crates): {{ maxSpeedHalf }} m/s<br />
-                        Max Speed (Full Crates): {{ maxSpeedFull }} m/s<br />
+                        <div class="h3">
+                            {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_HEAD') }}
+                            <small class="text-muted">{{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_SUB') }}</small>
+                        </div>
+                        <!-- <b-row>
+                            <b-col sm="8">Forward Flight Time: </b-col>
+                            <b-col sm="4">{{ forwardFlightTime }} h</b-col>
+                        </b-row> -->
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FLIGHT_TIME') }}</b-col>
+                            <b-col sm="4">
+                                {{ forwardManeuverFlightTime }} h
+                                <span class="float-right">
+                                    <b-icon
+                                        id="flightTimeTooltip"
+                                        icon="ExclamationTriangle"
+                                        class="text-primary"
+                                    ></b-icon>
+                                </span>
+                                <b-tooltip
+                                    v-if="isDesktop"
+                                    target="flightTimeTooltip"
+                                    placement="left"
+                                    boundary="viewport"
+                                    noninteractive
+                                    :delay="tooltip.delay"
+                                >
+                                    <p class="m-0 p-1">
+                                        {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_TOOLTIP') }}
+                                    </p>
+                                </b-tooltip>
+                            </b-col>
+                        </b-row>
+                        <hr />
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FLIGHT_LENGTH') }}</b-col>
+                            <b-col sm="4">{{ forwardFlightLength }} km</b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FLIGHT_LENGTH_HALF') }}</b-col>
+                            <b-col sm="4">{{ forwardFlightLengthHalf }} km</b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FLIGHT_LENGTH_FULL') }}</b-col>
+                            <b-col sm="4">{{ forwardFlightLengthFull }} km</b-col>
+                        </b-row>
+                        <hr />
+
+                        <div class="h3">{{ $t('DESIGNER.CALCULATION.THRUST') }}</div>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_THRUST') }}</b-col>
+                            <b-col sm="4">{{ totalForwardThrust }}</b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.BACKWARD_THRUST') }}</b-col>
+                            <b-col sm="4">{{ totalBackwardThrust }}</b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.MANEUVER_THRUST') }}</b-col>
+                            <b-col sm="4">{{ totalManeuverThrust }}</b-col>
+                        </b-row>
+                        <hr />
+
+                        <div class="h3">{{ $t('DESIGNER.CALCULATION.FUEL_ENERGY') }}</div>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.TOTAL_PROPELLANT') }}</b-col>
+                            <b-col sm="4">{{ totalPropellant }}</b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.TOTAL_FUEL') }}</b-col>
+                            <b-col sm="4">{{ totalFuelRod }}</b-col>
+                        </b-row>
+                        <!-- <b-row>
+                            <b-col sm="8">Total Energy Output: </b-col>
+                            <b-col sm="4">{{ totalEnergyOutput }} e/s</b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">Total Fuel Consumption: </b-col>
+                            <b-col sm="4">{{ totalGenFuelInput }} /s</b-col>
+                        </b-row> -->
+                        <b-row>
+                            <b-col sm="8"
+                                >{{ $t('DESIGNER.CALCULATION.TOTAL_HEAT_HEAD') }}
+                                <small class="text-muted">{{ $t('DESIGNER.CALCULATION.TOTAL_HEAT_SUB') }}</small>
+                            </b-col>
+                            <b-col sm="4">
+                                {{ totalHeat }} °C
+                                <span class="float-right">
+                                    <b-icon
+                                        id="totalHeatTooltip"
+                                        icon="ExclamationTriangle"
+                                        class="text-primary"
+                                    ></b-icon>
+                                </span>
+                                <b-tooltip
+                                    v-if="isDesktop"
+                                    target="totalHeatTooltip"
+                                    placement="left"
+                                    boundary="viewport"
+                                    noninteractive
+                                    :delay="tooltip.delay"
+                                >
+                                    <p class="m-0 p-1">
+                                        {{ $t('DESIGNER.CALCULATION.TOTAL_HEAT_TOOLTIP') }}
+                                    </p>
+                                </b-tooltip>
+                            </b-col>
+                        </b-row>
                     </div>
                 </b-card>
             </b-col>
@@ -204,7 +319,7 @@ export default {
         return {
             thrusters: [
                 {
-                    title: 'Box Thruster T1',
+                    title: 'DESIGNER.THRUSTER.BOX_T1',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -214,7 +329,7 @@ export default {
                     mass: 18884
                 },
                 {
-                    title: 'Box Thruster T2',
+                    title: 'DESIGNER.THRUSTER.BOX_T2',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -224,7 +339,7 @@ export default {
                     mass: 18527
                 },
                 {
-                    title: 'Box Thruster T3',
+                    title: 'DESIGNER.THRUSTER.BOX_T3',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -234,7 +349,7 @@ export default {
                     mass: 18527
                 },
                 {
-                    title: 'Triangle Thruster T1',
+                    title: 'DESIGNER.THRUSTER.TRIANGLE_T1',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -244,7 +359,7 @@ export default {
                     mass: 11515
                 },
                 {
-                    title: 'Triangle Thruster T2',
+                    title: 'DESIGNER.THRUSTER.TRIANGLE_T2',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -254,7 +369,7 @@ export default {
                     mass: 11515
                 },
                 {
-                    title: 'Triangle Thruster T3',
+                    title: 'DESIGNER.THRUSTER.TRIANGLE_T3',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -264,7 +379,7 @@ export default {
                     mass: 11515
                 },
                 {
-                    title: 'Maneuver Thruster T1',
+                    title: 'DESIGNER.THRUSTER.MANEUVER_T1',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -274,7 +389,7 @@ export default {
                     mass: 11515
                 },
                 {
-                    title: 'Maneuver Thruster T2',
+                    title: 'DESIGNER.THRUSTER.MANEUVER_T2',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -284,7 +399,7 @@ export default {
                     mass: 11515
                 },
                 {
-                    title: 'Maneuver Thruster T3',
+                    title: 'DESIGNER.THRUSTER.MANEUVER_T3',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -296,19 +411,19 @@ export default {
             ],
             propellantTanks: [
                 {
-                    title: 'Small Propellant Tank',
+                    title: 'DESIGNER.PROPELLANT.PROPELLANT_T1',
                     count: 0,
                     propellant: 1000000,
                     mass: 4638
                 },
                 {
-                    title: 'Medium Propellant Tank',
+                    title: 'DESIGNER.PROPELLANT.PROPELLANT_T2',
                     count: 0,
                     propellant: 4000000,
                     mass: 10984
                 },
                 {
-                    title: 'Large Propellant Tank',
+                    title: 'DESIGNER.PROPELLANT.PROPELLANT_T3',
                     count: 0,
                     propellant: 9000000,
                     mass: 24413
@@ -316,21 +431,33 @@ export default {
             ],
             fuelChambers: [
                 {
-                    title: 'Fuel Chamber T1',
+                    title: 'DESIGNER.FUEL_CHAMBER.FUEL_CHAMBER_T1',
                     count: 0,
                     fuel: 300000,
+                    input: 135,
+                    output: 75,
                     mass: 13842
                 },
                 {
-                    title: 'Fuel Chamber T2',
+                    title: 'DESIGNER.FUEL_CHAMBER.FUEL_CHAMBER_T2',
                     count: 0,
                     fuel: 300000,
+                    input: 60,
+                    output: 75,
+                    mass: 14135
+                },
+                {
+                    title: 'DESIGNER.FUEL_CHAMBER.FUEL_CHAMBER_T3',
+                    count: 0,
+                    fuel: 300000,
+                    input: 60,
+                    output: 75,
                     mass: 14135
                 }
             ],
             generators: [
                 {
-                    title: 'Generator Unit T1',
+                    title: 'DESIGNER.GENERATOR.GENERATOR_T1',
                     count: 0,
                     output: 1000,
                     input: 25,
@@ -338,7 +465,7 @@ export default {
                     mass: 4525
                 },
                 {
-                    title: 'Generator Unit T2',
+                    title: 'DESIGNER.GENERATOR.GENERATOR_T2',
                     count: 0,
                     output: 1000,
                     input: 25,
@@ -346,7 +473,7 @@ export default {
                     mass: 4495
                 },
                 {
-                    title: 'Generator Unit T2',
+                    title: 'DESIGNER.GENERATOR.GENERATOR_T3',
                     count: 0,
                     output: 1250,
                     input: 25,
@@ -356,7 +483,7 @@ export default {
             ],
             batteries: [
                 {
-                    title: 'Small Battery',
+                    title: 'DESIGNER.BATTERY.BATTERY_T1',
                     count: 0,
                     energy: 10000,
                     mass: 3236
@@ -398,7 +525,7 @@ export default {
             oreCrates: 0,
             tooltip: {
                 delay: {
-                    show: 500,
+                    show: 100,
                     hide: 10
                 }
             },
@@ -411,6 +538,9 @@ export default {
     },
 
     computed: {
+        // --------------------------------------------------------------------------------------------
+        // ---- THRUST CALCULATIONS
+        // --------------------------------------------------------------------------------------------
         totalForwardThrust() {
             let res = 0;
             for (let i = 0; i < this.thrusters.length; i++) {
@@ -435,6 +565,9 @@ export default {
             return res;
         },
 
+        // --------------------------------------------------------------------------------------------
+        // ---- FUEL, PROP, ENERGY CALCULATIONS
+        // --------------------------------------------------------------------------------------------
         totalPropellant() {
             let res = 0;
             for (let i = 0; i < this.propellantTanks.length; i++) {
@@ -451,6 +584,17 @@ export default {
             return res;
         },
 
+        totalHeat() {
+            let res = 0;
+            for (let i = 0; i < this.generators.length; i++) {
+                res += this.generators[i].heat * this.generators[i].count;
+                if (this.generators[i].count > 1) {
+                    res += this.generators[i].count * 25;
+                }
+            }
+            return res;
+        },
+
         totalEnergyOutput() {
             let res = 0;
             for (let i = 0; i < this.generators.length; i++) {
@@ -459,15 +603,7 @@ export default {
             return res;
         },
 
-        totalHeat() {
-            let res = 0;
-            for (let i = 0; i < this.generators.length; i++) {
-                res += this.generators[i].heat * this.generators[i].count;
-            }
-            return res;
-        },
-
-        totalFuelInput() {
+        totalGenFuelInput() {
             let res = 0;
             for (let i = 0; i < this.generators.length; i++) {
                 res += this.generators[i].input * this.generators[i].count;
@@ -475,42 +611,154 @@ export default {
             return res;
         },
 
+        totalUsedPropellantThrusterF() {
+            let res = 0;
+            for (let i = 0; i < this.thrusters.length; i++) {
+                res += this.thrusters[i].propellant * this.thrusters[i].forwardCount;
+            }
+
+            return res;
+        },
+
+        totalUsedPropellantThrusterFM() {
+            let res = 0;
+            for (let i = 0; i < this.thrusters.length; i++) {
+                res += this.thrusters[i].propellant * this.thrusters[i].forwardCount;
+                res += (this.thrusters[i].propellant * this.thrusters[i].maneuverCount) / 2;
+            }
+
+            return res;
+        },
+
+        totalUsedEnergyThrusterF() {
+            let res = 0;
+            for (let i = 0; i < this.thrusters.length; i++) {
+                res += this.thrusters[i].energy * this.thrusters[i].forwardCount;
+            }
+
+            return res;
+        },
+
+        totalUsedEnergyThrusterFM() {
+            let res = 0;
+            for (let i = 0; i < this.thrusters.length; i++) {
+                res += this.thrusters[i].energy * this.thrusters[i].forwardCount;
+                res += (this.thrusters[i].energy * this.thrusters[i].maneuverCount) / 2;
+            }
+
+            return res;
+        },
+
+        // --------------------------------------------------------------------------------------------
+        // ---- Flight Tmes CALCULATIONS
+        // --------------------------------------------------------------------------------------------
+        forwardFlightTime() {
+            let res = (this.totalPropellant / this.totalUsedPropellantThrusterF / 60 / 60).toFixed(2);
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return res;
+            }
+        },
+
+        forwardManeuverFlightTime() {
+            let res = (this.totalPropellant / this.totalUsedPropellantThrusterFM / 60 / 60).toFixed(2);
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return res;
+            }
+        },
+
+        forwardFlightLength() {
+            let res = (this.forwardManeuverFlightTime * 60 * 60 * this.maxSpeed) / 1000;
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
+        },
+
+        forwardFlightLengthHalf() {
+            let res = (this.forwardManeuverFlightTime * 60 * 60 * this.maxSpeedHalf) / 1000;
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
+        },
+
+        forwardFlightLengthFull() {
+            let res = (this.forwardManeuverFlightTime * 60 * 60 * this.maxSpeedFull) / 1000;
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
+        },
+
+        // --------------------------------------------------------------------------------------------
+        // ---- SPEED CALCULATIONS
+        // --------------------------------------------------------------------------------------------
         maxSpeed() {
+            if (this.totalForwardThrust == 0) return 0;
             let a = 36.96 * Math.min(this.totalForwardThrust / 1000.0 / this.shipMass, 8.0);
             let b = 2.375 * Math.pow(Math.min(this.totalForwardThrust / 1000.0 / this.shipMass, 8.0), 2);
 
-            if (this.totalForwardThrust == 0) {
-                return (a - b).toFixed(2);
+            let res = (a - b + 4.625).toFixed(2);
+
+            if (isNaN(res)) {
+                return 0;
             } else {
-                return (a - b + 4.625).toFixed(2);
+                return res;
             }
         },
 
         maxSpeedHalf() {
+            if (this.oreCrates == 0) return 0;
             let oreCrateMass = this.oreCrates * 14;
             let totalShipMass = oreCrateMass + new Number(this.shipMass);
 
             let a = 36.96 * Math.min(this.totalForwardThrust / 1000.0 / totalShipMass, 8.0);
             let b = 2.375 * Math.pow(Math.min(this.totalForwardThrust / 1000.0 / totalShipMass, 8.0), 2);
 
-            if (this.totalForwardThrust == 0) {
-                return (a - b).toFixed(2);
+            let res = (a - b + 4.625).toFixed(2);
+
+            if (isNaN(res)) {
+                return 0;
             } else {
-                return (a - b + 4.625).toFixed(2);
+                return res;
             }
         },
 
         maxSpeedFull() {
+            if (this.oreCrates == 0) return 0;
             let oreCrateMass = this.oreCrates * 26;
             let totalShipMass = oreCrateMass + new Number(this.shipMass);
 
             let a = 36.96 * Math.min(this.totalForwardThrust / 1000.0 / totalShipMass, 8.0);
             let b = 2.375 * Math.pow(Math.min(this.totalForwardThrust / 1000.0 / totalShipMass, 8.0), 2);
 
-            if (this.totalForwardThrust == 0) {
-                return (a - b).toFixed(2);
+            let res = (a - b + 4.625).toFixed(2);
+
+            if (isNaN(res)) {
+                return 0;
             } else {
-                return (a - b + 4.625).toFixed(2);
+                return res;
+            }
+        },
+
+        maxSpeedBackwards() {
+            if (this.totalBackwardThrust == 0) return 0;
+            let a = 36.96 * Math.min(this.totalBackwardThrust / 1000.0 / this.shipMass, 8.0);
+            let b = 2.375 * Math.pow(Math.min(this.totalBackwardThrust / 1000.0 / this.shipMass, 8.0), 2);
+
+            let res = (a - b + 4.625).toFixed(2);
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return res;
             }
         }
     },

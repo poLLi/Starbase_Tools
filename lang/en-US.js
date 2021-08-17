@@ -26,9 +26,86 @@ export default {
         CARD: {
             TRUSTER_TITLE: 'Thruster',
             PROP_FUEL_ENERGY_TITLE: 'Fuel and Energy',
-            WEIGHT_MISC_TITLE: 'Weight and Misc',
+            WEIGHT_MISC_TITLE: 'Weight and Cargo',
             TOOLS_TITLE: 'Tools',
-            ENDRESAULT_TITLE: 'Calculation'
+            CALCULATION_TITLE: 'Calculation'
+        },
+
+        THRUSTER: {
+            FORWARD_THRUSTER: 'Forward Thruster',
+            BACKWARD_THRUSTER: 'Backward Thruster',
+            MANEUVER_THRUSTER: 'Maneuver Thruster',
+            BOX_T1: 'Box Thruster T1',
+            BOX_T2: 'Box Thruster T2',
+            BOX_T3: 'Box Thruster T3',
+            TRIANGLE_T1: 'Triangle Thruster T1',
+            TRIANGLE_T2: 'Triangle Thruster T2',
+            TRIANGLE_T3: 'Triangle Thruster T3',
+            MANEUVER_T1: 'Maneuver Thruster T1',
+            MANEUVER_T2: 'Maneuver Thruster T2',
+            MANEUVER_T3: 'Maneuver Thruster T3'
+        },
+
+        PROPELLANT: {
+            PROPELLANT_HEADLINE: 'Propellant Tank',
+            PROPELLANT_T1: 'Small Propellant Tank',
+            PROPELLANT_T2: 'Medium Propellant Tank',
+            PROPELLANT_T3: 'Large Propellant Tank'
+        },
+
+        FUEL_CHAMBER: {
+            FUEL_CHAMBER_HEADLINE: 'Fuel Chamber',
+            FUEL_CHAMBER_T1: 'Fuel Chamber T1',
+            FUEL_CHAMBER_T2: 'Fuel Chamber T2',
+            FUEL_CHAMBER_T3: 'Fuel Chamber T3'
+        },
+
+        GENERATOR: {
+            GENERATOR_HEADLINE: 'Generator',
+            GENERATOR_T1: 'Generator T1',
+            GENERATOR_T2: 'Generator T2',
+            GENERATOR_T3: 'Generator T3'
+        },
+
+        BATTERY: {
+            BATTERY_HEADLINE: 'Battery',
+            BATTERY_T1: 'Small Battery'
+        },
+
+        WEIGHT_CARGO: {
+            WEIGHT: 'Overall weight in tons',
+            CRATES: 'Number of Ore Crates'
+        },
+
+        CALCULATION: {
+            SPEED: 'Speed',
+            FORWARD_SPEED: 'Forward Speed',
+            BACKWARD_SPEED: 'Backward Speed',
+            FORWARD_SPEED_HALF: 'Forward Speed (half Crates)',
+            FORWARD_SPEED_FULL: 'Forward Speed (full Crates)',
+
+            FLIGHT_TIME_HEAD: 'Flight Times',
+            FLIGHT_TIME_SUB: '(Propellant)',
+            FLIGHT_TIME: 'Flight Time',
+            FLIGHT_TIME_TOOLTIP: 'Flight Time is calculated with full forward thrust as well as half maneuver thrust.',
+
+            FLIGHT_LENGTH: 'Flight Length',
+            FLIGHT_LENGTH_HALF: 'Flight Length (half Crates)',
+            FLIGHT_LENGTH_FULL: 'Flight Length (full Crates)',
+
+            THRUST: 'Thrust',
+            FORWARD_THRUST: 'Total Forward Thrust',
+            BACKWARD_THRUST: 'Total Backward Thrust',
+            MANEUVER_THRUST: 'Total Maneuver Thrust',
+
+            FUEL_ENERGY: 'Energy / Fuel',
+            TOTAL_PROPELLANT: 'Total Propellant',
+            TOTAL_FUEL: 'Total Fuel',
+
+            TOTAL_HEAT_HEAD: 'Total Heat',
+            TOTAL_HEAT_SUB: '(estimated)',
+            TOTAL_HEAT_TOOLTIP:
+                'Heat is calculated with one Generator adjacent to another. Basically +25 Heat for every Generator.'
         }
     }
 };

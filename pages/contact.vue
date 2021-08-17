@@ -13,13 +13,7 @@
                     If u would like to get in contact with me you can do so by the following details listed below.
                 </p>
                 <h3 class="title mt-5">Channels</h3>
-                <p>
-                    Personal Discord: <span class="text-primary">PoLLi#4969</span><br />
-                    Development Discord:
-                    <a href="https://discord.gg/8YG8XtT" target="_blank" rel="noopener noreferrer">
-                        dev.just-look.net
-                    </a>
-                </p>
+                <p>Personal Discord: <span class="text-primary">PoLLi#4969</span><br /></p>
                 <hr />
                 <h2>Github</h2>
                 <p>
