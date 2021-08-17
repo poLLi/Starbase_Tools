@@ -36,7 +36,7 @@ export default {
             // Twitter Meta Tags
             { name: 'twitter:card', content: 'summary' },
             { name: 'twitter:site', content: '@JL_PoLLi' },
-            { name: 'twitter:image', content: 'https://starbase.tools/sb_tools.png' },
+            { name: 'twitter:image', content: 'http://starbase.codes/sb_tools.png' },
             { name: 'twitter:title', content: 'Starbase Tools — JLN' },
             {
                 name: 'twitter:description',
@@ -46,8 +46,8 @@ export default {
             // Open Graph Meta Tags
             { property: 'og:title', content: 'Starbase Tools — JLN' },
             { property: 'og:type', content: 'website' },
-            { property: 'og:url', content: 'https://starbase.tools' },
-            { property: 'og:image', content: 'https://starbase.tools/sb_tools.png' },
+            { property: 'og:url', content: 'http://starbase.codes' },
+            { property: 'og:image', content: 'http://starbase.codes/sb_tools.png' },
             {
                 property: 'og:description',
                 content: 'Unofficial Starbase Tools. Everything you need to survive in Starbase.'
