@@ -1,0 +1,57 @@
+[
+    {
+        "id": "1",
+        "title": "Mining Laser",
+        "values": {
+            "energy": 6000,
+            "weight": 2.155,
+            "voxel": 0
+        }
+    },
+    {
+        "id": "2",
+        "title": "Ore Collector",
+        "values": {
+            "energy": 0,
+            "weight": 2.159,
+            "voxel": 0
+        }
+    },
+    {
+        "id": "3",
+        "title": "Ore Collector Power",
+        "values": {
+            "energy_min": 1000,
+            "energy_max": 6000,
+            "weight": 2.159,
+            "voxel": 0
+        }
+    },
+    {
+        "id": "4",
+        "title": "Material Point Scanner",
+        "values": {
+            "energy": 300,
+            "weight": 1.569,
+            "voxel": 0
+        }
+    },
+    {
+        "id": "5",
+        "title": "Laser designator",
+        "values": {
+            "energy": 0,
+            "weight": 500,
+            "voxel": 0
+        }
+    },
+    {
+        "id": "6",
+        "title": "Rangefinder",
+        "values": {
+            "energy": 1,
+            "weight": 282,
+            "voxel": 0
+        }
+    }
+]

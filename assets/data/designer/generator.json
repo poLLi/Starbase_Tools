@@ -1,0 +1,35 @@
+[
+    {
+        "id": "1",
+        "title": "Generator Unit T1",
+        "values": {
+            "output": 1000,
+            "input": 25,
+            "heat": 100,
+            "weight": 4.625,
+            "voxel": 0
+        }
+    },
+    {
+        "id": "2",
+        "title": "Generator Unit T2",
+        "values": {
+            "output": 1000,
+            "input": 25,
+            "heat": 90,
+            "weight": 4.495,
+            "voxel": 0
+        }
+    },
+    {
+        "id": "3",
+        "title": "Generator Unit T3",
+        "values": {
+            "output": 1250,
+            "input": 25,
+            "heat": 80,
+            "weight": 4.081,
+            "voxel": 0
+        }
+    }
+]
