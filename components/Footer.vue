@@ -18,7 +18,7 @@
                 </b-col>
                 <b-col class="align-self-end">
                     <p class="text-muted font-weight-light text-right">
-                        <a href="https://discord.gg/YA7YmeA" target="_blank" rel="noopener noreferrer">
+                        <a href="https://discord.com/invite/starbase" target="_blank" rel="noopener noreferrer">
                             <b-icon icon="chat-right-dots"></b-icon>
                         </a>
                         |
