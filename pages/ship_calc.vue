@@ -12,7 +12,7 @@
                 >
                     <b-icon icon="exclamation-circle" variant="danger" font-scale="1.5" class="mr-2"></b-icon>
                     <strong>WARNING:</strong> Almost everything is subject to change.
-                    <small>Current Verion: EA BUILD 550</small>
+                    <small>Current Version: EA BUILD 556</small>
                     <b-progress
                         variant="danger"
                         :max="alert.dismissSecs"
@@ -29,9 +29,49 @@
                         {{ $t('DESIGNER.CARD.TRUSTER_TITLE') }}
                     </b-card-title>
 
+                    <div class="efficiency">
+                        <div class="h3">
+                            Efficiency
+                            <span class="float-right">
+                                <b-icon
+                                    id="efficiencyTooltip"
+                                    icon="ExclamationTriangle"
+                                    class="text-primary"
+                                    font-scale="0.85"
+                                ></b-icon>
+                            </span>
+                            <b-tooltip
+                                v-if="isDesktop"
+                                target="efficiencyTooltip"
+                                placement="left"
+                                boundary="viewport"
+                                noninteractive
+                                :delay="tooltip.delay"
+                            >
+                                <p class="m-0 p-1">
+                                    {{ $t('DESIGNER.THRUSTER.EFFICIENCY_TOOLTIP') }}
+                                </p>
+                            </b-tooltip>
+                        </div>
+                        <b-row>
+                            <b-col sm="5">Thruster Efficiency: </b-col>
+                            <b-col sm="2 text-primary">{{ efficiency }}%</b-col>
+                            <b-col sm="5">
+                                <b-form-input
+                                    v-model="efficiency"
+                                    type="range"
+                                    min="0"
+                                    max="100"
+                                    step="1"
+                                ></b-form-input>
+                            </b-col>
+                        </b-row>
+                    </div>
+                    <hr />
                     <div class="forwardThruster">
                         <div class="h3">{{ $t('DESIGNER.THRUSTER.FORWARD_THRUSTER') }}</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'forwardThruster_' + i">
+                            <b-col sm="12" v-if="thruster.title == 'DESIGNER.THRUSTER.PLASMA_BODY'"><hr /></b-col>
                             <b-col sm="8">{{ $t(thruster.title) }}</b-col>
                             <b-col sm="4">
                                 <b-form-input type="number" v-model="thrusters[i].forwardCount" min="0"></b-form-input>
@@ -537,36 +577,37 @@ export default {
             ],
             tools: [
                 {
-                    title: 'Mining Laser',
+                    title: 'DESIGNER.TOOLS.MINING_LASER',
                     count: 0,
                     energy: 6000,
                     mass: 2155
                 },
                 {
-                    title: 'Ore Collector',
+                    title: 'DESIGNER.TOOLS.ORE_COLLECTOR',
                     count: 0,
                     energy: 1000,
                     mass: 2159
                 },
                 {
-                    title: 'Material Point Scanner',
+                    title: 'DESIGNER.TOOLS.MATERIAL_SCANNER',
                     count: 0,
                     energy: 300,
                     mass: 1569
                 },
                 {
-                    title: 'Laser Designator',
+                    title: 'DESIGNER.TOOLS.LASER_DESIGNATOR',
                     count: 0,
                     energy: 0,
                     mass: 500
                 },
                 {
-                    title: 'Rangefinder',
+                    title: 'DESIGNER.TOOLS.RANGEFINDER',
                     count: 0,
                     energy: 1,
                     mass: 282
                 }
             ],
+            efficiency: 96,
             shipMass: 0,
             oreCrates: 0,
             tooltip: {
@@ -590,7 +631,7 @@ export default {
         totalForwardThrust() {
             let res = 0;
             for (let i = 0; i < this.thrusters.length; i++) {
-                res += this.thrusters[i].thrust * this.thrusters[i].forwardCount;
+                res += this.thrusters[i].thrust * this.thrusters[i].forwardCount * (this.efficiency / 100);
             }
             return res;
         },

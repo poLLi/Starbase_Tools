@@ -4,7 +4,7 @@ export default {
     // NAVIGATION
     MENU: {
         START: 'Start',
-        DESIGNER: 'Ship-Designer',
+        DESIGNER: 'Ship-Calculator',
         MAP: 'Map',
         MORE: 'More',
         DATABASE: 'Database',
@@ -32,6 +32,8 @@ export default {
         },
 
         THRUSTER: {
+            EFFICIENCY_TOOLTIP:
+                '100% efficiency is only reachable if your ship is in total symmetry which is almost impossible todo.',
             FORWARD_THRUSTER: 'Forward Thruster',
             BACKWARD_THRUSTER: 'Backward Thruster',
             MANEUVER_THRUSTER: 'Maneuver Thruster',
@@ -108,6 +110,14 @@ export default {
             TOTAL_HEAT_SUB: '(estimated)',
             TOTAL_HEAT_TOOLTIP:
                 'Heat is calculated with one Generator adjacent to another. Basically +25 Heat for every Generator.'
+        },
+
+        TOOLS: {
+            MINING_LASER: 'Mining Laser',
+            ORE_COLLECTOR: 'Ore Collector',
+            MATERIAL_SCANNER: 'Material Point Scanner',
+            LASER_DESIGNATOR: 'Laser Designator',
+            RANGEFINDER: 'Rangefinder'
         }
     }
 };

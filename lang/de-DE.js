@@ -4,7 +4,7 @@ export default {
     // NAVIGATION
     MENU: {
         START: 'Start',
-        DESIGNER: 'Ship-Designer',
+        DESIGNER: 'Ship-Rechner',
         MAP: 'Karte',
         MORE: 'Mehr',
         DATABASE: 'Database',
@@ -108,6 +108,14 @@ export default {
             TOTAL_HEAT_HEAD: 'Wärme entwicklung',
             TOTAL_HEAT_SUB: '(geschätzt)',
             TOTAL_HEAT_TOOLTIP: 'Wärme wird berechnet mit einem +25 Hitze pro Generator'
+        },
+
+        TOOLS: {
+            MINING_LASER: 'Mining Laser',
+            ORE_COLLECTOR: 'Ore Collector',
+            MATERIAL_SCANNER: 'Material Point Scanner',
+            LASER_DESIGNATOR: 'Laser Designator',
+            RANGEFINDER: 'Rangefinder'
         }
     }
 };
