@@ -7,29 +7,29 @@
             </div>
 
             <div class="info">
-                <h2 class="title text-monospace">Version 0.0.1</h2>
-                <p class="text-muted">Initial Alpha Release</p>
-                <!-- <div class="pl-4">
+                <h2 class="title text-monospace">Version 0.0.2</h2>
+                <p class="text-muted">Minor Fixed and Improvements</p>
+                <div class="pl-4">
                     <p class="text-primary h5">🐛 Bug-Fixes</p>
                     <ul>
-                        <li>
-                            Fixed some fr-FR translation stuff - Thanks to Dead Matter Francophone (
-                            <a href="https://discord.gg/RX64hjf" target="_blank" rel="noopener noreferrer">
-                                French DM Community Discord
-                            </a>
-                            )
-                        </li>
+                        <li>Fixed some de-DE translation stuff (still alot more todo)</li>
+                        <li>Fixed Discord invite Links</li>
                     </ul>
                     <p class="text-primary h5">✏️ Improvements</p>
                     <ul>
-                        <li>Added missing translations in Character Builder</li>
-                        <li>Changed Discord link on Start page to JLN Development Discord</li>
+                        <li>Added Plamsa Thruster Body and Ring to Forward Thrusters</li>
+                        <li>Added Thruster Efficiency Value</li>
                     </ul>
-                    <p class="text-primary h5">✨ Features</p>
+                    <!-- <p class="text-primary h5">✨ Features</p>
                     <ul>
                         <li>Added Database Test Page (WIP)</li>
-                    </ul>
-                </div> -->
+                    </ul> -->
+                </div>
+            </div>
+
+            <div class="info">
+                <h2 class="title text-monospace">Version 0.0.1</h2>
+                <p class="text-muted">Initial Alpha Release</p>
             </div>
         </b-container>
     </section>
