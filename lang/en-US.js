@@ -31,6 +31,12 @@ export default {
             CALCULATION_TITLE: 'Calculation'
         },
 
+        SAVE: {
+            SHIP_CALC_SAVE_TEXT: 'Your Ship Calculation url is ready.',
+            SHIP_CALC_COPY_CLIPBOARD: 'Copy to Clipboard',
+            BUTTON: 'SAVE DATA'
+        },
+
         THRUSTER: {
             EFFICIENCY_TOOLTIP:
                 '100% efficiency is only reachable if your ship is in total symmetry which is almost impossible todo.',

@@ -31,7 +31,15 @@ export default {
             CALCULATION_TITLE: 'Berechnung'
         },
 
+        SAVE: {
+            SHIP_CALC_SAVE_TEXT: 'Deine Schiff Berechnung ist Ready.',
+            SHIP_CALC_COPY_CLIPBOARD: 'In Zwischenablage kopieren',
+            BUTTON: 'SPEICHERN'
+        },
+
         THRUSTER: {
+            EFFICIENCY_TOOLTIP:
+                '100% efficiency is only reachable if your ship is in total symmetry which is almost impossible todo.',
             FORWARD_THRUSTER: 'Vorwärts Triebwerk',
             BACKWARD_THRUSTER: 'Rückwärts Triebwerk',
             MANEUVER_THRUSTER: 'Manöver Triebwerk',
