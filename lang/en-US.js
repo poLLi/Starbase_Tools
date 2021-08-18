@@ -43,7 +43,9 @@ export default {
             TRIANGLE_T3: 'Triangle Thruster T3',
             MANEUVER_T1: 'Maneuver Thruster T1',
             MANEUVER_T2: 'Maneuver Thruster T2',
-            MANEUVER_T3: 'Maneuver Thruster T3'
+            MANEUVER_T3: 'Maneuver Thruster T3',
+            PLASMA_BODY: 'Plasma Thruster Body',
+            PLASMA_RING: 'Plasma Thruster Ring'
         },
 
         PROPELLANT: {

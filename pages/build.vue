@@ -42,8 +42,21 @@
                     <div class="backwardThruster">
                         <div class="h3">{{ $t('DESIGNER.THRUSTER.BACKWARD_THRUSTER') }}</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'backwardThruster_' + i">
-                            <b-col sm="8">{{ $t(thruster.title) }}</b-col>
-                            <b-col sm="4">
+                            <b-col
+                                sm="8"
+                                v-if="
+                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_BODY' &&
+                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_RING'
+                                "
+                                >{{ $t(thruster.title) }}</b-col
+                            >
+                            <b-col
+                                sm="4"
+                                v-if="
+                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_BODY' &&
+                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_RING'
+                                "
+                            >
                                 <b-form-input type="number" v-model="thrusters[i].backwardCount" min="0"></b-form-input>
                             </b-col>
                         </b-row>
@@ -52,8 +65,21 @@
                     <div class="maneuverThruster">
                         <div class="h3">{{ $t('DESIGNER.THRUSTER.MANEUVER_THRUSTER') }}</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'maneuverThruster_' + i">
-                            <b-col sm="8">{{ $t(thruster.title) }}</b-col>
-                            <b-col sm="4">
+                            <b-col
+                                sm="8"
+                                v-if="
+                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_BODY' &&
+                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_RING'
+                                "
+                                >{{ $t(thruster.title) }}</b-col
+                            >
+                            <b-col
+                                sm="4"
+                                v-if="
+                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_BODY' &&
+                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_RING'
+                                "
+                            >
                                 <b-form-input type="number" v-model="thrusters[i].maneuverCount" min="0"></b-form-input>
                             </b-col>
                         </b-row>
@@ -407,6 +433,26 @@ export default {
                     propellant: 21,
                     thrust: 52000,
                     mass: 11515
+                },
+                {
+                    title: 'DESIGNER.THRUSTER.PLASMA_BODY',
+                    forwardCount: 0,
+                    backwardCount: 0,
+                    maneuverCount: 0,
+                    energy: 913.3,
+                    propellant: 290,
+                    thrust: 4000000,
+                    mass: 687479
+                },
+                {
+                    title: 'DESIGNER.THRUSTER.PLASMA_RING',
+                    forwardCount: 0,
+                    backwardCount: 0,
+                    maneuverCount: 0,
+                    energy: 880,
+                    propellant: 386,
+                    thrust: 7000000,
+                    mass: 687479
                 }
             ],
             propellantTanks: [
