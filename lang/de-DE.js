@@ -43,7 +43,9 @@ export default {
             TRIANGLE_T3: 'Dreieck Triebwerk T3',
             MANEUVER_T1: 'Manöver Triebwerk T1',
             MANEUVER_T2: 'Manöver Triebwerk T2',
-            MANEUVER_T3: 'Manöver Triebwerk T3'
+            MANEUVER_T3: 'Manöver Triebwerk T3',
+            PLASMA_BODY: 'Puls Triebwerk Body',
+            PLASMA_RING: 'Puls Triebwerk Ring'
         },
 
         PROPELLANT: {
