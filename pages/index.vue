@@ -31,7 +31,12 @@
                         >
                             Discord
                         </a>
-                        <a class="btn btn-secondary" href="https://github.com/poLLi/" target="_blank" rel="noopener">
+                        <a
+                            class="btn btn-secondary"
+                            href="https://github.com/poLLi/SB_Tools_Localization"
+                            target="_blank"
+                            rel="noopener"
+                        >
                             Github
                         </a>
                     </b-col>
