@@ -12,7 +12,7 @@
                 >
                     <b-icon icon="exclamation-circle" variant="danger" font-scale="1.5" class="mr-2"></b-icon>
                     <strong>WARNING:</strong> Almost everything is subject to change.
-                    <small>Current Version: EA BUILD 556</small>
+                    <small>Current Version: EA BUILD 560</small>
                     <b-progress
                         variant="danger"
                         :max="alert.dismissSecs"
@@ -132,6 +132,31 @@
                     <b-col>
                         <b-card class="shadow">
                             <b-card-title class="text-center p-2 title-rounded">
+                                {{ $t('DESIGNER.CARD.WEIGHT_MISC_TITLE') }}
+                            </b-card-title>
+
+                            <div class="propList">
+                                <b-row>
+                                    <b-col sm="8">{{ $t('DESIGNER.WEIGHT_CARGO.WEIGHT') }}</b-col>
+                                    <b-col sm="4">
+                                        <b-form-input type="number" v-model="shipMass" min="0"></b-form-input>
+                                    </b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col sm="8">{{ $t('DESIGNER.WEIGHT_CARGO.CRATES') }}</b-col>
+                                    <b-col sm="4">
+                                        <b-form-input type="number" v-model="oreCrates" min="0"></b-form-input>
+                                    </b-col>
+                                </b-row>
+                            </div>
+                        </b-card>
+                    </b-col>
+                </b-row>
+
+                <b-row class="mb-4">
+                    <b-col>
+                        <b-card class="shadow">
+                            <b-card-title class="text-center p-2 title-rounded">
                                 {{ $t('DESIGNER.CARD.PROP_FUEL_ENERGY_TITLE') }}
                             </b-card-title>
 
@@ -174,6 +199,16 @@
                                     </b-col>
                                 </b-row>
                             </div>
+                            <hr />
+                            <div class="coolList">
+                                <div class="h3">{{ $t('DESIGNER.COOLING.COOLING_HEADLINE') }}</div>
+                                <b-row v-for="(cooling, i) in coolings" :key="'cooling_' + i">
+                                    <b-col sm="8">{{ $t(cooling.title) }} </b-col>
+                                    <b-col sm="4">
+                                        <b-form-input type="number" v-model="cooling.count" min="0"></b-form-input>
+                                    </b-col>
+                                </b-row>
+                            </div>
                         </b-card>
                     </b-col>
                 </b-row>
@@ -182,50 +217,25 @@
                     <b-col>
                         <b-card class="shadow">
                             <b-card-title class="text-center p-2 title-rounded">
-                                {{ $t('DESIGNER.CARD.WEIGHT_MISC_TITLE') }}
-                            </b-card-title>
-
-                            <div class="propList">
-                                <b-row>
-                                    <b-col sm="8">{{ $t('DESIGNER.WEIGHT_CARGO.WEIGHT') }}</b-col>
-                                    <b-col sm="4">
-                                        <b-form-input type="number" v-model="shipMass" min="0"></b-form-input>
-                                    </b-col>
-                                </b-row>
-                                <b-row>
-                                    <b-col sm="8">{{ $t('DESIGNER.WEIGHT_CARGO.CRATES') }}</b-col>
-                                    <b-col sm="4">
-                                        <b-form-input type="number" v-model="oreCrates" min="0"></b-form-input>
-                                    </b-col>
-                                </b-row>
-                            </div>
-                        </b-card>
-                    </b-col>
-                </b-row>
-
-                <!-- <b-row class="mb-4">
-                    <b-col>
-                        <b-card class="shadow">
-                            <b-card-title class="text-center p-2 title-rounded">
                                 {{ $t('DESIGNER.CARD.TOOLS_TITLE') }}
                             </b-card-title>
 
                             <div class="toolsList">
                                 <div v-for="(tool, i) in tools" :key="'tool_' + i">
-                                    <b-row v-if="tool.title != 'Ore Collector'">
-                                        <b-col sm="8">{{ tool.title }} </b-col>
+                                    <b-row v-if="tool.id != 'OC'">
+                                        <b-col sm="8">{{ $t(tool.title) }} </b-col>
                                         <b-col sm="4">
                                             <b-form-input type="number" v-model="tool.count" min="0"></b-form-input>
                                         </b-col>
                                     </b-row>
-                                    <b-row v-if="tool.title == 'Ore Collector'">
-                                        <b-col sm="8">{{ tool.title }} </b-col>
+                                    <b-row v-if="tool.id == 'OC'">
+                                        <b-col sm="8">{{ $t(tool.title) }} </b-col>
                                         <b-col sm="4">
                                             <b-form-input type="number" v-model="tool.count" min="0"></b-form-input>
                                         </b-col>
                                     </b-row>
-                                    <b-row v-if="tool.title == 'Ore Collector' && tool.count >= 1">
-                                        <b-col sm="8">{{ tool.title }} Power </b-col>
+                                    <b-row v-if="tool.id == 'OC' && tool.count >= 1">
+                                        <b-col sm="8">{{ $t(tool.title) }} Power </b-col>
                                         <b-col sm="4">
                                             <b-form-input type="number" v-model="tool.energy" min="0"></b-form-input>
                                         </b-col>
@@ -234,7 +244,7 @@
                             </div>
                         </b-card>
                     </b-col>
-                </b-row> -->
+                </b-row>
             </b-col>
 
             <b-col lg="4" class="no-select mb-4">
@@ -256,11 +266,45 @@
                         </b-row>
                         <b-row>
                             <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_SPEED_HALF') }}</b-col>
-                            <b-col sm="4">{{ maxSpeedHalf }} m/s</b-col>
+                            <b-col sm="4">
+                                {{ maxSpeedHalf }} m/s
+                                <span class="float-right">
+                                    <b-icon id="maxSpeedHalf" icon="ExclamationTriangle" class="text-primary"></b-icon>
+                                </span>
+                                <b-tooltip
+                                    v-if="isDesktop"
+                                    target="maxSpeedHalf"
+                                    placement="left"
+                                    boundary="viewport"
+                                    noninteractive
+                                    :delay="tooltip.delay"
+                                >
+                                    <p class="m-0 p-1">
+                                        {{ $t('DESIGNER.CALCULATION.FORWARD_SPEED_HALF_TOOLTIP') }}
+                                    </p>
+                                </b-tooltip>
+                            </b-col>
                         </b-row>
                         <b-row>
                             <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_SPEED_FULL') }}</b-col>
-                            <b-col sm="4">{{ maxSpeedFull }} m/s</b-col>
+                            <b-col sm="4">
+                                {{ maxSpeedFull }} m/s
+                                <span class="float-right">
+                                    <b-icon id="maxSpeedFull" icon="ExclamationTriangle" class="text-primary"></b-icon>
+                                </span>
+                                <b-tooltip
+                                    v-if="isDesktop"
+                                    target="maxSpeedFull"
+                                    placement="left"
+                                    boundary="viewport"
+                                    noninteractive
+                                    :delay="tooltip.delay"
+                                >
+                                    <p class="m-0 p-1">
+                                        {{ $t('DESIGNER.CALCULATION.FORWARD_SPEED_FULL_TOOLTIP') }}
+                                    </p>
+                                </b-tooltip>
+                            </b-col>
                         </b-row>
                         <hr />
 
@@ -268,10 +312,6 @@
                             {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_HEAD') }}
                             <small class="text-muted">{{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_SUB') }}</small>
                         </div>
-                        <!-- <b-row>
-                            <b-col sm="8">Forward Flight Time: </b-col>
-                            <b-col sm="4">{{ forwardFlightTime }} h</b-col>
-                        </b-row> -->
                         <b-row>
                             <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FLIGHT_TIME') }}</b-col>
                             <b-col sm="4">
@@ -336,14 +376,6 @@
                             <b-col sm="8">{{ $t('DESIGNER.CALCULATION.TOTAL_FUEL') }}</b-col>
                             <b-col sm="4">{{ totalFuelRod }}</b-col>
                         </b-row>
-                        <!-- <b-row>
-                            <b-col sm="8">Total Energy Output: </b-col>
-                            <b-col sm="4">{{ totalEnergyOutput }} e/s</b-col>
-                        </b-row>
-                        <b-row>
-                            <b-col sm="8">Total Fuel Consumption: </b-col>
-                            <b-col sm="4">{{ totalGenFuelInput }} /s</b-col>
-                        </b-row> -->
                         <b-row>
                             <b-col sm="8"
                                 >{{ $t('DESIGNER.CALCULATION.TOTAL_HEAT_HEAD') }}
@@ -372,11 +404,42 @@
                                 </b-tooltip>
                             </b-col>
                         </b-row>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.TOTAL_COOLING') }}</b-col>
+                            <b-col sm="4 text-danger" v-if="totalHeat > totalCooling"> {{ totalCooling }} °C </b-col>
+                            <b-col sm="4" v-if="totalHeat <= totalCooling"> {{ totalCooling }} °C </b-col>
+                        </b-row>
+                        <hr />
+                        <b-row>
+                            <b-col sm="8">Energy Generation: </b-col>
+                            <b-col sm="4 text-primary">{{ totalEnergyOutput }} e/s</b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">Energy Drain (Thruster): </b-col>
+                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergy">
+                                {{ totalUsedEnergy }} e/s
+                            </b-col>
+                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergy">
+                                {{ totalUsedEnergy }} e/s
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">Energy Drain (Tools): </b-col>
+                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyTools">
+                                {{ totalUsedEnergyTools }} e/s
+                            </b-col>
+                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyTools">
+                                {{ totalUsedEnergyTools }} e/s
+                            </b-col>
+                        </b-row>
                         <hr />
                         <b-row>
                             <b-col>
-                                <b-button class="float-right" variant="success" @click="saveBuild">
-                                    <b-icon icon="clipboard-plus"></b-icon> {{ $t('DESIGNER.SAVE.BUTTON') }}
+                                <b-button class="" variant="secondary" @click="resetBuild">
+                                    <b-icon icon="gear"></b-icon> {{ $t('DESIGNER.SAVE.RESET_BUTTON') }}
+                                </b-button>
+                                <b-button class="float-right" variant="primary" @click="saveBuild">
+                                    <b-icon icon="clipboard-plus"></b-icon> {{ $t('DESIGNER.SAVE.SAVE_BUTTON') }}
                                 </b-button>
                             </b-col>
                         </b-row>
@@ -604,6 +667,32 @@ export default {
                     mass: 3236
                 }
             ],
+            coolings: [
+                {
+                    id: 'RB',
+                    title: 'DESIGNER.COOLING.RADIATOR_BASE',
+                    count: 0,
+                    energy: 5,
+                    cooling: 90,
+                    mass: 1404
+                },
+                {
+                    id: 'RE',
+                    title: 'DESIGNER.COOLING.RADIATOR_EXTENSION',
+                    count: 0,
+                    energy: 5,
+                    cooling: 90,
+                    mass: 533
+                },
+                {
+                    id: 'CR',
+                    title: 'DESIGNER.COOLING.COOLING_RACK',
+                    count: 0,
+                    energy: 0,
+                    cooling: 300,
+                    mass: 1484
+                }
+            ],
             tools: [
                 {
                     id: 'ML',
@@ -691,37 +780,108 @@ export default {
         // --------------------------------------------------------------------------------------------
         totalPropellant() {
             let res = 0;
+
             for (let i = 0; i < this.propellantTanks.length; i++) {
                 res += this.propellantTanks[i].propellant * this.propellantTanks[i].count;
             }
-            return res;
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
         },
 
         totalFuelRod() {
             let res = 0;
+
             for (let i = 0; i < this.fuelChambers.length; i++) {
                 res += this.fuelChambers[i].fuel * this.fuelChambers[i].count;
             }
-            return res;
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
         },
 
         totalHeat() {
             let res = 0;
+
             for (let i = 0; i < this.generators.length; i++) {
                 res += this.generators[i].heat * this.generators[i].count;
                 if (this.generators[i].count > 1) {
                     res += this.generators[i].count * 25;
                 }
             }
-            return res;
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
+        },
+
+        totalCooling() {
+            let res = 0;
+
+            for (let i = 0; i < this.coolings.length; i++) {
+                res += this.coolings[i].count * this.coolings[i].cooling;
+            }
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
         },
 
         totalEnergyOutput() {
             let res = 0;
+
             for (let i = 0; i < this.generators.length; i++) {
                 res += this.generators[i].output * this.generators[i].count;
             }
-            return res;
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
+        },
+
+        totalUsedEnergy() {
+            let res = 0;
+
+            for (let i = 0; i < this.thrusters.length; i++) {
+                res += this.thrusters[i].energy * this.thrusters[i].forwardCount;
+                res += (this.thrusters[i].energy * this.thrusters[i].maneuverCount) / 2;
+            }
+
+            for (let i = 0; i < this.coolings.length; i++) {
+                res += this.coolings[i].energy * this.coolings[i].count;
+            }
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
+        },
+
+        totalUsedEnergyTools() {
+            let res = 0;
+
+            for (let i = 0; i < this.tools.length; i++) {
+                res += this.tools[i].energy * this.tools[i].count;
+            }
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
         },
 
         totalGenFuelInput() {
@@ -746,25 +906,6 @@ export default {
             for (let i = 0; i < this.thrusters.length; i++) {
                 res += this.thrusters[i].propellant * this.thrusters[i].forwardCount;
                 res += (this.thrusters[i].propellant * this.thrusters[i].maneuverCount) / 2;
-            }
-
-            return res;
-        },
-
-        totalUsedEnergyThrusterF() {
-            let res = 0;
-            for (let i = 0; i < this.thrusters.length; i++) {
-                res += this.thrusters[i].energy * this.thrusters[i].forwardCount;
-            }
-
-            return res;
-        },
-
-        totalUsedEnergyThrusterFM() {
-            let res = 0;
-            for (let i = 0; i < this.thrusters.length; i++) {
-                res += this.thrusters[i].energy * this.thrusters[i].forwardCount;
-                res += (this.thrusters[i].energy * this.thrusters[i].maneuverCount) / 2;
             }
 
             return res;
@@ -840,7 +981,7 @@ export default {
             if (this.totalForwardThrust == 0) return 0;
             if (this.oreCrates == 0) return 0;
 
-            let oreCrateMass = this.oreCrates * 14;
+            let oreCrateMass = this.oreCrates * 15;
             let totalShipMass = oreCrateMass + new Number(this.shipMass);
 
             let a = 36.96 * Math.min(this.totalForwardThrust / 1000.0 / totalShipMass, 8.0);
@@ -890,6 +1031,10 @@ export default {
                 return res;
             }
         }
+
+        // --------------------------------------------------------------------------------------------
+        // ---- Tools CALCULATIONS
+        // --------------------------------------------------------------------------------------------
     },
 
     mounted() {
@@ -907,61 +1052,51 @@ export default {
                     this.thrusters.filter((data) => data.id == 'TB1')[0].backwardCount = res.TB1.B;
                     this.thrusters.filter((data) => data.id == 'TB1')[0].maneuverCount = res.TB1.M;
                 }
-
                 if (res.TB2) {
                     this.thrusters.filter((data) => data.id == 'TB2')[0].forwardCount = res.TB2.F;
                     this.thrusters.filter((data) => data.id == 'TB2')[0].backwardCount = res.TB2.B;
                     this.thrusters.filter((data) => data.id == 'TB2')[0].maneuverCount = res.TB2.M;
                 }
-
                 if (res.TB3) {
                     this.thrusters.filter((data) => data.id == 'TB3')[0].forwardCount = res.TB3.F;
                     this.thrusters.filter((data) => data.id == 'TB3')[0].backwardCount = res.TB3.B;
                     this.thrusters.filter((data) => data.id == 'TB3')[0].maneuverCount = res.TB3.M;
                 }
-
                 if (res.TT1) {
                     this.thrusters.filter((data) => data.id == 'TT1')[0].forwardCount = res.TT1.F;
                     this.thrusters.filter((data) => data.id == 'TT1')[0].backwardCount = res.TT1.B;
                     this.thrusters.filter((data) => data.id == 'TT1')[0].maneuverCount = res.TT1.M;
                 }
-
                 if (res.TT2) {
                     this.thrusters.filter((data) => data.id == 'TT2')[0].forwardCount = res.TT2.F;
                     this.thrusters.filter((data) => data.id == 'TT2')[0].backwardCount = res.TT2.B;
                     this.thrusters.filter((data) => data.id == 'TT2')[0].maneuverCount = res.TT2.M;
                 }
-
                 if (res.TT3) {
                     this.thrusters.filter((data) => data.id == 'TT3')[0].forwardCount = res.TT3.F;
                     this.thrusters.filter((data) => data.id == 'TT3')[0].backwardCount = res.TT3.B;
                     this.thrusters.filter((data) => data.id == 'TT3')[0].maneuverCount = res.TT3.M;
                 }
-
                 if (res.TM1) {
                     this.thrusters.filter((data) => data.id == 'TM1')[0].forwardCount = res.TM1.F;
                     this.thrusters.filter((data) => data.id == 'TM1')[0].backwardCount = res.TM1.B;
                     this.thrusters.filter((data) => data.id == 'TM1')[0].maneuverCount = res.TM1.M;
                 }
-
                 if (res.TM2) {
                     this.thrusters.filter((data) => data.id == 'TM2')[0].forwardCount = res.TM2.F;
                     this.thrusters.filter((data) => data.id == 'TM2')[0].backwardCount = res.TM2.B;
                     this.thrusters.filter((data) => data.id == 'TM2')[0].maneuverCount = res.TM2.M;
                 }
-
                 if (res.TM3) {
                     this.thrusters.filter((data) => data.id == 'TM3')[0].forwardCount = res.TM3.F;
                     this.thrusters.filter((data) => data.id == 'TM3')[0].backwardCount = res.TM3.B;
                     this.thrusters.filter((data) => data.id == 'TM3')[0].maneuverCount = res.TM3.M;
                 }
-
                 if (res.TPB) {
                     this.thrusters.filter((data) => data.id == 'TPB')[0].forwardCount = res.TPB.F;
                     this.thrusters.filter((data) => data.id == 'TPB')[0].backwardCount = res.TPB.B;
                     this.thrusters.filter((data) => data.id == 'TPB')[0].maneuverCount = res.TPB.M;
                 }
-
                 if (res.TPR) {
                     this.thrusters.filter((data) => data.id == 'TPR')[0].forwardCount = res.TPR.F;
                     this.thrusters.filter((data) => data.id == 'TPR')[0].backwardCount = res.TPR.B;
@@ -1002,11 +1137,22 @@ export default {
                     this.batteries.filter((data) => data.id == 'B1')[0].count = res.B1;
                 }
 
+                if (res.RB) {
+                    this.coolings.filter((data) => data.id == 'RB')[0].count = res.RB;
+                }
+                if (res.RE) {
+                    this.coolings.filter((data) => data.id == 'RE')[0].count = res.RE;
+                }
+                if (res.CR) {
+                    this.coolings.filter((data) => data.id == 'CR')[0].count = res.CR;
+                }
+
                 if (res.ML) {
                     this.tools.filter((data) => data.id == 'ML')[0].count = res.ML;
                 }
                 if (res.OC) {
                     this.tools.filter((data) => data.id == 'OC')[0].count = res.OC;
+                    this.tools.filter((data) => data.id == 'OC')[0].energy = res.OCP;
                 }
                 if (res.MPS) {
                     this.tools.filter((data) => data.id == 'MPS')[0].count = res.MPS;
@@ -1034,6 +1180,46 @@ export default {
     methods: {
         countDownChanged(dismissCountDown) {
             this.alert.dismissCountDown = dismissCountDown;
+        },
+
+        resetBuild() {
+            for (let i = 0; i < this.thrusters.length; i++) {
+                this.thrusters[i].forwardCount = 0;
+                this.thrusters[i].backwardCount = 0;
+                this.thrusters[i].maneuverCount = 0;
+            }
+
+            for (let i = 0; i < this.propellantTanks.length; i++) {
+                this.propellantTanks[i].count = 0;
+            }
+
+            for (let i = 0; i < this.fuelChambers.length; i++) {
+                this.fuelChambers[i].count = 0;
+            }
+
+            for (let i = 0; i < this.generators.length; i++) {
+                this.generators[i].count = 0;
+            }
+
+            for (let i = 0; i < this.batteries.length; i++) {
+                this.batteries[i].count = 0;
+            }
+
+            for (let i = 0; i < this.coolings.length; i++) {
+                this.coolings[i].count = 0;
+            }
+
+            for (let i = 0; i < this.tools.length; i++) {
+                this.tools[i].count = 0;
+
+                if (this.tools[i].id == 'OC') {
+                    this.tools[i].energy = 1000;
+                }
+            }
+
+            this.efficiency = 96;
+            this.shipMass = 0;
+            this.oreCrates = 0;
         },
 
         saveBuild() {
@@ -1288,6 +1474,30 @@ export default {
                 }
             }
 
+            for (let i = 0; i < this.coolings.length; i++) {
+                if (this.coolings[i].id == 'RB') {
+                    if (this.coolings[i].count > 0) {
+                        let newSave = Object.assign(save, {
+                            RB: this.coolings[i].count
+                        });
+                    }
+                }
+                if (this.coolings[i].id == 'RE') {
+                    if (this.coolings[i].count > 0) {
+                        let newSave = Object.assign(save, {
+                            RE: this.coolings[i].count
+                        });
+                    }
+                }
+                if (this.coolings[i].id == 'CR') {
+                    if (this.coolings[i].count > 0) {
+                        let newSave = Object.assign(save, {
+                            CR: this.coolings[i].count
+                        });
+                    }
+                }
+            }
+
             for (let i = 0; i < this.tools.length; i++) {
                 if (this.tools[i].id == 'ML') {
                     if (this.tools[i].count > 0) {
@@ -1299,7 +1509,8 @@ export default {
                 if (this.tools[i].id == 'OC') {
                     if (this.tools[i].count > 0) {
                         let newSave = Object.assign(save, {
-                            OC: this.tools[i].count
+                            OC: this.tools[i].count,
+                            OCP: this.tools[i].energy
                         });
                     }
                 }
@@ -1338,7 +1549,7 @@ export default {
                 });
             }
 
-            if (this.efficiency != 95) {
+            if (this.efficiency != 96) {
                 let newSave = Object.assign(save, {
                     EFFI: this.efficiency
                 });

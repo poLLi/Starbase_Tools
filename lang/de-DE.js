@@ -34,7 +34,8 @@ export default {
         SAVE: {
             SHIP_CALC_SAVE_TEXT: 'Deine Schiff Berechnung ist Ready.',
             SHIP_CALC_COPY_CLIPBOARD: 'In Zwischenablage kopieren',
-            BUTTON: 'SPEICHERN'
+            SAVE_BUTTON: 'SPEICHERN',
+            RESET_BUTTON: 'RESET'
         },
 
         THRUSTER: {
@@ -82,6 +83,13 @@ export default {
             BATTERY_T1: 'Kleiner Batterie'
         },
 
+        COOLING: {
+            COOLING_HEADLINE: 'Kühlung',
+            RADIATOR_BASE: 'Kühler Basis',
+            RADIATOR_EXTENSION: 'Kühler Erweiterung',
+            COOLING_RACK: 'Kühlregal'
+        },
+
         WEIGHT_CARGO: {
             WEIGHT: 'Insgesamt gewicht in Tonnen',
             CRATES: 'Anzahl der Erzkisten'
@@ -93,6 +101,10 @@ export default {
             BACKWARD_SPEED: 'Rückwärts Geschwindigkeit',
             FORWARD_SPEED_HALF: 'Geschwindigkeit (halbe Kisten)',
             FORWARD_SPEED_FULL: 'Geschwindigkeit (volle Kisten)',
+
+            FORWARD_SPEED_HALF_TOOLTIP:
+                'Halbe Kisten wird berechnet mit dem groben durschnitt der Erz gewichte (15t/stack)',
+            FORWARD_SPEED_FULL_TOOLTIP: 'Volle Kisten wird berechnet mit dem schwersten Erz (26t/stack - Lukium)',
 
             FLIGHT_TIME_HEAD: 'Flugzeiten',
             FLIGHT_TIME_SUB: '(Treibstoff)',
@@ -115,7 +127,8 @@ export default {
 
             TOTAL_HEAT_HEAD: 'Wärme entwicklung',
             TOTAL_HEAT_SUB: '(geschätzt)',
-            TOTAL_HEAT_TOOLTIP: 'Wärme wird berechnet mit einem +25 Hitze pro Generator'
+            TOTAL_HEAT_TOOLTIP: 'Wärme wird berechnet mit einem +25 Hitze pro Generator',
+            TOTAL_COOLING: 'Kühlung'
         },
 
         TOOLS: {

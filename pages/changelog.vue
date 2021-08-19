@@ -7,6 +7,35 @@
             </div>
 
             <div class="info">
+                <h2 class="title text-monospace">Version 0.0.4</h2>
+                <p class="text-muted">Ship-Calculator Improvements</p>
+                <div class="pl-4">
+                    <p class="text-primary h5">🐛 Bug-Fixes</p>
+                    <ul>
+                        <li>Fixed several misspellings... yea im bad at that</li>
+                    </ul>
+                    <p class="text-primary h5">✏️ Improvements</p>
+                    <ul>
+                        <li>
+                            Added a bunch more Tooltips for Informations on certin Calculations (blue exclamation mark)
+                        </li>
+                        <li>
+                            Added Red/Blue Colord Values if some calculation like Energy Generation/Drain when
+                            lower/higher
+                        </li>
+                        <li>Re-Aranged Cards for better visibility</li>
+                    </ul>
+                    <p class="text-primary h5">✨ Features</p>
+                    <ul>
+                        <li>Added Reset Funtion for Ship-Calculator</li>
+                        <li>Added Cooling</li>
+                        <li>Added Tools</li>
+                        <li>Added Energy Generation / Drain</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info">
                 <h2 class="title text-monospace">Version 0.0.3</h2>
                 <p class="text-muted">Ship-Calculator Save / Load function</p>
                 <div class="pl-4">

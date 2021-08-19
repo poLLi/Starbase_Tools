@@ -34,7 +34,8 @@ export default {
         SAVE: {
             SHIP_CALC_SAVE_TEXT: 'Your Ship Calculation url is ready.',
             SHIP_CALC_COPY_CLIPBOARD: 'Copy to Clipboard',
-            BUTTON: 'SAVE DATA'
+            SAVE_BUTTON: 'SAVE DATA',
+            RESET_BUTTON: 'RESET'
         },
 
         THRUSTER: {
@@ -82,6 +83,13 @@ export default {
             BATTERY_T1: 'Small Battery'
         },
 
+        COOLING: {
+            COOLING_HEADLINE: 'Cooling',
+            RADIATOR_BASE: 'Radiator Base',
+            RADIATOR_EXTENSION: 'Radiator Extension',
+            COOLING_RACK: 'Cooling Rack'
+        },
+
         WEIGHT_CARGO: {
             WEIGHT: 'Overall weight in tons',
             CRATES: 'Number of Ore Crates'
@@ -93,6 +101,10 @@ export default {
             BACKWARD_SPEED: 'Backward Speed',
             FORWARD_SPEED_HALF: 'Forward Speed (half Crates)',
             FORWARD_SPEED_FULL: 'Forward Speed (full Crates)',
+
+            FORWARD_SPEED_HALF_TOOLTIP: 'Half Crates is calculated with the rough average weight of ores (15t/stack)',
+            FORWARD_SPEED_FULL_TOOLTIP:
+                'Full Crates is calculated with the highest weight of ores (26t/stack - Lukium)',
 
             FLIGHT_TIME_HEAD: 'Flight Times',
             FLIGHT_TIME_SUB: '(Propellant)',
@@ -112,10 +124,11 @@ export default {
             TOTAL_PROPELLANT: 'Total Propellant',
             TOTAL_FUEL: 'Total Fuel',
 
-            TOTAL_HEAT_HEAD: 'Total Heat',
+            TOTAL_HEAT_HEAD: 'Heat Generation',
             TOTAL_HEAT_SUB: '(estimated)',
             TOTAL_HEAT_TOOLTIP:
-                'Heat is calculated with one Generator adjacent to another. Basically +25 Heat for every Generator.'
+                'Heat is calculated with one Generator adjacent to another. Basically +25 Heat for every Generator.',
+            TOTAL_COOLING: 'Heat Dissipation'
         },
 
         TOOLS: {
