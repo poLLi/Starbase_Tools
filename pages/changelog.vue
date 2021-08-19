@@ -16,6 +16,7 @@
                     </ul>
                     <p class="text-primary h5">✏️ Improvements</p>
                     <ul>
+                        <li>Added Localization Github Repo to Start page (Github Button)</li>
                         <li>
                             Added a bunch more Tooltips for Informations on certin Calculations (blue exclamation mark)
                         </li>
