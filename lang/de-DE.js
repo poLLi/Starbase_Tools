@@ -34,7 +34,8 @@ export default {
         SAVE: {
             SHIP_CALC_SAVE_TEXT: 'Deine Schiff Berechnung ist Ready.',
             SHIP_CALC_COPY_CLIPBOARD: 'In Zwischenablage kopieren',
-            BUTTON: 'SPEICHERN'
+            SAVE_BUTTON: 'SPEICHERN',
+            RESET_BUTTON: 'RESET'
         },
 
         THRUSTER: {

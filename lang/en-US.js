@@ -34,7 +34,8 @@ export default {
         SAVE: {
             SHIP_CALC_SAVE_TEXT: 'Your Ship Calculation url is ready.',
             SHIP_CALC_COPY_CLIPBOARD: 'Copy to Clipboard',
-            BUTTON: 'SAVE DATA'
+            SAVE_BUTTON: 'SAVE DATA',
+            RESET_BUTTON: 'RESET'
         },
 
         THRUSTER: {

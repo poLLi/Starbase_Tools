@@ -435,8 +435,11 @@
                         <hr />
                         <b-row>
                             <b-col>
+                                <b-button class="" variant="secondary" @click="resetBuild">
+                                    <b-icon icon="gear"></b-icon> {{ $t('DESIGNER.SAVE.RESET_BUTTON') }}
+                                </b-button>
                                 <b-button class="float-right" variant="primary" @click="saveBuild">
-                                    <b-icon icon="clipboard-plus"></b-icon> {{ $t('DESIGNER.SAVE.BUTTON') }}
+                                    <b-icon icon="clipboard-plus"></b-icon> {{ $t('DESIGNER.SAVE.SAVE_BUTTON') }}
                                 </b-button>
                             </b-col>
                         </b-row>
@@ -1177,6 +1180,46 @@ export default {
     methods: {
         countDownChanged(dismissCountDown) {
             this.alert.dismissCountDown = dismissCountDown;
+        },
+
+        resetBuild() {
+            for (let i = 0; i < this.thrusters.length; i++) {
+                this.thrusters[i].forwardCount = 0;
+                this.thrusters[i].backwardCount = 0;
+                this.thrusters[i].maneuverCount = 0;
+            }
+
+            for (let i = 0; i < this.propellantTanks.length; i++) {
+                this.propellantTanks[i].count = 0;
+            }
+
+            for (let i = 0; i < this.fuelChambers.length; i++) {
+                this.fuelChambers[i].count = 0;
+            }
+
+            for (let i = 0; i < this.generators.length; i++) {
+                this.generators[i].count = 0;
+            }
+
+            for (let i = 0; i < this.batteries.length; i++) {
+                this.batteries[i].count = 0;
+            }
+
+            for (let i = 0; i < this.coolings.length; i++) {
+                this.coolings[i].count = 0;
+            }
+
+            for (let i = 0; i < this.tools.length; i++) {
+                this.tools[i].count = 0;
+
+                if (this.tools[i].id == 'OC') {
+                    this.tools[i].energy = 1000;
+                }
+            }
+
+            this.efficiency = 96;
+            this.shipMass = 0;
+            this.oreCrates = 0;
         },
 
         saveBuild() {
