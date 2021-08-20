@@ -411,11 +411,11 @@
                         </b-row>
                         <hr />
                         <b-row>
-                            <b-col sm="8">Energy Generation: </b-col>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_GEN') }}</b-col>
                             <b-col sm="4 text-primary">{{ totalEnergyOutput }} e/s</b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">Energy Drain (Thruster): </b-col>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_THRUSTER') }}</b-col>
                             <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergy">
                                 {{ totalUsedEnergy }} e/s
                             </b-col>
@@ -424,7 +424,7 @@
                             </b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">Energy Drain (Tools): </b-col>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_TOOLS') }}</b-col>
                             <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyTools">
                                 {{ totalUsedEnergyTools }} e/s
                             </b-col>
