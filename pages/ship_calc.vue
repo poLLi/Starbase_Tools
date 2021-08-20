@@ -31,7 +31,7 @@
 
                     <div class="efficiency">
                         <div class="h3">
-                            Efficiency
+                            {{ $t('DESIGNER.THRUSTER.EFFICIENCY_HEADLINE') }}
                             <span class="float-right">
                                 <b-icon
                                     id="efficiencyTooltip"
@@ -54,7 +54,7 @@
                             </b-tooltip>
                         </div>
                         <b-row>
-                            <b-col sm="5">Thruster Efficiency: </b-col>
+                            <b-col sm="5">{{ $t('DESIGNER.THRUSTER.EFFICIENCY_THRUSTER') }}</b-col>
                             <b-col sm="2 text-primary">{{ efficiency }}%</b-col>
                             <b-col sm="5">
                                 <b-form-input
