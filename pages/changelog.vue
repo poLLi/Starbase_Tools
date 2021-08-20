@@ -7,6 +7,30 @@
             </div>
 
             <div class="info">
+                <h2 class="title text-monospace">Version 0.0.5</h2>
+                <p class="text-muted">Ship-Calculator Russian Translation</p>
+                <div class="pl-4">
+                    <!-- <p class="text-primary h5">🐛 Bug-Fixes</p>
+                    <ul>
+                        <li>Fixed several misspellings... yea im bad at that</li>
+                    </ul> -->
+                    <p class="text-primary h5">✏️ Improvements</p>
+                    <ul>
+                        <li>
+                            Added Russian Localization (Thankt to
+                            <a class="" href="https://discord.gg/ngCnEQ4QDs" target="_blank" rel="noopener">
+                                vabka from [North Order]</a
+                            >)
+                        </li>
+                    </ul>
+                    <!-- <p class="text-primary h5">✨ Features</p>
+                    <ul>
+                        <li>Added Reset Funtion for Ship-Calculator</li>
+                    </ul> -->
+                </div>
+            </div>
+
+            <div class="info">
                 <h2 class="title text-monospace">Version 0.0.4</h2>
                 <p class="text-muted">Ship-Calculator Improvements</p>
                 <div class="pl-4">

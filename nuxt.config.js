@@ -102,6 +102,12 @@ export default {
                 code: 'de',
                 iso: 'de-DE',
                 file: 'de-DE.js'
+            },
+            {
+                name: 'Russian',
+                code: 'ru',
+                iso: 'ru-RU',
+                file: 'ru-RU.js'
             }
         ],
         lazy: true,
