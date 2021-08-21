@@ -124,7 +124,6 @@ export default {
             FORWARD_SPEED_FULL_TOOLTIP: 'Volle Kisten wird berechnet mit dem schwersten Erz (26t/stack - Lukium)',
 
             FLIGHT_TIME_HEAD: 'Flugzeiten',
-            FLIGHT_TIME_SUB: '(Treibstoff)',
             FLIGHT_TIME: 'Flugzeit',
             FLIGHT_TIME_TOOLTIP: 'Ungefähgre Flugzeit wird berechnet mit vollem Vorwärts Schub und halber Manöver Schub',
 
@@ -147,7 +146,7 @@ export default {
             TOTAL_COOLING: 'Kühlung',
 
             ENERGY_GEN: 'Energie Generation',
-            ENERGY_DRAIN_IDLE: 'Energy Drain (idle)',
+            ENERGY_DRAIN_IDLE: 'Energy Drain (Idle)',
             ENERGY_DRAIN_THRUSTER: 'Energie verbrauch (Antrieb)',
             ENERGY_DRAIN_TOOLS: 'Energie verbrauch (Tools)',
             ENERGY_DRAIN_WEAPONS: 'Energy Drain (Weapons)',

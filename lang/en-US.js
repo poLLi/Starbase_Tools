@@ -124,7 +124,6 @@ export default {
             FORWARD_SPEED_FULL_TOOLTIP: 'Full Crates is calculated with the highest weight of ores (26t/stack - Lukium)',
 
             FLIGHT_TIME_HEAD: 'Flight Times',
-            FLIGHT_TIME_SUB: '(Propellant)',
             FLIGHT_TIME: 'Flight Time',
             FLIGHT_TIME_TOOLTIP: 'Flight Time is calculated with full forward thrust as well as half maneuver thrust.',
 

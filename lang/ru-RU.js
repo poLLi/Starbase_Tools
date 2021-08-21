@@ -124,7 +124,6 @@ export default {
             FORWARD_SPEED_FULL_TOOLTIP: 'Полная загрузка считается по самой тяжёлой руде (26т/стак - Лукий)',
 
             FLIGHT_TIME_HEAD: 'Время полёта',
-            FLIGHT_TIME_SUB: '(Топливо)',
             FLIGHT_TIME: 'Время полёта',
             FLIGHT_TIME_TOOLTIP: 'Время считается при полном газе и 50% нагрузке на маневровые двигатели',
 

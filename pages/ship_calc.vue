@@ -335,14 +335,17 @@
                         </b-row>
                         <hr />
 
-                        <div class="h3">
-                            {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_HEAD') }}
-                            <small class="text-muted">{{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_SUB') }}</small>
-                        </div>
+                        <div class="h3">{{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_HEAD') }}</div>
                         <b-row>
                             <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FLIGHT_TIME') }}</b-col>
                             <b-col sm="4">
-                                {{ forwardManeuverFlightTime }} h
+                                <span v-if="forwardManeuverFlightTimeFuel <= forwardManeuverFlightTimeProp">
+                                    {{ forwardManeuverFlightTimeFuel }} h
+                                </span>
+                                <span v-if="forwardManeuverFlightTimeFuel > forwardManeuverFlightTimeProp">
+                                    {{ forwardManeuverFlightTimeProp }} h
+                                </span>
+
                                 <span class="float-right">
                                     <b-icon
                                         id="flightTimeTooltip"
@@ -350,19 +353,20 @@
                                         class="text-primary"
                                     ></b-icon>
                                 </span>
-                                <b-tooltip
-                                    v-if="isDesktop"
-                                    target="flightTimeTooltip"
-                                    placement="left"
-                                    boundary="viewport"
-                                    noninteractive
-                                    :delay="tooltip.delay"
-                                >
-                                    <p class="m-0 p-1">
-                                        {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_TOOLTIP') }}
-                                    </p>
-                                </b-tooltip>
                             </b-col>
+
+                            <b-tooltip
+                                v-if="isDesktop"
+                                target="flightTimeTooltip"
+                                placement="left"
+                                boundary="viewport"
+                                noninteractive
+                                :delay="tooltip.delay"
+                            >
+                                <p class="m-0 p-1">
+                                    {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_TOOLTIP') }}
+                                </p>
+                            </b-tooltip>
                         </b-row>
                         <hr />
                         <b-row>
@@ -376,21 +380,6 @@
                         <b-row>
                             <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FLIGHT_LENGTH_FULL') }}</b-col>
                             <b-col sm="4">{{ forwardFlightLengthFull }} km</b-col>
-                        </b-row>
-                        <hr />
-
-                        <div class="h3">{{ $t('DESIGNER.CALCULATION.THRUST') }}</div>
-                        <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_THRUST') }}</b-col>
-                            <b-col sm="4">{{ totalForwardThrust }}</b-col>
-                        </b-row>
-                        <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.BACKWARD_THRUST') }}</b-col>
-                            <b-col sm="4">{{ totalBackwardThrust }}</b-col>
-                        </b-row>
-                        <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.MANEUVER_THRUST') }}</b-col>
-                            <b-col sm="4">{{ totalManeuverThrust }}</b-col>
                         </b-row>
                         <hr />
 
@@ -482,9 +471,31 @@
                             <b-col sm="8">{{ $t('DESIGNER.CALCULATION.MINING_BATTERYS') }}</b-col>
                             <b-col sm="4">{{ neededBatteryML }}</b-col>
                         </b-row>
-                        <hr />
+
+                        <div>
+                            <b-collapse id="thrust" class="mt-2">
+                                <div class="h3">{{ $t('DESIGNER.CALCULATION.THRUST') }}</div>
+                                <b-row>
+                                    <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_THRUST') }}</b-col>
+                                    <b-col sm="4">{{ totalForwardThrust }}</b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col sm="8">{{ $t('DESIGNER.CALCULATION.BACKWARD_THRUST') }}</b-col>
+                                    <b-col sm="4">{{ totalBackwardThrust }}</b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col sm="8">{{ $t('DESIGNER.CALCULATION.MANEUVER_THRUST') }}</b-col>
+                                    <b-col sm="4">{{ totalManeuverThrust }}</b-col>
+                                </b-row>
+                                <hr />
+                            </b-collapse>
+                        </div>
+
                         <b-row>
                             <b-col>
+                                <b-button class="" variant="primary" v-b-toggle.thrust>
+                                    <b-icon icon="tools"></b-icon> {{ $t('DESIGNER.CALCULATION.THRUST') }}
+                                </b-button>
                                 <b-button class="" variant="secondary" @click="resetBuild">
                                     <b-icon icon="gear"></b-icon> {{ $t('DESIGNER.SAVE.RESET_BUTTON') }}
                                 </b-button>
@@ -1055,17 +1066,94 @@ export default {
             }
         },
 
-        forwardManeuverFlightTime() {
-            let res = (this.totalPropellant / this.totalUsedPropellantThrusterFM / 60 / 60).toFixed(2);
+        energyPerFuelChamber() {
+            let res = 0;
+
+            const T1input = this.generators.filter((data) => data.id == 'G1')[0].input;
+            const T2input = this.generators.filter((data) => data.id == 'G2')[0].input;
+            const T3input = this.generators.filter((data) => data.id == 'G3')[0].input;
+
+            const T1output = this.generators.filter((data) => data.id == 'G1')[0].output;
+            const T2output = this.generators.filter((data) => data.id == 'G2')[0].output;
+            const T3output = this.generators.filter((data) => data.id == 'G3')[0].output;
+
+            for (let i = 0; i < this.fuelChambers.length; i++) {
+                if (this.fuelChambers[i].id == 'FC1') {
+                    if (this.fuelChambers[i].count > 0) {
+                        res +=
+                            (((this.fuelChambers[i].fuel / this.fuelChambers[i].input) * this.fuelChambers[i].output) /
+                                T1input) *
+                            T1output *
+                            this.fuelChambers[i].count;
+                    }
+                }
+
+                if (this.fuelChambers[i].id == 'FC2') {
+                    if (this.fuelChambers[i].count > 0) {
+                        res +=
+                            (((this.fuelChambers[i].fuel / this.fuelChambers[i].input) * this.fuelChambers[i].output) /
+                                T2input) *
+                            T2output *
+                            this.fuelChambers[i].count;
+                    }
+                }
+
+                if (this.fuelChambers[i].id == 'FC3') {
+                    if (this.fuelChambers[i].count > 0) {
+                        res +=
+                            (((this.fuelChambers[i].fuel / this.fuelChambers[i].input) * this.fuelChambers[i].output) /
+                                T3input) *
+                            T3output *
+                            this.fuelChambers[i].count;
+                    }
+                }
+            }
+
             if (isNaN(res)) {
                 return 0;
             } else {
-                return res;
+                return Math.round(res);
+            }
+        },
+
+        forwardManeuverFlightTimeProp() {
+            if (this.totalForwardThrust === 0) return 0;
+
+            let res = 0;
+            res += this.totalPropellant / this.totalUsedPropellantThrusterFM / 60 / 60;
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return new Number(res.toFixed(2));
+            }
+        },
+
+        forwardManeuverFlightTimeFuel() {
+            if (this.totalForwardThrust === 0) return 0;
+
+            let res = 0;
+            res += this.energyPerFuelChamber / this.totalUsedEnergyThruster / 60 / 60;
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return new Number(res.toFixed(2));
             }
         },
 
         forwardFlightLength() {
-            let res = (this.forwardManeuverFlightTime * 60 * 60 * this.maxSpeed) / 1000;
+            let res = 0;
+
+            const FTP = new Number(this.forwardManeuverFlightTimeProp);
+            const FTF = new Number(this.forwardManeuverFlightTimeFuel);
+
+            if (FTF < FTP) {
+                res = (FTF * 60 * 60 * this.maxSpeed) / 1000;
+            } else {
+                res = (FTP * 60 * 60 * this.maxSpeed) / 1000;
+            }
+
             if (isNaN(res)) {
                 return 0;
             } else {
@@ -1074,7 +1162,17 @@ export default {
         },
 
         forwardFlightLengthHalf() {
-            let res = (this.forwardManeuverFlightTime * 60 * 60 * this.maxSpeedHalf) / 1000;
+            let res = 0;
+
+            const FTP = new Number(this.forwardManeuverFlightTimeProp);
+            const FTF = new Number(this.forwardManeuverFlightTimeFuel);
+
+            if (FTF < FTP) {
+                res = (FTF * 60 * 60 * this.maxSpeedHalf) / 1000;
+            } else {
+                res = (FTP * 60 * 60 * this.maxSpeedHalf) / 1000;
+            }
+
             if (isNaN(res)) {
                 return 0;
             } else {
@@ -1083,7 +1181,17 @@ export default {
         },
 
         forwardFlightLengthFull() {
-            let res = (this.forwardManeuverFlightTime * 60 * 60 * this.maxSpeedFull) / 1000;
+            let res = 0;
+
+            const FTP = new Number(this.forwardManeuverFlightTimeProp);
+            const FTF = new Number(this.forwardManeuverFlightTimeFuel);
+
+            if (FTF < FTP) {
+                res = (FTF * 60 * 60 * this.maxSpeedFull) / 1000;
+            } else {
+                res = (FTP * 60 * 60 * this.maxSpeedFull) / 1000;
+            }
+
             if (isNaN(res)) {
                 return 0;
             } else {
