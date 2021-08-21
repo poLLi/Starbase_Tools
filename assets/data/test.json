@@ -1,73 +1,91 @@
 {
     "TB1": {
-        "f":0,
-        "b":0,
-        "m":0
+        "f": "Forward Box Thruster T1",
+        "b": "Backward Box Thruster T1",
+        "m": "Maneuver Box Thruster T1"
     },
     "TB2": {
-        "f":0,
-        "b":0,
-        "m":0
+        "f": "Forward Box Thruster T2",
+        "b": "Backward Box Thruster T2",
+        "m": "Maneuver Box Thruster T2"
     },
     "TB3": {
-        "f":0,
-        "b":0,
-        "m":0
+        "f": "Forward Box Thruster T3",
+        "b": "Backward Box Thruster T3",
+        "m": "Maneuver Box Thruster T3"
     },
     "TT1": {
-        "f":0,
-        "b":0,
-        "m":0
+        "f": "Forward Triangular Thruster T1",
+        "b": "Backward Triangular Thruster T1",
+        "m": "Maneuver Triangular Thruster T1"
     },
     "TT2": {
-        "f":0,
-        "b":0,
-        "m":0
+        "f": "Forward Triangular Thruster T2",
+        "b": "Backward Triangular Thruster T2",
+        "m": "Maneuver Triangular Thruster T2"
     },
     "TT3": {
-        "f":0,
-        "b":0,
-        "m":0
+        "f": "Forward Triangular Thruster T3",
+        "b": "Backward Triangular Thruster T3",
+        "m": "Maneuver Triangular Thruster T3"
     },
     "TM1": {
-        "f":0,
-        "b":0,
-        "m":0
+        "f": "Forward Maneuver Thruster T1",
+        "b": "Backward Maneuver Thruster T1",
+        "m": "Maneuver Maneuver Thruster T1"
     },
     "TM2": {
-        "f":0,
-        "b":0,
-        "m":0
+        "f": "Forward Maneuver Thruster T2",
+        "b": "Backward Maneuver Thruster T2",
+        "m": "Maneuver Maneuver Thruster T2"
     },
     "TM3": {
-        "f":0,
-        "b":0,
-        "m":0
+        "f": "Forward Maneuver Thruster T3",
+        "b": "Backward Maneuver Thruster T3",
+        "m": "Maneuver Maneuver Thruster T3"
     },
     "TPB": {
-        "f":0,
-        "b":0,
-        "m":0
+        "f": "Forward Plasma Body",
+        "b": "Backward Plasma Body",
+        "m": "Maneuver Plasma Body"
     },
     "TPR": {
-        "f":0,
-        "b":0,
-        "m":0
+        "f": "Forward Plasma Ring",
+        "b": "Backward Plasma Ring",
+        "m": "Maneuver Plasma Ring"
     },
-    "PT1": 0,
-    "PT2": 0,
-    "PT3": 0,
-    "FC1": 0,
-    "FC2": 0,
-    "FC3": 0,
-    "G1": 0,
-    "G2": 0,
-    "G3": 0,
-    "B1": 0,
+
+    "PT1": "Small Propellant Tank",
+    "PT2": "Medium Propellant Tank",
+    "PT3": "Large Propellant Tank",
+
+    "FC1": "Fuel Chamber T1",
+    "FC2": "Fuel Chamber T2",
+    "FC3": "Fuel Chamber T3",
+
+    "G1": "Generator Unit T1",
+    "G2": "Generator Unit T2",
+    "G3": "Generator Unit T3",
+
+    "B1": "Small Battery",
+
+    "RB": "Radiator Base",
+    "RE": "Radiator Extension",
+    "CR": "Cooling Rack",
     
-    "ML": 0,
-    "OC": 0,
-    "MPS": 0,
-    "LD": 0,
-    "RF": 0
+    "ML": "Mining Laser",
+    "MLBT": "Mining Laser Battery Time",
+    "OC": "Ore Collector",
+    "MPS": "Material Point Scanner",
+    "LD": "Laser Designator",
+    "RF": "Rangefinder",
+
+    "AC": "Auto Cannon",
+    "LC": "Laser Cannon",
+    "PC": "Plasma Cannon",
+    "RC": "Rail Cannon",
+
+    "MASS": "Ship Mass",
+    "CRATES": "Creats",
+    "EFFI": "Efficiency"
 }

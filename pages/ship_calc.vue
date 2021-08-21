@@ -222,22 +222,49 @@
 
                             <div class="toolsList">
                                 <div v-for="(tool, i) in tools" :key="'tool_' + i">
-                                    <b-row v-if="tool.id != 'OC'">
+                                    <b-row>
                                         <b-col sm="8">{{ $t(tool.title) }} </b-col>
                                         <b-col sm="4">
                                             <b-form-input type="number" v-model="tool.count" min="0"></b-form-input>
                                         </b-col>
                                     </b-row>
-                                    <b-row v-if="tool.id == 'OC'">
-                                        <b-col sm="8">{{ $t(tool.title) }} </b-col>
+                                    <b-row v-if="tool.id == 'ML' && tool.count >= 1">
+                                        <b-col sm="8 text-muted">
+                                            ↳ {{ $t('DESIGNER.TOOLS.MINING_BATTERY_TIME') }}
+                                        </b-col>
                                         <b-col sm="4">
-                                            <b-form-input type="number" v-model="tool.count" min="0"></b-form-input>
+                                            <b-form-input
+                                                type="number"
+                                                v-model="tool.battery_time"
+                                                min="0"
+                                            ></b-form-input>
                                         </b-col>
                                     </b-row>
                                     <b-row v-if="tool.id == 'OC' && tool.count >= 1">
-                                        <b-col sm="8">{{ $t(tool.title) }} Power </b-col>
+                                        <b-col sm="8 text-muted"> ↳ {{ $t(tool.title) }} Power </b-col>
                                         <b-col sm="4">
                                             <b-form-input type="number" v-model="tool.energy" min="0"></b-form-input>
+                                        </b-col>
+                                    </b-row>
+                                </div>
+                            </div>
+                        </b-card>
+                    </b-col>
+                </b-row>
+
+                <b-row class="mb-4">
+                    <b-col>
+                        <b-card class="shadow">
+                            <b-card-title class="text-center p-2 title-rounded">
+                                {{ $t('DESIGNER.CARD.WEAPON_TITLE') }}
+                            </b-card-title>
+
+                            <div class="weaponList">
+                                <div v-for="(weapon, i) in weapons" :key="'tool_' + i">
+                                    <b-row v-if="weapon.id != 'OC'">
+                                        <b-col sm="8">{{ $t(weapon.title) }} </b-col>
+                                        <b-col sm="4">
+                                            <b-form-input type="number" v-model="weapon.count" min="0"></b-form-input>
                                         </b-col>
                                     </b-row>
                                 </div>
@@ -308,14 +335,17 @@
                         </b-row>
                         <hr />
 
-                        <div class="h3">
-                            {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_HEAD') }}
-                            <small class="text-muted">{{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_SUB') }}</small>
-                        </div>
+                        <div class="h3">{{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_HEAD') }}</div>
                         <b-row>
                             <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FLIGHT_TIME') }}</b-col>
                             <b-col sm="4">
-                                {{ forwardManeuverFlightTime }} h
+                                <span v-if="forwardManeuverFlightTimeFuel <= forwardManeuverFlightTimeProp">
+                                    {{ forwardManeuverFlightTimeFuel }} h
+                                </span>
+                                <span v-if="forwardManeuverFlightTimeFuel > forwardManeuverFlightTimeProp">
+                                    {{ forwardManeuverFlightTimeProp }} h
+                                </span>
+
                                 <span class="float-right">
                                     <b-icon
                                         id="flightTimeTooltip"
@@ -323,19 +353,20 @@
                                         class="text-primary"
                                     ></b-icon>
                                 </span>
-                                <b-tooltip
-                                    v-if="isDesktop"
-                                    target="flightTimeTooltip"
-                                    placement="left"
-                                    boundary="viewport"
-                                    noninteractive
-                                    :delay="tooltip.delay"
-                                >
-                                    <p class="m-0 p-1">
-                                        {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_TOOLTIP') }}
-                                    </p>
-                                </b-tooltip>
                             </b-col>
+
+                            <b-tooltip
+                                v-if="isDesktop"
+                                target="flightTimeTooltip"
+                                placement="left"
+                                boundary="viewport"
+                                noninteractive
+                                :delay="tooltip.delay"
+                            >
+                                <p class="m-0 p-1">
+                                    {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_TOOLTIP') }}
+                                </p>
+                            </b-tooltip>
                         </b-row>
                         <hr />
                         <b-row>
@@ -349,21 +380,6 @@
                         <b-row>
                             <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FLIGHT_LENGTH_FULL') }}</b-col>
                             <b-col sm="4">{{ forwardFlightLengthFull }} km</b-col>
-                        </b-row>
-                        <hr />
-
-                        <div class="h3">{{ $t('DESIGNER.CALCULATION.THRUST') }}</div>
-                        <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_THRUST') }}</b-col>
-                            <b-col sm="4">{{ totalForwardThrust }}</b-col>
-                        </b-row>
-                        <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.BACKWARD_THRUST') }}</b-col>
-                            <b-col sm="4">{{ totalBackwardThrust }}</b-col>
-                        </b-row>
-                        <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.MANEUVER_THRUST') }}</b-col>
-                            <b-col sm="4">{{ totalManeuverThrust }}</b-col>
                         </b-row>
                         <hr />
 
@@ -415,12 +431,21 @@
                             <b-col sm="4 text-primary">{{ totalEnergyOutput }} e/s</b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_THRUSTER') }}</b-col>
-                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergy">
-                                {{ totalUsedEnergy }} e/s
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_IDLE') }}</b-col>
+                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyIdle">
+                                {{ totalUsedEnergyIdle }} e/s
                             </b-col>
-                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergy">
-                                {{ totalUsedEnergy }} e/s
+                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyIdle">
+                                {{ totalUsedEnergyIdle }} e/s
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_THRUSTER') }}</b-col>
+                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyThruster">
+                                {{ totalUsedEnergyThruster }} e/s
+                            </b-col>
+                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyThruster">
+                                {{ totalUsedEnergyThruster }} e/s
                             </b-col>
                         </b-row>
                         <b-row>
@@ -432,9 +457,46 @@
                                 {{ totalUsedEnergyTools }} e/s
                             </b-col>
                         </b-row>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_WEAPONS') }}</b-col>
+                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyWeapons">
+                                {{ totalUsedEnergyWeapons }} e/s
+                            </b-col>
+                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyWeapons">
+                                {{ totalUsedEnergyWeapons }} e/s
+                            </b-col>
+                        </b-row>
                         <hr />
+                        <b-row v-if="neededBatteryML > 0">
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.MINING_BATTERYS') }}</b-col>
+                            <b-col sm="4">{{ neededBatteryML }}</b-col>
+                        </b-row>
+
+                        <hr />
+
+                        <div>
+                            <b-collapse id="thrust" class="mt-2 mb-4">
+                                <div class="h3">{{ $t('DESIGNER.CALCULATION.THRUST') }}</div>
+                                <b-row>
+                                    <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_THRUST') }}</b-col>
+                                    <b-col sm="4">{{ totalForwardThrust }}</b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col sm="8">{{ $t('DESIGNER.CALCULATION.BACKWARD_THRUST') }}</b-col>
+                                    <b-col sm="4">{{ totalBackwardThrust }}</b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col sm="8">{{ $t('DESIGNER.CALCULATION.MANEUVER_THRUST') }}</b-col>
+                                    <b-col sm="4">{{ totalManeuverThrust }}</b-col>
+                                </b-row>
+                            </b-collapse>
+                        </div>
+
                         <b-row>
                             <b-col>
+                                <b-button class="" variant="primary" v-b-toggle.thrust>
+                                    <b-icon icon="tools"></b-icon> {{ $t('DESIGNER.CALCULATION.THRUST') }}
+                                </b-button>
                                 <b-button class="" variant="secondary" @click="resetBuild">
                                     <b-icon icon="gear"></b-icon> {{ $t('DESIGNER.SAVE.RESET_BUTTON') }}
                                 </b-button>
@@ -699,6 +761,7 @@ export default {
                     title: 'DESIGNER.TOOLS.MINING_LASER',
                     count: 0,
                     energy: 6000,
+                    battery_time: 30,
                     mass: 2155
                 },
                 {
@@ -728,6 +791,40 @@ export default {
                     count: 0,
                     energy: 1,
                     mass: 282
+                }
+            ],
+            weapons: [
+                {
+                    id: 'AC',
+                    title: 'DESIGNER.WEAPON.AUTO_CANNON',
+                    count: '0',
+                    energy_idle: 250,
+                    energy_fire: 330,
+                    mass: 5877
+                },
+                {
+                    id: 'LC',
+                    title: 'DESIGNER.WEAPON.LASER_CANNON',
+                    count: '0',
+                    energy_idle: 250,
+                    energy_fire: 400,
+                    mass: 4911
+                },
+                {
+                    id: 'PC',
+                    title: 'DESIGNER.WEAPON.PLASMA_CANNON',
+                    count: '0',
+                    energy_idle: 250,
+                    energy_fire: 2500,
+                    mass: 5375
+                },
+                {
+                    id: 'RC',
+                    title: 'DESIGNER.WEAPON.RAIL_CANNON',
+                    count: '0',
+                    energy_idle: 1501,
+                    energy_fire: 20000,
+                    mass: 11678
                 }
             ],
             efficiency: 96,
@@ -851,16 +948,30 @@ export default {
             }
         },
 
-        totalUsedEnergy() {
+        totalUsedEnergyIdle() {
+            let res = 0;
+
+            for (let i = 0; i < this.coolings.length; i++) {
+                res += this.coolings[i].energy * this.coolings[i].count;
+            }
+
+            for (let i = 0; i < this.weapons.length; i++) {
+                res += this.weapons[i].energy_idle * this.weapons[i].count;
+            }
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
+        },
+
+        totalUsedEnergyThruster() {
             let res = 0;
 
             for (let i = 0; i < this.thrusters.length; i++) {
                 res += this.thrusters[i].energy * this.thrusters[i].forwardCount;
                 res += (this.thrusters[i].energy * this.thrusters[i].maneuverCount) / 2;
-            }
-
-            for (let i = 0; i < this.coolings.length; i++) {
-                res += this.coolings[i].energy * this.coolings[i].count;
             }
 
             if (isNaN(res)) {
@@ -875,6 +986,20 @@ export default {
 
             for (let i = 0; i < this.tools.length; i++) {
                 res += this.tools[i].energy * this.tools[i].count;
+            }
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
+        },
+
+        totalUsedEnergyWeapons() {
+            let res = 0;
+
+            for (let i = 0; i < this.weapons.length; i++) {
+                res += this.weapons[i].energy_fire * this.weapons[i].count;
             }
 
             if (isNaN(res)) {
@@ -911,6 +1036,25 @@ export default {
             return res;
         },
 
+        neededBatteryML() {
+            let res = 0;
+
+            if (this.tools.filter((data) => data.id == 'ML')[0].count == 0) return 0;
+
+            const EnergyDrain =
+                this.tools.filter((data) => data.id == 'ML')[0].count *
+                    this.tools.filter((data) => data.id == 'ML')[0].energy +
+                this.tools.filter((data) => data.id == 'OC')[0].count *
+                    this.tools.filter((data) => data.id == 'OC')[0].energy;
+            res += (EnergyDrain * this.tools.filter((data) => data.id == 'ML')[0].battery_time) / 10000;
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
+        },
+
         // --------------------------------------------------------------------------------------------
         // ---- Flight Tmes CALCULATIONS
         // --------------------------------------------------------------------------------------------
@@ -923,17 +1067,94 @@ export default {
             }
         },
 
-        forwardManeuverFlightTime() {
-            let res = (this.totalPropellant / this.totalUsedPropellantThrusterFM / 60 / 60).toFixed(2);
+        energyPerFuelChamber() {
+            let res = 0;
+
+            const T1input = this.generators.filter((data) => data.id == 'G1')[0].input;
+            const T2input = this.generators.filter((data) => data.id == 'G2')[0].input;
+            const T3input = this.generators.filter((data) => data.id == 'G3')[0].input;
+
+            const T1output = this.generators.filter((data) => data.id == 'G1')[0].output;
+            const T2output = this.generators.filter((data) => data.id == 'G2')[0].output;
+            const T3output = this.generators.filter((data) => data.id == 'G3')[0].output;
+
+            for (let i = 0; i < this.fuelChambers.length; i++) {
+                if (this.fuelChambers[i].id == 'FC1') {
+                    if (this.fuelChambers[i].count > 0) {
+                        res +=
+                            (((this.fuelChambers[i].fuel / this.fuelChambers[i].input) * this.fuelChambers[i].output) /
+                                T1input) *
+                            T1output *
+                            this.fuelChambers[i].count;
+                    }
+                }
+
+                if (this.fuelChambers[i].id == 'FC2') {
+                    if (this.fuelChambers[i].count > 0) {
+                        res +=
+                            (((this.fuelChambers[i].fuel / this.fuelChambers[i].input) * this.fuelChambers[i].output) /
+                                T2input) *
+                            T2output *
+                            this.fuelChambers[i].count;
+                    }
+                }
+
+                if (this.fuelChambers[i].id == 'FC3') {
+                    if (this.fuelChambers[i].count > 0) {
+                        res +=
+                            (((this.fuelChambers[i].fuel / this.fuelChambers[i].input) * this.fuelChambers[i].output) /
+                                T3input) *
+                            T3output *
+                            this.fuelChambers[i].count;
+                    }
+                }
+            }
+
             if (isNaN(res)) {
                 return 0;
             } else {
-                return res;
+                return Math.round(res);
+            }
+        },
+
+        forwardManeuverFlightTimeProp() {
+            if (this.totalForwardThrust === 0) return 0;
+
+            let res = 0;
+            res += this.totalPropellant / this.totalUsedPropellantThrusterFM / 60 / 60;
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return new Number(res.toFixed(2));
+            }
+        },
+
+        forwardManeuverFlightTimeFuel() {
+            if (this.totalForwardThrust === 0) return 0;
+
+            let res = 0;
+            res += this.energyPerFuelChamber / this.totalUsedEnergyThruster / 60 / 60;
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return new Number(res.toFixed(2));
             }
         },
 
         forwardFlightLength() {
-            let res = (this.forwardManeuverFlightTime * 60 * 60 * this.maxSpeed) / 1000;
+            let res = 0;
+
+            const FTP = new Number(this.forwardManeuverFlightTimeProp);
+            const FTF = new Number(this.forwardManeuverFlightTimeFuel);
+
+            if (FTF < FTP) {
+                res = (FTF * 60 * 60 * this.maxSpeed) / 1000;
+            } else {
+                res = (FTP * 60 * 60 * this.maxSpeed) / 1000;
+            }
+
             if (isNaN(res)) {
                 return 0;
             } else {
@@ -942,7 +1163,17 @@ export default {
         },
 
         forwardFlightLengthHalf() {
-            let res = (this.forwardManeuverFlightTime * 60 * 60 * this.maxSpeedHalf) / 1000;
+            let res = 0;
+
+            const FTP = new Number(this.forwardManeuverFlightTimeProp);
+            const FTF = new Number(this.forwardManeuverFlightTimeFuel);
+
+            if (FTF < FTP) {
+                res = (FTF * 60 * 60 * this.maxSpeedHalf) / 1000;
+            } else {
+                res = (FTP * 60 * 60 * this.maxSpeedHalf) / 1000;
+            }
+
             if (isNaN(res)) {
                 return 0;
             } else {
@@ -951,7 +1182,17 @@ export default {
         },
 
         forwardFlightLengthFull() {
-            let res = (this.forwardManeuverFlightTime * 60 * 60 * this.maxSpeedFull) / 1000;
+            let res = 0;
+
+            const FTP = new Number(this.forwardManeuverFlightTimeProp);
+            const FTF = new Number(this.forwardManeuverFlightTimeFuel);
+
+            if (FTF < FTP) {
+                res = (FTF * 60 * 60 * this.maxSpeedFull) / 1000;
+            } else {
+                res = (FTP * 60 * 60 * this.maxSpeedFull) / 1000;
+            }
+
             if (isNaN(res)) {
                 return 0;
             } else {
@@ -1149,6 +1390,7 @@ export default {
 
                 if (res.ML) {
                     this.tools.filter((data) => data.id == 'ML')[0].count = res.ML;
+                    this.tools.filter((data) => data.id == 'ML')[0].battery_time = res.MLBT;
                 }
                 if (res.OC) {
                     this.tools.filter((data) => data.id == 'OC')[0].count = res.OC;
@@ -1162,6 +1404,19 @@ export default {
                 }
                 if (res.RF) {
                     this.tools.filter((data) => data.id == 'RF')[0].count = res.RF;
+                }
+
+                if (res.AC) {
+                    this.weapons.filter((data) => data.id == 'AC')[0].count = res.AC;
+                }
+                if (res.LC) {
+                    this.weapons.filter((data) => data.id == 'LC')[0].count = res.LC;
+                }
+                if (res.PC) {
+                    this.weapons.filter((data) => data.id == 'PC')[0].count = res.PC;
+                }
+                if (res.RC) {
+                    this.weapons.filter((data) => data.id == 'RC')[0].count = res.RC;
                 }
 
                 if (res.MASS) {
@@ -1212,9 +1467,16 @@ export default {
             for (let i = 0; i < this.tools.length; i++) {
                 this.tools[i].count = 0;
 
+                if (this.tools[i].id == 'ML') {
+                    this.tools[i].battery_time = 30;
+                }
                 if (this.tools[i].id == 'OC') {
                     this.tools[i].energy = 1000;
                 }
+            }
+
+            for (let i = 0; i < this.weapons.length; i++) {
+                this.weapons[i].count = 0;
             }
 
             this.efficiency = 96;
@@ -1502,7 +1764,8 @@ export default {
                 if (this.tools[i].id == 'ML') {
                     if (this.tools[i].count > 0) {
                         let newSave = Object.assign(save, {
-                            ML: this.tools[i].count
+                            ML: this.tools[i].count,
+                            MLBT: this.tools[i].battery_time
                         });
                     }
                 }
@@ -1532,6 +1795,37 @@ export default {
                     if (this.tools[i].count > 0) {
                         let newSave = Object.assign(save, {
                             RF: this.tools[i].count
+                        });
+                    }
+                }
+            }
+
+            for (let i = 0; i < this.weapons.length; i++) {
+                if (this.weapons[i].id == 'AC') {
+                    if (this.weapons[i].count > 0) {
+                        let newSave = Object.assign(save, {
+                            AC: this.weapons[i].count
+                        });
+                    }
+                }
+                if (this.weapons[i].id == 'LC') {
+                    if (this.weapons[i].count > 0) {
+                        let newSave = Object.assign(save, {
+                            LC: this.weapons[i].count
+                        });
+                    }
+                }
+                if (this.weapons[i].id == 'PC') {
+                    if (this.weapons[i].count > 0) {
+                        let newSave = Object.assign(save, {
+                            PC: this.weapons[i].count
+                        });
+                    }
+                }
+                if (this.weapons[i].id == 'RC') {
+                    if (this.weapons[i].count > 0) {
+                        let newSave = Object.assign(save, {
+                            RC: this.weapons[i].count
                         });
                     }
                 }

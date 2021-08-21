@@ -7,13 +7,31 @@
             </div>
 
             <div class="info">
+                <h2 class="title text-monospace">Version 0.0.6</h2>
+                <p class="text-muted">Ship-Calculator Update</p>
+                <div class="pl-4">
+                    <p class="text-primary h5">🐛 Bug-Fixes</p>
+                    <ul>
+                        <li>Fixed several misspellings again... yea im really bad at that, lul</li>
+                    </ul>
+                    <p class="text-primary h5">✏️ Improvements</p>
+                    <ul>
+                        <li>Added Weapons</li>
+                        <li>Added Battery Support for Mining Laser</li>
+                        <li>Added more Energy Drain calctulation (Thruster / idle / tools / weapons)</li>
+                        <li>
+                            Changed Flight Time and Length Calculations (now shows the overall max time/length, not only
+                            Propellant)
+                        </li>
+                        <li>Moved raw Thrust Values to a collapsed Menu with button</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info">
                 <h2 class="title text-monospace">Version 0.0.5</h2>
                 <p class="text-muted">Ship-Calculator Russian Translation</p>
                 <div class="pl-4">
-                    <!-- <p class="text-primary h5">🐛 Bug-Fixes</p>
-                    <ul>
-                        <li>Fixed several misspellings... yea im bad at that</li>
-                    </ul> -->
                     <p class="text-primary h5">✏️ Improvements</p>
                     <ul>
                         <li>
@@ -23,10 +41,6 @@
                             >)
                         </li>
                     </ul>
-                    <!-- <p class="text-primary h5">✨ Features</p>
-                    <ul>
-                        <li>Added Reset Funtion for Ship-Calculator</li>
-                    </ul> -->
                 </div>
             </div>
 
@@ -94,10 +108,6 @@
                         <li>Added Plamsa Thruster Body and Ring to Forward Thrusters</li>
                         <li>Added Thruster Efficiency Value</li>
                     </ul>
-                    <!-- <p class="text-primary h5">✨ Features</p>
-                    <ul>
-                        <li>Added Database Test Page (WIP)</li>
-                    </ul> -->
                 </div>
             </div>
 
