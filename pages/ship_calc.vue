@@ -472,8 +472,10 @@
                             <b-col sm="4">{{ neededBatteryML }}</b-col>
                         </b-row>
 
+                        <hr />
+
                         <div>
-                            <b-collapse id="thrust" class="mt-2">
+                            <b-collapse id="thrust" class="mt-2 mb-4">
                                 <div class="h3">{{ $t('DESIGNER.CALCULATION.THRUST') }}</div>
                                 <b-row>
                                     <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_THRUST') }}</b-col>
@@ -487,7 +489,6 @@
                                     <b-col sm="8">{{ $t('DESIGNER.CALCULATION.MANEUVER_THRUST') }}</b-col>
                                     <b-col sm="4">{{ totalManeuverThrust }}</b-col>
                                 </b-row>
-                                <hr />
                             </b-collapse>
                         </div>
 
