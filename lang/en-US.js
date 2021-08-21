@@ -28,6 +28,7 @@ export default {
             PROP_FUEL_ENERGY_TITLE: 'Fuel and Energy',
             WEIGHT_MISC_TITLE: 'Weight and Cargo',
             TOOLS_TITLE: 'Tools',
+            WEAPON_TITLE: 'Weapon',
             CALCULATION_TITLE: 'Calculation'
         },
 
@@ -96,6 +97,13 @@ export default {
             CRATES: 'Number of Ore Crates'
         },
 
+        WEAPON: {
+            AUTO_CANNON: 'Auto Cannon',
+            LASER_CANNON: 'Laser Cannon',
+            PLASMA_CANNON: 'Plasma Cannon',
+            RAIL_CANNON: 'Rail Cannon'
+        },
+
         CALCULATION: {
             SPEED: 'Speed',
             FORWARD_SPEED: 'Forward Speed',
@@ -130,8 +138,10 @@ export default {
             TOTAL_COOLING: 'Heat Dissipation',
 
             ENERGY_GEN: 'Energy Generation',
+            ENERGY_DRAIN_IDLE: 'Energy Drain (idle)',
             ENERGY_DRAIN_THRUSTER: 'Energy Drain (Thruster)',
-            ENERGY_DRAIN_TOOLS: 'Energy Drain (Tools)'
+            ENERGY_DRAIN_TOOLS: 'Energy Drain (Tools)',
+            ENERGY_DRAIN_WEAPONS: 'Energy Drain (Weapons)'
         },
 
         TOOLS: {

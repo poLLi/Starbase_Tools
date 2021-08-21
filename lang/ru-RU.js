@@ -28,6 +28,7 @@ export default {
             PROP_FUEL_ENERGY_TITLE: 'Топливо и энергия',
             WEIGHT_MISC_TITLE: 'Масса и груз',
             TOOLS_TITLE: 'Инструменты',
+            WEAPON_TITLE: 'Weapon',
             CALCULATION_TITLE: 'Расчёт'
         },
 
@@ -96,6 +97,13 @@ export default {
             CRATES: 'Количество ящиков для руды'
         },
 
+        WEAPON: {
+            AUTO_CANNON: 'Auto Cannon',
+            LASER_CANNON: 'Laser Cannon',
+            PLASMA_CANNON: 'Plasma Cannon',
+            RAIL_CANNON: 'Rail Cannon'
+        },
+
         CALCULATION: {
             SPEED: 'Скорость',
             FORWARD_SPEED: 'Скорость вперёд',
@@ -130,8 +138,10 @@ export default {
             TOTAL_COOLING: 'Рассеивание тепла',
 
             ENERGY_GEN: 'Выработка энергии',
+            ENERGY_DRAIN_IDLE: 'Energy Drain (idle)',
             ENERGY_DRAIN_THRUSTER: 'Потребление энергии (Двигатели)',
-            ENERGY_DRAIN_TOOLS: 'Потребление энергии (Инструменты)'
+            ENERGY_DRAIN_TOOLS: 'Потребление энергии (Инструменты)',
+            ENERGY_DRAIN_WEAPONS: 'Energy Drain (Weapons)'
         },
 
         TOOLS: {

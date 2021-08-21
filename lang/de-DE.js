@@ -28,6 +28,7 @@ export default {
             PROP_FUEL_ENERGY_TITLE: 'Treibstoff und Strom',
             WEIGHT_MISC_TITLE: 'Gewicht und Lager',
             TOOLS_TITLE: 'Tools',
+            WEAPON_TITLE: 'Weapon',
             CALCULATION_TITLE: 'Berechnung'
         },
 
@@ -96,6 +97,13 @@ export default {
             CRATES: 'Anzahl der Erzkisten'
         },
 
+        WEAPON: {
+            AUTO_CANNON: 'Auto Cannon',
+            LASER_CANNON: 'Laser Cannon',
+            PLASMA_CANNON: 'Plasma Cannon',
+            RAIL_CANNON: 'Rail Cannon'
+        },
+
         CALCULATION: {
             SPEED: 'Geschwindigkeit',
             FORWARD_SPEED: 'Vorwärts Geschwindigkeit',
@@ -130,8 +138,10 @@ export default {
             TOTAL_COOLING: 'Kühlung',
 
             ENERGY_GEN: 'Energie Generation',
+            ENERGY_DRAIN_IDLE: 'Energy Drain (idle)',
             ENERGY_DRAIN_THRUSTER: 'Energie verbrauch (Antrieb)',
-            ENERGY_DRAIN_TOOLS: 'Energie verbrauch (Tools)'
+            ENERGY_DRAIN_TOOLS: 'Energie verbrauch (Tools)',
+            ENERGY_DRAIN_WEAPONS: 'Energy Drain (Weapons)'
         },
 
         TOOLS: {

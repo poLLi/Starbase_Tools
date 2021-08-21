@@ -245,6 +245,27 @@
                         </b-card>
                     </b-col>
                 </b-row>
+
+                <b-row class="mb-4">
+                    <b-col>
+                        <b-card class="shadow">
+                            <b-card-title class="text-center p-2 title-rounded">
+                                {{ $t('DESIGNER.CARD.WEAPON_TITLE') }}
+                            </b-card-title>
+
+                            <div class="weaponList">
+                                <div v-for="(weapon, i) in weapons" :key="'tool_' + i">
+                                    <b-row v-if="weapon.id != 'OC'">
+                                        <b-col sm="8">{{ $t(weapon.title) }} </b-col>
+                                        <b-col sm="4">
+                                            <b-form-input type="number" v-model="weapon.count" min="0"></b-form-input>
+                                        </b-col>
+                                    </b-row>
+                                </div>
+                            </div>
+                        </b-card>
+                    </b-col>
+                </b-row>
             </b-col>
 
             <b-col lg="4" class="no-select mb-4">
@@ -415,12 +436,21 @@
                             <b-col sm="4 text-primary">{{ totalEnergyOutput }} e/s</b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_THRUSTER') }}</b-col>
-                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergy">
-                                {{ totalUsedEnergy }} e/s
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_IDLE') }}</b-col>
+                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyIdle">
+                                {{ totalUsedEnergyIdle }} e/s
                             </b-col>
-                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergy">
-                                {{ totalUsedEnergy }} e/s
+                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyIdle">
+                                {{ totalUsedEnergyIdle }} e/s
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_THRUSTER') }}</b-col>
+                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyThruster">
+                                {{ totalUsedEnergyThruster }} e/s
+                            </b-col>
+                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyThruster">
+                                {{ totalUsedEnergyThruster }} e/s
                             </b-col>
                         </b-row>
                         <b-row>
@@ -430,6 +460,15 @@
                             </b-col>
                             <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyTools">
                                 {{ totalUsedEnergyTools }} e/s
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_WEAPONS') }}</b-col>
+                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyWeapons">
+                                {{ totalUsedEnergyWeapons }} e/s
+                            </b-col>
+                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyWeapons">
+                                {{ totalUsedEnergyWeapons }} e/s
                             </b-col>
                         </b-row>
                         <hr />
@@ -730,6 +769,40 @@ export default {
                     mass: 282
                 }
             ],
+            weapons: [
+                {
+                    id: 'AC',
+                    title: 'Auto Cannon',
+                    count: '0',
+                    energy_idle: 250,
+                    energy_fire: 330,
+                    mass: 5877
+                },
+                {
+                    id: 'LC',
+                    title: 'Laser Cannon',
+                    count: '0',
+                    energy_idle: 250,
+                    energy_fire: 400,
+                    mass: 4911
+                },
+                {
+                    id: 'PC',
+                    title: 'Plasma Cannon',
+                    count: '0',
+                    energy_idle: 250,
+                    energy_fire: 2500,
+                    mass: 5375
+                },
+                {
+                    id: 'RC',
+                    title: 'Rail Cannon',
+                    count: '0',
+                    energy_idle: 1501,
+                    energy_fire: 20000,
+                    mass: 11678
+                }
+            ],
             efficiency: 96,
             shipMass: 0,
             oreCrates: 0,
@@ -851,16 +924,30 @@ export default {
             }
         },
 
-        totalUsedEnergy() {
+        totalUsedEnergyIdle() {
+            let res = 0;
+
+            for (let i = 0; i < this.coolings.length; i++) {
+                res += this.coolings[i].energy * this.coolings[i].count;
+            }
+
+            for (let i = 0; i < this.weapons.length; i++) {
+                res += this.weapons[i].energy_idle * this.weapons[i].count;
+            }
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
+        },
+
+        totalUsedEnergyThruster() {
             let res = 0;
 
             for (let i = 0; i < this.thrusters.length; i++) {
                 res += this.thrusters[i].energy * this.thrusters[i].forwardCount;
                 res += (this.thrusters[i].energy * this.thrusters[i].maneuverCount) / 2;
-            }
-
-            for (let i = 0; i < this.coolings.length; i++) {
-                res += this.coolings[i].energy * this.coolings[i].count;
             }
 
             if (isNaN(res)) {
@@ -875,6 +962,20 @@ export default {
 
             for (let i = 0; i < this.tools.length; i++) {
                 res += this.tools[i].energy * this.tools[i].count;
+            }
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
+        },
+
+        totalUsedEnergyWeapons() {
+            let res = 0;
+
+            for (let i = 0; i < this.weapons.length; i++) {
+                res += this.weapons[i].energy_fire * this.weapons[i].count;
             }
 
             if (isNaN(res)) {
@@ -1164,6 +1265,19 @@ export default {
                     this.tools.filter((data) => data.id == 'RF')[0].count = res.RF;
                 }
 
+                if (res.AC) {
+                    this.weapons.filter((data) => data.id == 'AC')[0].count = res.AC;
+                }
+                if (res.LC) {
+                    this.weapons.filter((data) => data.id == 'LC')[0].count = res.LC;
+                }
+                if (res.PC) {
+                    this.weapons.filter((data) => data.id == 'PC')[0].count = res.PC;
+                }
+                if (res.RC) {
+                    this.weapons.filter((data) => data.id == 'RC')[0].count = res.RC;
+                }
+
                 if (res.MASS) {
                     this.shipMass = res.MASS;
                 }
@@ -1215,6 +1329,10 @@ export default {
                 if (this.tools[i].id == 'OC') {
                     this.tools[i].energy = 1000;
                 }
+            }
+
+            for (let i = 0; i < this.weapons.length; i++) {
+                this.weapons[i].count = 0;
             }
 
             this.efficiency = 96;
@@ -1532,6 +1650,37 @@ export default {
                     if (this.tools[i].count > 0) {
                         let newSave = Object.assign(save, {
                             RF: this.tools[i].count
+                        });
+                    }
+                }
+            }
+
+            for (let i = 0; i < this.weapons.length; i++) {
+                if (this.weapons[i].id == 'AC') {
+                    if (this.weapons[i].count > 0) {
+                        let newSave = Object.assign(save, {
+                            AC: this.weapons[i].count
+                        });
+                    }
+                }
+                if (this.weapons[i].id == 'LC') {
+                    if (this.weapons[i].count > 0) {
+                        let newSave = Object.assign(save, {
+                            LC: this.weapons[i].count
+                        });
+                    }
+                }
+                if (this.weapons[i].id == 'PC') {
+                    if (this.weapons[i].count > 0) {
+                        let newSave = Object.assign(save, {
+                            PC: this.weapons[i].count
+                        });
+                    }
+                }
+                if (this.weapons[i].id == 'RC') {
+                    if (this.weapons[i].count > 0) {
+                        let newSave = Object.assign(save, {
+                            RC: this.weapons[i].count
                         });
                     }
                 }
