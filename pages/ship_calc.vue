@@ -337,15 +337,12 @@
 
                         <div class="h3">{{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_HEAD') }}</div>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FLIGHT_TIME') }}</b-col>
+                            <b-col sm="8">
+                                {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME') }}
+                                <span class="text-muted">({{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_PROP') }})</span>
+                            </b-col>
                             <b-col sm="4">
-                                <span v-if="forwardManeuverFlightTimeFuel <= forwardManeuverFlightTimeProp">
-                                    {{ forwardManeuverFlightTimeFuel }} h
-                                </span>
-                                <span v-if="forwardManeuverFlightTimeFuel > forwardManeuverFlightTimeProp">
-                                    {{ forwardManeuverFlightTimeProp }} h
-                                </span>
-
+                                {{ forwardManeuverFlightTimeProp }} h
                                 <span class="float-right">
                                     <b-icon
                                         id="flightTimeTooltip"
@@ -354,10 +351,37 @@
                                     ></b-icon>
                                 </span>
                             </b-col>
-
                             <b-tooltip
                                 v-if="isDesktop"
                                 target="flightTimeTooltip"
+                                placement="left"
+                                boundary="viewport"
+                                noninteractive
+                                :delay="tooltip.delay"
+                            >
+                                <p class="m-0 p-1">
+                                    {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_TOOLTIP') }}
+                                </p>
+                            </b-tooltip>
+                        </b-row>
+                        <b-row>
+                            <b-col sm="8">
+                                {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME') }}
+                                <span class="text-muted">({{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_FUEL') }})</span>
+                            </b-col>
+                            <b-col sm="4">
+                                {{ forwardManeuverFlightTimeFuel }} h
+                                <span class="float-right">
+                                    <b-icon
+                                        id="flightTimeTooltip2"
+                                        icon="ExclamationTriangle"
+                                        class="text-primary"
+                                    ></b-icon>
+                                </span>
+                            </b-col>
+                            <b-tooltip
+                                v-if="isDesktop"
+                                target="flightTimeTooltip2"
                                 placement="left"
                                 boundary="viewport"
                                 noninteractive
