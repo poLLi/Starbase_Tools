@@ -97,6 +97,15 @@ export default {
             CRATES: 'Anzahl der Erzkisten'
         },
 
+        TOOLS: {
+            MINING_LASER: 'Mining Laser',
+            MINING_BATTERY_TIME: 'Batterie unterstützung in sekunden',
+            ORE_COLLECTOR: 'Ore Collector',
+            MATERIAL_SCANNER: 'Material Point Scanner',
+            LASER_DESIGNATOR: 'Laser Designator',
+            RANGEFINDER: 'Rangefinder'
+        },
+
         WEAPON: {
             AUTO_CANNON: 'Auto Cannon',
             LASER_CANNON: 'Laser Cannon',
@@ -141,15 +150,9 @@ export default {
             ENERGY_DRAIN_IDLE: 'Energy Drain (idle)',
             ENERGY_DRAIN_THRUSTER: 'Energie verbrauch (Antrieb)',
             ENERGY_DRAIN_TOOLS: 'Energie verbrauch (Tools)',
-            ENERGY_DRAIN_WEAPONS: 'Energy Drain (Weapons)'
-        },
+            ENERGY_DRAIN_WEAPONS: 'Energy Drain (Weapons)',
 
-        TOOLS: {
-            MINING_LASER: 'Mining Laser',
-            ORE_COLLECTOR: 'Ore Collector',
-            MATERIAL_SCANNER: 'Material Point Scanner',
-            LASER_DESIGNATOR: 'Laser Designator',
-            RANGEFINDER: 'Rangefinder'
+            MINING_BATTERYS: 'Min Batterien für MiningLaser'
         }
     }
 };

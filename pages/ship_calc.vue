@@ -222,20 +222,26 @@
 
                             <div class="toolsList">
                                 <div v-for="(tool, i) in tools" :key="'tool_' + i">
-                                    <b-row v-if="tool.id != 'OC'">
+                                    <b-row>
                                         <b-col sm="8">{{ $t(tool.title) }} </b-col>
                                         <b-col sm="4">
                                             <b-form-input type="number" v-model="tool.count" min="0"></b-form-input>
                                         </b-col>
                                     </b-row>
-                                    <b-row v-if="tool.id == 'OC'">
-                                        <b-col sm="8">{{ $t(tool.title) }} </b-col>
+                                    <b-row v-if="tool.id == 'ML' && tool.count >= 1">
+                                        <b-col sm="8 text-muted">
+                                            ↳ {{ $t('DESIGNER.TOOLS.MINING_BATTERY_TIME') }}
+                                        </b-col>
                                         <b-col sm="4">
-                                            <b-form-input type="number" v-model="tool.count" min="0"></b-form-input>
+                                            <b-form-input
+                                                type="number"
+                                                v-model="tool.battery_time"
+                                                min="0"
+                                            ></b-form-input>
                                         </b-col>
                                     </b-row>
                                     <b-row v-if="tool.id == 'OC' && tool.count >= 1">
-                                        <b-col sm="8">{{ $t(tool.title) }} Power </b-col>
+                                        <b-col sm="8 text-muted"> ↳ {{ $t(tool.title) }} Power </b-col>
                                         <b-col sm="4">
                                             <b-form-input type="number" v-model="tool.energy" min="0"></b-form-input>
                                         </b-col>
@@ -470,6 +476,11 @@
                             <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyWeapons">
                                 {{ totalUsedEnergyWeapons }} e/s
                             </b-col>
+                        </b-row>
+                        <hr />
+                        <b-row v-if="neededBatteryML > 0">
+                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.MINING_BATTERYS') }}</b-col>
+                            <b-col sm="4">{{ neededBatteryML }}</b-col>
                         </b-row>
                         <hr />
                         <b-row>
@@ -738,6 +749,7 @@ export default {
                     title: 'DESIGNER.TOOLS.MINING_LASER',
                     count: 0,
                     energy: 6000,
+                    battery_time: 30,
                     mass: 2155
                 },
                 {
@@ -772,7 +784,7 @@ export default {
             weapons: [
                 {
                     id: 'AC',
-                    title: 'Auto Cannon',
+                    title: 'DESIGNER.WEAPON.AUTO_CANNON',
                     count: '0',
                     energy_idle: 250,
                     energy_fire: 330,
@@ -780,7 +792,7 @@ export default {
                 },
                 {
                     id: 'LC',
-                    title: 'Laser Cannon',
+                    title: 'DESIGNER.WEAPON.LASER_CANNON',
                     count: '0',
                     energy_idle: 250,
                     energy_fire: 400,
@@ -788,7 +800,7 @@ export default {
                 },
                 {
                     id: 'PC',
-                    title: 'Plasma Cannon',
+                    title: 'DESIGNER.WEAPON.PLASMA_CANNON',
                     count: '0',
                     energy_idle: 250,
                     energy_fire: 2500,
@@ -796,7 +808,7 @@ export default {
                 },
                 {
                     id: 'RC',
-                    title: 'Rail Cannon',
+                    title: 'DESIGNER.WEAPON.RAIL_CANNON',
                     count: '0',
                     energy_idle: 1501,
                     energy_fire: 20000,
@@ -1010,6 +1022,25 @@ export default {
             }
 
             return res;
+        },
+
+        neededBatteryML() {
+            let res = 0;
+
+            if (this.tools.filter((data) => data.id == 'ML')[0].count == 0) return 0;
+
+            const EnergyDrain =
+                this.tools.filter((data) => data.id == 'ML')[0].count *
+                    this.tools.filter((data) => data.id == 'ML')[0].energy +
+                this.tools.filter((data) => data.id == 'OC')[0].count *
+                    this.tools.filter((data) => data.id == 'OC')[0].energy;
+            res += (EnergyDrain * this.tools.filter((data) => data.id == 'ML')[0].battery_time) / 10000;
+
+            if (isNaN(res)) {
+                return 0;
+            } else {
+                return Math.round(res);
+            }
         },
 
         // --------------------------------------------------------------------------------------------
@@ -1250,6 +1281,7 @@ export default {
 
                 if (res.ML) {
                     this.tools.filter((data) => data.id == 'ML')[0].count = res.ML;
+                    this.tools.filter((data) => data.id == 'ML')[0].battery_time = res.MLBT;
                 }
                 if (res.OC) {
                     this.tools.filter((data) => data.id == 'OC')[0].count = res.OC;
@@ -1326,6 +1358,9 @@ export default {
             for (let i = 0; i < this.tools.length; i++) {
                 this.tools[i].count = 0;
 
+                if (this.tools[i].id == 'ML') {
+                    this.tools[i].battery_time = 30;
+                }
                 if (this.tools[i].id == 'OC') {
                     this.tools[i].energy = 1000;
                 }
@@ -1620,7 +1655,8 @@ export default {
                 if (this.tools[i].id == 'ML') {
                     if (this.tools[i].count > 0) {
                         let newSave = Object.assign(save, {
-                            ML: this.tools[i].count
+                            ML: this.tools[i].count,
+                            MLBT: this.tools[i].battery_time
                         });
                     }
                 }

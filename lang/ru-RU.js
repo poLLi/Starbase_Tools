@@ -97,6 +97,15 @@ export default {
             CRATES: 'Количество ящиков для руды'
         },
 
+        TOOLS: {
+            MINING_LASER: 'Шахтёрский лазер',
+            MINING_BATTERY_TIME: 'Battery support time in seconds',
+            ORE_COLLECTOR: 'Сборщик руды',
+            MATERIAL_SCANNER: 'Точечный сканер материала',
+            LASER_DESIGNATOR: 'Лазерный целеуказатель',
+            RANGEFINDER: 'Дальномер'
+        },
+
         WEAPON: {
             AUTO_CANNON: 'Auto Cannon',
             LASER_CANNON: 'Laser Cannon',
@@ -141,15 +150,9 @@ export default {
             ENERGY_DRAIN_IDLE: 'Energy Drain (idle)',
             ENERGY_DRAIN_THRUSTER: 'Потребление энергии (Двигатели)',
             ENERGY_DRAIN_TOOLS: 'Потребление энергии (Инструменты)',
-            ENERGY_DRAIN_WEAPONS: 'Energy Drain (Weapons)'
-        },
+            ENERGY_DRAIN_WEAPONS: 'Energy Drain (Weapons)',
 
-        TOOLS: {
-            MINING_LASER: 'Шахтёрский лазер',
-            ORE_COLLECTOR: 'Сборщик руды',
-            MATERIAL_SCANNER: 'Точечный сканер материала',
-            LASER_DESIGNATOR: 'Лазерный целеуказатель',
-            RANGEFINDER: 'Дальномер'
+            MINING_BATTERYS: 'Min Batteries for Mininglasser'
         }
     }
 };
