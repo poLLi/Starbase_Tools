@@ -779,7 +779,7 @@ export default {
                     title: 'DESIGNER.COOLING.RADIATOR_BASE',
                     count: 0,
                     energy: 5,
-                    cooling: 90,
+                    cooling: 50,
                     mass: 1404
                 },
                 {
@@ -787,7 +787,7 @@ export default {
                     title: 'DESIGNER.COOLING.RADIATOR_EXTENSION',
                     count: 0,
                     energy: 5,
-                    cooling: 90,
+                    cooling: 50,
                     mass: 533
                 },
                 {
