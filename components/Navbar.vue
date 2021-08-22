@@ -15,7 +15,9 @@
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav class="ml-auto">
                     <b-nav-item :to="localePath('/')" exact>{{ $t('MENU.START') }}</b-nav-item>
+
                     <b-nav-item :to="localePath('/ship_calc')">{{ $t('MENU.DESIGNER') }}</b-nav-item>
+                    <b-nav-item :to="localePath('/yolol')">{{ $t('MENU.YOLOL') }}</b-nav-item>
                     <b-nav-item :to="localePath('/map')">{{ $t('MENU.MAP') }}</b-nav-item>
 
                     <b-nav-item :to="localePath('/contact')">{{ $t('MENU.CONTACT') }}</b-nav-item>

@@ -137,7 +137,27 @@
 
                             <div class="propList">
                                 <b-row>
-                                    <b-col sm="8">{{ $t('DESIGNER.WEIGHT_CARGO.WEIGHT') }}</b-col>
+                                    <b-col sm="8">
+                                        {{ $t('DESIGNER.WEIGHT_CARGO.WEIGHT') }}
+
+                                        <span class="float-right">
+                                            <b-icon
+                                                id="weightTooltip"
+                                                icon="QuestionDiamond"
+                                                class="text-success"
+                                            ></b-icon>
+                                        </span>
+                                        <b-tooltip
+                                            v-if="isDesktop"
+                                            target="weightTooltip"
+                                            placement="left"
+                                            boundary="viewport"
+                                            noninteractive
+                                            :delay="tooltip.delay"
+                                        >
+                                            <p class="m-0 p-1">{{ $t('DESIGNER.WEIGHT_CARGO.WEIGHT_TOOLTIP') }}</p>
+                                        </b-tooltip>
+                                    </b-col>
                                     <b-col sm="4">
                                         <b-form-input type="number" v-model="shipMass" min="0"></b-form-input>
                                     </b-col>

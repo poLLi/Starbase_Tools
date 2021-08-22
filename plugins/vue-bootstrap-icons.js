@@ -7,7 +7,8 @@ import {
     BIconChatRightDots,
     BIconGear,
     BIconTools,
-    BIconExclamationTriangle
+    BIconExclamationTriangle,
+    BIconQuestionDiamond
 } from 'bootstrap-vue';
 
 Vue.component('BIcon', BIcon);
@@ -18,3 +19,4 @@ Vue.component('BIconChatRightDots', BIconChatRightDots);
 Vue.component('BIconGear', BIconGear);
 Vue.component('BIconTools', BIconTools);
 Vue.component('BIconExclamationTriangle', BIconExclamationTriangle);
+Vue.component('BIconQuestionDiamond', BIconQuestionDiamond);

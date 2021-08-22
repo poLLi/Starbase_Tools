@@ -108,6 +108,12 @@ export default {
                 code: 'ru',
                 iso: 'ru-RU',
                 file: 'ru-RU.js'
+            },
+            {
+                name: 'Portuguese (Brazil)',
+                code: 'ptBR',
+                iso: 'pt-BR',
+                file: 'pt-BR.js'
             }
         ],
         lazy: true,

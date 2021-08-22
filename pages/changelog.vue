@@ -3,7 +3,29 @@
         <b-container>
             <div class="mb-5">
                 <h2 class="title text-primary">Changelog</h2>
-                <p class="desc pl-4">well... yea thats what you would expext here</p>
+                <p class="desc pl-4">well... yea thats what you would expect here</p>
+            </div>
+
+            <div class="info">
+                <h2 class="title text-monospace">Version 0.0.7</h2>
+                <p class="text-muted">Ship-Calculator Update</p>
+                <div class="pl-4">
+                    <p class="text-primary h5">🐛 Bug-Fixes</p>
+                    <ul>
+                        <li>
+                            Fixed several misspellings yet again... please... for the love of god... how bad can it be
+                        </li>
+                    </ul>
+                    <p class="text-primary h5">✏️ Improvements</p>
+                    <ul>
+                        <li>Added Tooltip for how to get your ship mass</li>
+                        <li>
+                            Added Portuguese Brazil localization (Thanks to
+                            <a href="https://github.com/yLordMagnus" target="_blank" rel="noopener">Magnânimo</a> -
+                            Discord: ᵈᵉᵛMagnus#0001 )
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <div class="info">
@@ -35,7 +57,7 @@
                     <p class="text-primary h5">✏️ Improvements</p>
                     <ul>
                         <li>
-                            Added Russian Localization (Thankt to
+                            Added Russian localization (Thanks to
                             <a class="" href="https://discord.gg/ngCnEQ4QDs" target="_blank" rel="noopener">
                                 vabka from [North Order]</a
                             >)
