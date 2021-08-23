@@ -21,6 +21,10 @@
                             <a href="https://github.com/kikilefada" target="_blank" rel="noopener">kikilefada</a> from
                             <a href="https://starbasefrance.fr" target="_blank" rel="noopener">starbasefrance.fr</a>)
                         </li>
+                        <li>
+                            Added Chinese localization (Thanks to
+                            <a href="https://github.com/meglinge" target="_blank" rel="noopener">meglinge</a>)
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -120,6 +120,12 @@ export default {
                 code: 'ptBR',
                 iso: 'pt-BR',
                 file: 'pt-BR.js'
+            },
+            {
+                name: 'Chinese',
+                code: 'cn',
+                iso: 'cn-ZH',
+                file: 'cn-ZH.js'
             }
         ],
         lazy: true,
