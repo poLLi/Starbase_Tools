@@ -12,7 +12,7 @@
                 <div class="pl-4">
                     <p class="text-primary h5">🐛 Bug-Fixes</p>
                     <ul>
-                        <li>Fixed a wrong calculation in Cooling Radiators</li>
+                        <li>Fixed a wrong calculation in Heat and Cooling (Thanks to Regithros#9050)</li>
                     </ul>
                     <p class="text-primary h5">✏️ Improvements</p>
                     <ul>

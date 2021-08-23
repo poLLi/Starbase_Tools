@@ -714,6 +714,7 @@ export default {
                     fuel: 300000,
                     input: 135,
                     output: 75,
+                    heat: 100,
                     mass: 13842
                 },
                 {
@@ -723,6 +724,7 @@ export default {
                     fuel: 300000,
                     input: 60,
                     output: 75,
+                    heat: 90,
                     mass: 14135
                 },
                 {
@@ -732,6 +734,7 @@ export default {
                     fuel: 300000,
                     input: 60,
                     output: 75,
+                    heat: 80,
                     mass: 14135
                 }
             ],
@@ -779,7 +782,7 @@ export default {
                     title: 'DESIGNER.COOLING.RADIATOR_BASE',
                     count: 0,
                     energy: 5,
-                    cooling: 50,
+                    cooling: 90,
                     mass: 1404
                 },
                 {
@@ -787,7 +790,7 @@ export default {
                     title: 'DESIGNER.COOLING.RADIATOR_EXTENSION',
                     count: 0,
                     energy: 5,
-                    cooling: 50,
+                    cooling: 90,
                     mass: 533
                 },
                 {
@@ -949,6 +952,10 @@ export default {
 
         totalHeat() {
             let res = 0;
+
+            for (let i = 0; i < this.fuelChambers.length; i++) {
+                res += this.fuelChambers[i].heat * this.fuelChambers[i].count;
+            }
 
             for (let i = 0; i < this.generators.length; i++) {
                 res += this.generators[i].heat * this.generators[i].count;
