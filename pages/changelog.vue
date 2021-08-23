@@ -7,6 +7,25 @@
             </div>
 
             <div class="info">
+                <h2 class="title text-monospace">Version 0.0.8</h2>
+                <p class="text-muted">French Translation and small fixes</p>
+                <div class="pl-4">
+                    <p class="text-primary h5">🐛 Bug-Fixes</p>
+                    <ul>
+                        <li>Fixed a wrong calculation in Cooling Radiators</li>
+                    </ul>
+                    <p class="text-primary h5">✏️ Improvements</p>
+                    <ul>
+                        <li>
+                            Added French localization (Thanks to
+                            <a href="https://github.com/kikilefada" target="_blank" rel="noopener">kikilefada</a> from
+                            <a href="https://starbasefrance.fr" target="_blank" rel="noopener">starbasefrance.fr</a>)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info">
                 <h2 class="title text-monospace">Version 0.0.7</h2>
                 <p class="text-muted">Ship-Calculator Update</p>
                 <div class="pl-4">
