@@ -19,27 +19,26 @@
         "url": "https://github.com/poLLi/Starbase_Tools/issues"
     },
     "dependencies": {
-        "@nuxtjs/axios": "^5.12.0",
-        "bootstrap": "^4.5.0",
-        "bootstrap-vue": "^2.15.0",
-        "json-url": "^2.6.0",
-        "nuxt": "^2.14.0",
-        "nuxt-i18n": "^6.13.9",
-        "nuxt-start": "^2.14.3",
+        "@nuxtjs/axios": "^5.13.6",
+        "bootstrap": "^4.5.3",
+        "bootstrap-vue": "^2.21.2",
+        "json-url": "^3.0.0",
+        "nuxt": "^2.15.8",
+        "nuxt-i18n": "^6.28.1",
         "vue-clipboard2": "^0.3.1",
-        "vue-sweetalert2": "^3.0.6"
+        "vue-sweetalert2": "^5.0.2"
     },
     "devDependencies": {
-        "@nuxtjs/eslint-config": "^3.1.0",
-        "@nuxtjs/eslint-module": "^2.0.0",
+        "@nuxtjs/eslint-config": "^6.0.1",
+        "@nuxtjs/eslint-module": "^3.0.2",
         "babel-eslint": "^10.1.0",
-        "cross-env": "^7.0.2",
-        "eslint": "^7.5.0",
-        "eslint-config-prettier": "^6.11.0",
-        "eslint-plugin-nuxt": "^1.0.0",
-        "eslint-plugin-prettier": "^3.1.4",
-        "prettier": "^2.0.5",
-        "sass": "^1.38.0",
-        "sass-loader": "^9.0.3"
+        "cross-env": "^7.0.3",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-nuxt": "^2.0.0",
+        "eslint-plugin-prettier": "^3.4.1",
+        "prettier": "^2.3.2",
+        "node-sass": "^6.0.1",
+        "sass-loader": "^10.1.1"
     }
 }
