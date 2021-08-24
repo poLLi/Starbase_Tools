@@ -11,8 +11,8 @@
                     @dismiss-count-down="countDownChanged"
                 >
                     <b-icon icon="exclamation-circle" variant="danger" font-scale="1.5" class="mr-2"></b-icon>
-                    <strong>WARNING:</strong> Almost everything is subject to change.
-                    <small>Current Version: EA BUILD 560</small>
+                    <strong>{{ $t('SHIP_CALC.WARNING.HEADLINE') }}</strong> {{ $t('SHIP_CALC.WARNING.SUBLINE') }}
+                    <small>{{ $t('SHIP_CALC.WARNING.VERSION') }} EA BUILD 560</small>
                     <b-progress
                         variant="danger"
                         :max="alert.dismissSecs"

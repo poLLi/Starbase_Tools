@@ -4,10 +4,10 @@ export default {
     // NAVIGATION
     MENU: {
         START: 'Démarrer',
-        DESIGNER: 'Designer de vaisseaux',
-        CALCULATOR: '> Calculateur',
-        SHIP_CALCULATOR: 'Calculateur de vaisseaux',
-        CAPT_CALCULATOR: 'Vaisseau Mère',
+        DESIGNER: 'Concepteur de Vaisseaux',
+        CALCULATOR: '> Calculatrice',
+        SHIP_CALCULATOR: 'Vaisseaux',
+        CAPT_CALCULATOR: 'Vaisseaux Mères',
         MAP: 'Carte',
         MORE: 'Suite',
         YOLOL: 'Yolol',
@@ -34,6 +34,12 @@ export default {
     // ---------------------------
     // PAGE: Spaceship-Calculator
     SHIP_CALC: {
+        WARNING: {
+            HEADLINE: 'ATTENTION: ',
+            SUBLINE: 'Presque tout est sujet à changement. ',
+            VERSION: 'Version actuelle: '
+        },
+
         CARD: {
             TRUSTER_TITLE: 'Propulseur',
             PROP_FUEL_ENERGY_TITLE: 'Carburant et Énergie',
