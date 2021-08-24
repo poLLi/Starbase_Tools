@@ -2,8 +2,43 @@
     <section class="full-height">
         <b-container>
             <div class="mb-5">
-                <h2 class="title text-primary">Changelog</h2>
-                <p class="desc pl-4">well... yea thats what you would expect here</p>
+                <h2 class="title text-primary">{{ $t('CHANGELOG.HEADLINE_TITLE') }}</h2>
+                <p class="desc pl-4">{{ $t('CHANGELOG.HEADLINE_SUB') }}</p>
+            </div>
+
+            <div class="info">
+                <h2 class="title text-monospace">Version 0.1.0</h2>
+                <p class="text-muted">Major Framework Update</p>
+                <div class="pl-4">
+                    <p class="text-primary h5">🐛 Bug-Fixes</p>
+                    <ul>
+                        <li>Fixed several missing styles caused by Bootstrap update</li>
+                    </ul>
+                    <p class="text-primary h5">✏️ Improvements</p>
+                    <ul>
+                        <li>Improved page loading times</li>
+                        <li>Improved Localization files for every page (alot needs to be translated again)</li>
+                        <li>
+                            Changed Website Title from "Starbase Tools" to "Startbase Codes" to match the domain name
+                        </li>
+                        <li>Improved SEO for Website Title changes (Starbase Codes)</li>
+                    </ul>
+                    <p class="text-primary h5">✨ Updates</p>
+                    <ul>
+                        <li>Added placeholder page for the Capital-Ship Calculator</li>
+                        <br />
+                        <li>Updated Nuxt to v2.15.8</li>
+                        <li>Updated Nuxt-i18n to 6.28.1</li>
+                        <li>Updated Bootstrap to 4.5.3</li>
+                        <li>Updated Bootstrap-Vue to 2.21.2</li>
+                        <li>Updated json-url to 3.0.0</li>
+                        <li>Updated Vue-Sweetalert2 to 5.0.2</li>
+                        <br />
+                        <li>Changed sass to node-sass do to bootstrap update deploy conflicts</li>
+                        <br />
+                        <li>Removed Nuxt-start as its not used anymore</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="info">

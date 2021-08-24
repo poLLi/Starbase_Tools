@@ -86,9 +86,7 @@
                 </p>
                 <hr />
                 <h2>Hinweis zur verantwortlichen Stelle</h2>
-                <p>
-                    Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
-                </p>
+                <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
                 <p>
                     Tim Pollerhof<br />
                     Broicher Weg 50<br />
@@ -171,6 +169,13 @@
                     der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie
                     zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Impressum
                     angegebenen Adresse an uns wenden.
+                </p>
+                <hr />
+                <h2>Web-Hosting</h2>
+                <p>
+                    Diese Seite wird über <a href="https://www.netlify.com/">netlify.com</a> gehostet. Alle weiteren
+                    Details und Informationen zum Datenschutz von Netlify finden sie auf folgender Seite:
+                    <a href="https://www.netlify.com/gdpr/">netlify.com/gdpr/</a>
                 </p>
                 <hr />
                 <h2>Recht auf Einschränkung der Verarbeitung</h2>

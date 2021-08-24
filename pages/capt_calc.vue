@@ -2,13 +2,13 @@
     <section class="full-height">
         <b-container>
             <div class="mb-5">
-                <h2 class="title text-primary">{{ $t('YOLOL.HEADLINE_TITLE') }}</h2>
-                <p class="desc pl-4">{{ $t('YOLOL.HEADLINE_SUB') }}</p>
+                <h2 class="title text-primary">{{ $t('CAPT_SHIP.HEADLINE_TITLE') }}</h2>
+                <p class="desc pl-4">{{ $t('CAPT_SHIP.HEADLINE_SUB') }}</p>
             </div>
 
             <div class="info">
                 <h2 class="title text-monospace">
-                    <span class="text-primary">{{ $t('YOLOL.WIP') }}</span>
+                    <span class="text-primary">{{ $t('CAPT_SHIP.WIP') }}</span>
                 </h2>
             </div>
         </b-container>
