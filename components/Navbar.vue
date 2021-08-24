@@ -7,7 +7,7 @@
                     alt="Just-Look Network Logo"
                     class="d-inlineblock align-top nav-logo"
                 />
-                | Starbase Codes <small class="text-secondary">(unofficial)</small>
+                | Starbase Codes <small class="text-secondary">{{ $t('START.HEADLINE_SUB') }}</small>
             </b-navbar-brand>
 
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
