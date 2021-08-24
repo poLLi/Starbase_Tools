@@ -20,10 +20,10 @@
     },
     "dependencies": {
         "@nuxtjs/axios": "^5.12.0",
-        "bootstrap": "^4.5.0",
-        "bootstrap-vue": "^2.15.0",
+        "bootstrap": "^4.5.3",
+        "bootstrap-vue": "^2.21.2",
         "json-url": "^2.6.0",
-        "nuxt": "^2.14.0",
+        "nuxt": "^2.15.8",
         "nuxt-i18n": "^6.13.9",
         "nuxt-start": "^2.14.3",
         "vue-clipboard2": "^0.3.1",
@@ -40,6 +40,6 @@
         "eslint-plugin-prettier": "^3.1.4",
         "prettier": "^2.0.5",
         "sass": "^1.38.0",
-        "sass-loader": "^9.0.3"
+        "sass-loader": "^10.1.1"
     }
 }
