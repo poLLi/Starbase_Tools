@@ -7,7 +7,7 @@
                     alt="Just-Look Network Logo"
                     class="d-inlineblock align-top nav-logo"
                 />
-                | Starbase Tools <small class="text-secondary">(unofficial)</small>
+                | Starbase Codes <small class="text-secondary">(unofficial)</small>
             </b-navbar-brand>
 
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -16,7 +16,20 @@
                 <b-navbar-nav class="ml-auto">
                     <b-nav-item :to="localePath('/')" exact>{{ $t('MENU.START') }}</b-nav-item>
 
-                    <b-nav-item :to="localePath('/ship_calc')">{{ $t('MENU.DESIGNER') }}</b-nav-item>
+                    <b-dropdown variant="link" toggle-class="text-decoration-none" right>
+                        <b-dropdown-header>{{ $t('MENU.CALCULATOR') }}</b-dropdown-header>
+                        <template v-slot:button-content>
+                            {{ $t('MENU.DESIGNER') }}
+                            <span class="sr-only">{{ $t('MENU.DESIGNER') }}</span>
+                        </template>
+                        <b-dropdown-item :to="localePath('/ship_calc')">
+                            {{ $t('MENU.SHIP_CALCULATOR') }}
+                        </b-dropdown-item>
+                        <b-dropdown-item :to="localePath('/capt_calc')">
+                            {{ $t('MENU.CAPT_CALCULATOR') }}
+                        </b-dropdown-item>
+                    </b-dropdown>
+
                     <b-nav-item :to="localePath('/yolol')">{{ $t('MENU.YOLOL') }}</b-nav-item>
                     <b-nav-item :to="localePath('/map')">{{ $t('MENU.MAP') }}</b-nav-item>
 
@@ -25,9 +38,9 @@
                     <b-dropdown variant="link" toggle-class="text-decoration-none" no-caret right>
                         <template v-slot:button-content>
                             <b-icon icon="tools"></b-icon>
-                            <span class="sr-only">Options</span>
+                            <span class="sr-only">{{ $t('MENU.OPTIONS') }}</span>
                         </template>
-                        <b-dropdown-header>Change Language</b-dropdown-header>
+                        <b-dropdown-header>{{ $t('MENU.OPTIONS_LANGUAGE') }}</b-dropdown-header>
                         <b-dropdown-item
                             v-for="locale in availableLocales"
                             :key="locale.code"
@@ -37,7 +50,9 @@
                         </b-dropdown-item>
                         <b-dropdown-divider></b-dropdown-divider>
                         <b-dropdown-header>{{ $t('MENU.OPTIONS_EXTRA_TITLE') }}</b-dropdown-header>
-                        <b-dropdown-item :to="localePath('/changelog')">Changelog</b-dropdown-item>
+                        <b-dropdown-item :to="localePath('/changelog')">
+                            {{ $t('MENU.OPTIONS_CHANGELOG') }}
+                        </b-dropdown-item>
                     </b-dropdown>
                 </b-navbar-nav>
             </b-collapse>

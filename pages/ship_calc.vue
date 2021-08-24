@@ -26,12 +26,12 @@
             <b-col lg="4" class="no-select mb-4">
                 <b-card class="shadow">
                     <b-card-title class="text-center p-2 title-rounded">
-                        {{ $t('DESIGNER.CARD.TRUSTER_TITLE') }}
+                        {{ $t('SHIP_CALC.CARD.TRUSTER_TITLE') }}
                     </b-card-title>
 
                     <div class="efficiency">
                         <div class="h3">
-                            {{ $t('DESIGNER.THRUSTER.EFFICIENCY_HEADLINE') }}
+                            {{ $t('SHIP_CALC.THRUSTER.EFFICIENCY_HEADLINE') }}
                             <span class="float-right">
                                 <b-icon
                                     id="efficiencyTooltip"
@@ -49,12 +49,12 @@
                                 :delay="tooltip.delay"
                             >
                                 <p class="m-0 p-1">
-                                    {{ $t('DESIGNER.THRUSTER.EFFICIENCY_TOOLTIP') }}
+                                    {{ $t('SHIP_CALC.THRUSTER.EFFICIENCY_TOOLTIP') }}
                                 </p>
                             </b-tooltip>
                         </div>
                         <b-row>
-                            <b-col sm="5">{{ $t('DESIGNER.THRUSTER.EFFICIENCY_THRUSTER') }}</b-col>
+                            <b-col sm="5">{{ $t('SHIP_CALC.THRUSTER.EFFICIENCY_THRUSTER') }}</b-col>
                             <b-col sm="2 text-primary">{{ efficiency }}%</b-col>
                             <b-col sm="5">
                                 <b-form-input
@@ -69,9 +69,9 @@
                     </div>
                     <hr />
                     <div class="forwardThruster">
-                        <div class="h3">{{ $t('DESIGNER.THRUSTER.FORWARD_THRUSTER') }}</div>
+                        <div class="h3">{{ $t('SHIP_CALC.THRUSTER.FORWARD_THRUSTER') }}</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'forwardThruster_' + i">
-                            <b-col sm="12" v-if="thruster.title == 'DESIGNER.THRUSTER.PLASMA_BODY'"><hr /></b-col>
+                            <b-col sm="12" v-if="thruster.title == 'SHIP_CALC.THRUSTER.PLASMA_BODY'"><hr /></b-col>
                             <b-col sm="8">{{ $t(thruster.title) }}</b-col>
                             <b-col sm="4">
                                 <b-form-input type="number" v-model="thrusters[i].forwardCount" min="0"></b-form-input>
@@ -80,21 +80,21 @@
                     </div>
                     <hr />
                     <div class="backwardThruster">
-                        <div class="h3">{{ $t('DESIGNER.THRUSTER.BACKWARD_THRUSTER') }}</div>
+                        <div class="h3">{{ $t('SHIP_CALC.THRUSTER.BACKWARD_THRUSTER') }}</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'backwardThruster_' + i">
                             <b-col
                                 sm="8"
                                 v-if="
-                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_BODY' &&
-                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_RING'
+                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_BODY' &&
+                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_RING'
                                 "
                                 >{{ $t(thruster.title) }}</b-col
                             >
                             <b-col
                                 sm="4"
                                 v-if="
-                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_BODY' &&
-                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_RING'
+                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_BODY' &&
+                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_RING'
                                 "
                             >
                                 <b-form-input type="number" v-model="thrusters[i].backwardCount" min="0"></b-form-input>
@@ -103,21 +103,21 @@
                     </div>
                     <hr />
                     <div class="maneuverThruster">
-                        <div class="h3">{{ $t('DESIGNER.THRUSTER.MANEUVER_THRUSTER') }}</div>
+                        <div class="h3">{{ $t('SHIP_CALC.THRUSTER.MANEUVER_THRUSTER') }}</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'maneuverThruster_' + i">
                             <b-col
                                 sm="8"
                                 v-if="
-                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_BODY' &&
-                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_RING'
+                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_BODY' &&
+                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_RING'
                                 "
                                 >{{ $t(thruster.title) }}</b-col
                             >
                             <b-col
                                 sm="4"
                                 v-if="
-                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_BODY' &&
-                                    thruster.title != 'DESIGNER.THRUSTER.PLASMA_RING'
+                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_BODY' &&
+                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_RING'
                                 "
                             >
                                 <b-form-input type="number" v-model="thrusters[i].maneuverCount" min="0"></b-form-input>
@@ -132,13 +132,13 @@
                     <b-col>
                         <b-card class="shadow">
                             <b-card-title class="text-center p-2 title-rounded">
-                                {{ $t('DESIGNER.CARD.WEIGHT_MISC_TITLE') }}
+                                {{ $t('SHIP_CALC.CARD.WEIGHT_MISC_TITLE') }}
                             </b-card-title>
 
                             <div class="propList">
                                 <b-row>
                                     <b-col sm="8">
-                                        {{ $t('DESIGNER.WEIGHT_CARGO.WEIGHT') }}
+                                        {{ $t('SHIP_CALC.WEIGHT_CARGO.WEIGHT') }}
 
                                         <span class="float-right">
                                             <b-icon
@@ -155,7 +155,7 @@
                                             noninteractive
                                             :delay="tooltip.delay"
                                         >
-                                            <p class="m-0 p-1">{{ $t('DESIGNER.WEIGHT_CARGO.WEIGHT_TOOLTIP') }}</p>
+                                            <p class="m-0 p-1">{{ $t('SHIP_CALC.WEIGHT_CARGO.WEIGHT_TOOLTIP') }}</p>
                                         </b-tooltip>
                                     </b-col>
                                     <b-col sm="4">
@@ -163,7 +163,7 @@
                                     </b-col>
                                 </b-row>
                                 <b-row>
-                                    <b-col sm="8">{{ $t('DESIGNER.WEIGHT_CARGO.CRATES') }}</b-col>
+                                    <b-col sm="8">{{ $t('SHIP_CALC.WEIGHT_CARGO.CRATES') }}</b-col>
                                     <b-col sm="4">
                                         <b-form-input type="number" v-model="oreCrates" min="0"></b-form-input>
                                     </b-col>
@@ -177,11 +177,11 @@
                     <b-col>
                         <b-card class="shadow">
                             <b-card-title class="text-center p-2 title-rounded">
-                                {{ $t('DESIGNER.CARD.PROP_FUEL_ENERGY_TITLE') }}
+                                {{ $t('SHIP_CALC.CARD.PROP_FUEL_ENERGY_TITLE') }}
                             </b-card-title>
 
                             <div class="propList">
-                                <div class="h3">{{ $t('DESIGNER.PROPELLANT.PROPELLANT_HEADLINE') }}</div>
+                                <div class="h3">{{ $t('SHIP_CALC.PROPELLANT.PROPELLANT_HEADLINE') }}</div>
                                 <b-row v-for="(tank, i) in propellantTanks" :key="'propellantTank_' + i">
                                     <b-col sm="8">{{ $t(tank.title) }}</b-col>
                                     <b-col sm="4">
@@ -191,7 +191,7 @@
                             </div>
                             <hr />
                             <div class="fuelList">
-                                <div class="h3">{{ $t('DESIGNER.FUEL_CHAMBER.FUEL_CHAMBER_HEADLINE') }}</div>
+                                <div class="h3">{{ $t('SHIP_CALC.FUEL_CHAMBER.FUEL_CHAMBER_HEADLINE') }}</div>
                                 <b-row v-for="(chamber, i) in fuelChambers" :key="'chamber_' + i">
                                     <b-col sm="8">{{ $t(chamber.title) }} </b-col>
                                     <b-col sm="4">
@@ -201,7 +201,7 @@
                             </div>
                             <hr />
                             <div class="genList">
-                                <div class="h3">{{ $t('DESIGNER.GENERATOR.GENERATOR_HEADLINE') }}</div>
+                                <div class="h3">{{ $t('SHIP_CALC.GENERATOR.GENERATOR_HEADLINE') }}</div>
                                 <b-row v-for="(generator, i) in generators" :key="'generator_' + i">
                                     <b-col sm="8">{{ $t(generator.title) }} </b-col>
                                     <b-col sm="4">
@@ -211,7 +211,7 @@
                             </div>
                             <hr />
                             <div class="batList">
-                                <div class="h3">{{ $t('DESIGNER.BATTERY.BATTERY_HEADLINE') }}</div>
+                                <div class="h3">{{ $t('SHIP_CALC.BATTERY.BATTERY_HEADLINE') }}</div>
                                 <b-row v-for="(battery, i) in batteries" :key="'battery_' + i">
                                     <b-col sm="8">{{ $t(battery.title) }} </b-col>
                                     <b-col sm="4">
@@ -221,7 +221,7 @@
                             </div>
                             <hr />
                             <div class="coolList">
-                                <div class="h3">{{ $t('DESIGNER.COOLING.COOLING_HEADLINE') }}</div>
+                                <div class="h3">{{ $t('SHIP_CALC.COOLING.COOLING_HEADLINE') }}</div>
                                 <b-row v-for="(cooling, i) in coolings" :key="'cooling_' + i">
                                     <b-col sm="8">{{ $t(cooling.title) }} </b-col>
                                     <b-col sm="4">
@@ -237,7 +237,7 @@
                     <b-col>
                         <b-card class="shadow">
                             <b-card-title class="text-center p-2 title-rounded">
-                                {{ $t('DESIGNER.CARD.TOOLS_TITLE') }}
+                                {{ $t('SHIP_CALC.CARD.TOOLS_TITLE') }}
                             </b-card-title>
 
                             <div class="toolsList">
@@ -250,7 +250,7 @@
                                     </b-row>
                                     <b-row v-if="tool.id == 'ML' && tool.count >= 1">
                                         <b-col sm="8 text-muted">
-                                            ↳ {{ $t('DESIGNER.TOOLS.MINING_BATTERY_TIME') }}
+                                            ↳ {{ $t('SHIP_CALC.TOOLS.MINING_BATTERY_TIME') }}
                                         </b-col>
                                         <b-col sm="4">
                                             <b-form-input
@@ -276,7 +276,7 @@
                     <b-col>
                         <b-card class="shadow">
                             <b-card-title class="text-center p-2 title-rounded">
-                                {{ $t('DESIGNER.CARD.WEAPON_TITLE') }}
+                                {{ $t('SHIP_CALC.CARD.WEAPON_TITLE') }}
                             </b-card-title>
 
                             <div class="weaponList">
@@ -297,22 +297,22 @@
             <b-col lg="4" class="no-select mb-4">
                 <b-card class="shadow">
                     <b-card-title class="text-center p-2 title-rounded">
-                        {{ $t('DESIGNER.CARD.CALCULATION_TITLE') }}
+                        {{ $t('SHIP_CALC.CARD.CALCULATION_TITLE') }}
                     </b-card-title>
 
                     <div class="resList">
-                        <div class="h3">{{ $t('DESIGNER.CALCULATION.SPEED') }}</div>
+                        <div class="h3">{{ $t('SHIP_CALC.CALCULATION.SPEED') }}</div>
 
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_SPEED') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.FORWARD_SPEED') }}</b-col>
                             <b-col sm="4">{{ maxSpeed }} m/s</b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.BACKWARD_SPEED') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.BACKWARD_SPEED') }}</b-col>
                             <b-col sm="4">{{ maxSpeedBackwards }} m/s</b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_SPEED_HALF') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.FORWARD_SPEED_HALF') }}</b-col>
                             <b-col sm="4">
                                 {{ maxSpeedHalf }} m/s
                                 <span class="float-right">
@@ -327,13 +327,13 @@
                                     :delay="tooltip.delay"
                                 >
                                     <p class="m-0 p-1">
-                                        {{ $t('DESIGNER.CALCULATION.FORWARD_SPEED_HALF_TOOLTIP') }}
+                                        {{ $t('SHIP_CALC.CALCULATION.FORWARD_SPEED_HALF_TOOLTIP') }}
                                     </p>
                                 </b-tooltip>
                             </b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_SPEED_FULL') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.FORWARD_SPEED_FULL') }}</b-col>
                             <b-col sm="4">
                                 {{ maxSpeedFull }} m/s
                                 <span class="float-right">
@@ -348,18 +348,18 @@
                                     :delay="tooltip.delay"
                                 >
                                     <p class="m-0 p-1">
-                                        {{ $t('DESIGNER.CALCULATION.FORWARD_SPEED_FULL_TOOLTIP') }}
+                                        {{ $t('SHIP_CALC.CALCULATION.FORWARD_SPEED_FULL_TOOLTIP') }}
                                     </p>
                                 </b-tooltip>
                             </b-col>
                         </b-row>
                         <hr />
 
-                        <div class="h3">{{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_HEAD') }}</div>
+                        <div class="h3">{{ $t('SHIP_CALC.CALCULATION.FLIGHT_TIME_HEAD') }}</div>
                         <b-row>
                             <b-col sm="8">
-                                {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME') }}
-                                <span class="text-muted">({{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_PROP') }})</span>
+                                {{ $t('SHIP_CALC.CALCULATION.FLIGHT_TIME') }}
+                                <span class="text-muted">({{ $t('SHIP_CALC.CALCULATION.FLIGHT_TIME_PROP') }})</span>
                             </b-col>
                             <b-col sm="4">
                                 {{ forwardManeuverFlightTimeProp }} h
@@ -380,14 +380,14 @@
                                 :delay="tooltip.delay"
                             >
                                 <p class="m-0 p-1">
-                                    {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_TOOLTIP') }}
+                                    {{ $t('SHIP_CALC.CALCULATION.FLIGHT_TIME_TOOLTIP') }}
                                 </p>
                             </b-tooltip>
                         </b-row>
                         <b-row>
                             <b-col sm="8">
-                                {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME') }}
-                                <span class="text-muted">({{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_FUEL') }})</span>
+                                {{ $t('SHIP_CALC.CALCULATION.FLIGHT_TIME') }}
+                                <span class="text-muted">({{ $t('SHIP_CALC.CALCULATION.FLIGHT_TIME_FUEL') }})</span>
                             </b-col>
                             <b-col sm="4">
                                 {{ forwardManeuverFlightTimeFuel }} h
@@ -408,38 +408,38 @@
                                 :delay="tooltip.delay"
                             >
                                 <p class="m-0 p-1">
-                                    {{ $t('DESIGNER.CALCULATION.FLIGHT_TIME_TOOLTIP') }}
+                                    {{ $t('SHIP_CALC.CALCULATION.FLIGHT_TIME_TOOLTIP') }}
                                 </p>
                             </b-tooltip>
                         </b-row>
                         <hr />
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FLIGHT_LENGTH') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.FLIGHT_LENGTH') }}</b-col>
                             <b-col sm="4">{{ forwardFlightLength }} km</b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FLIGHT_LENGTH_HALF') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.FLIGHT_LENGTH_HALF') }}</b-col>
                             <b-col sm="4">{{ forwardFlightLengthHalf }} km</b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FLIGHT_LENGTH_FULL') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.FLIGHT_LENGTH_FULL') }}</b-col>
                             <b-col sm="4">{{ forwardFlightLengthFull }} km</b-col>
                         </b-row>
                         <hr />
 
-                        <div class="h3">{{ $t('DESIGNER.CALCULATION.FUEL_ENERGY') }}</div>
+                        <div class="h3">{{ $t('SHIP_CALC.CALCULATION.FUEL_ENERGY') }}</div>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.TOTAL_PROPELLANT') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.TOTAL_PROPELLANT') }}</b-col>
                             <b-col sm="4">{{ totalPropellant }}</b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.TOTAL_FUEL') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.TOTAL_FUEL') }}</b-col>
                             <b-col sm="4">{{ totalFuelRod }}</b-col>
                         </b-row>
                         <b-row>
                             <b-col sm="8"
-                                >{{ $t('DESIGNER.CALCULATION.TOTAL_HEAT_HEAD') }}
-                                <small class="text-muted">{{ $t('DESIGNER.CALCULATION.TOTAL_HEAT_SUB') }}</small>
+                                >{{ $t('SHIP_CALC.CALCULATION.TOTAL_HEAT_HEAD') }}
+                                <small class="text-muted">{{ $t('SHIP_CALC.CALCULATION.TOTAL_HEAT_SUB') }}</small>
                             </b-col>
                             <b-col sm="4">
                                 {{ totalHeat }} °C
@@ -459,23 +459,23 @@
                                     :delay="tooltip.delay"
                                 >
                                     <p class="m-0 p-1">
-                                        {{ $t('DESIGNER.CALCULATION.TOTAL_HEAT_TOOLTIP') }}
+                                        {{ $t('SHIP_CALC.CALCULATION.TOTAL_HEAT_TOOLTIP') }}
                                     </p>
                                 </b-tooltip>
                             </b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.TOTAL_COOLING') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.TOTAL_COOLING') }}</b-col>
                             <b-col sm="4 text-danger" v-if="totalHeat > totalCooling"> {{ totalCooling }} °C </b-col>
                             <b-col sm="4" v-if="totalHeat <= totalCooling"> {{ totalCooling }} °C </b-col>
                         </b-row>
                         <hr />
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_GEN') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.ENERGY_GEN') }}</b-col>
                             <b-col sm="4 text-primary">{{ totalEnergyOutput }} e/s</b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_IDLE') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.ENERGY_DRAIN_IDLE') }}</b-col>
                             <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyIdle">
                                 {{ totalUsedEnergyIdle }} e/s
                             </b-col>
@@ -484,7 +484,7 @@
                             </b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_THRUSTER') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.ENERGY_DRAIN_THRUSTER') }}</b-col>
                             <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyThruster">
                                 {{ totalUsedEnergyThruster }} e/s
                             </b-col>
@@ -493,7 +493,7 @@
                             </b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_TOOLS') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.ENERGY_DRAIN_TOOLS') }}</b-col>
                             <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyTools">
                                 {{ totalUsedEnergyTools }} e/s
                             </b-col>
@@ -502,7 +502,7 @@
                             </b-col>
                         </b-row>
                         <b-row>
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.ENERGY_DRAIN_WEAPONS') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.ENERGY_DRAIN_WEAPONS') }}</b-col>
                             <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyWeapons">
                                 {{ totalUsedEnergyWeapons }} e/s
                             </b-col>
@@ -512,7 +512,7 @@
                         </b-row>
                         <hr />
                         <b-row v-if="neededBatteryML > 0">
-                            <b-col sm="8">{{ $t('DESIGNER.CALCULATION.MINING_BATTERYS') }}</b-col>
+                            <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.MINING_BATTERYS') }}</b-col>
                             <b-col sm="4">{{ neededBatteryML }}</b-col>
                         </b-row>
 
@@ -520,17 +520,17 @@
 
                         <div>
                             <b-collapse id="thrust" class="mt-2 mb-4">
-                                <div class="h3">{{ $t('DESIGNER.CALCULATION.THRUST') }}</div>
+                                <div class="h3">{{ $t('SHIP_CALC.CALCULATION.THRUST') }}</div>
                                 <b-row>
-                                    <b-col sm="8">{{ $t('DESIGNER.CALCULATION.FORWARD_THRUST') }}</b-col>
+                                    <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.FORWARD_THRUST') }}</b-col>
                                     <b-col sm="4">{{ totalForwardThrust }}</b-col>
                                 </b-row>
                                 <b-row>
-                                    <b-col sm="8">{{ $t('DESIGNER.CALCULATION.BACKWARD_THRUST') }}</b-col>
+                                    <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.BACKWARD_THRUST') }}</b-col>
                                     <b-col sm="4">{{ totalBackwardThrust }}</b-col>
                                 </b-row>
                                 <b-row>
-                                    <b-col sm="8">{{ $t('DESIGNER.CALCULATION.MANEUVER_THRUST') }}</b-col>
+                                    <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.MANEUVER_THRUST') }}</b-col>
                                     <b-col sm="4">{{ totalManeuverThrust }}</b-col>
                                 </b-row>
                             </b-collapse>
@@ -539,13 +539,13 @@
                         <b-row>
                             <b-col>
                                 <b-button class="" variant="primary" v-b-toggle.thrust>
-                                    <b-icon icon="tools"></b-icon> {{ $t('DESIGNER.CALCULATION.THRUST') }}
+                                    <b-icon icon="tools"></b-icon> {{ $t('SHIP_CALC.CALCULATION.THRUST') }}
                                 </b-button>
                                 <b-button class="" variant="secondary" @click="resetBuild">
-                                    <b-icon icon="gear"></b-icon> {{ $t('DESIGNER.SAVE.RESET_BUTTON') }}
+                                    <b-icon icon="gear"></b-icon> {{ $t('SHIP_CALC.SAVE.RESET_BUTTON') }}
                                 </b-button>
                                 <b-button class="float-right" variant="primary" @click="saveBuild">
-                                    <b-icon icon="clipboard-plus"></b-icon> {{ $t('DESIGNER.SAVE.SAVE_BUTTON') }}
+                                    <b-icon icon="clipboard-plus"></b-icon> {{ $t('SHIP_CALC.SAVE.SAVE_BUTTON') }}
                                 </b-button>
                             </b-col>
                         </b-row>
@@ -563,7 +563,7 @@ export default {
             thrusters: [
                 {
                     id: 'TB1',
-                    title: 'DESIGNER.THRUSTER.BOX_T1',
+                    title: 'SHIP_CALC.THRUSTER.BOX_T1',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -574,7 +574,7 @@ export default {
                 },
                 {
                     id: 'TB2',
-                    title: 'DESIGNER.THRUSTER.BOX_T2',
+                    title: 'SHIP_CALC.THRUSTER.BOX_T2',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -585,7 +585,7 @@ export default {
                 },
                 {
                     id: 'TB3',
-                    title: 'DESIGNER.THRUSTER.BOX_T3',
+                    title: 'SHIP_CALC.THRUSTER.BOX_T3',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -596,7 +596,7 @@ export default {
                 },
                 {
                     id: 'TT1',
-                    title: 'DESIGNER.THRUSTER.TRIANGLE_T1',
+                    title: 'SHIP_CALC.THRUSTER.TRIANGLE_T1',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -607,7 +607,7 @@ export default {
                 },
                 {
                     id: 'TT2',
-                    title: 'DESIGNER.THRUSTER.TRIANGLE_T2',
+                    title: 'SHIP_CALC.THRUSTER.TRIANGLE_T2',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -618,7 +618,7 @@ export default {
                 },
                 {
                     id: 'TT3',
-                    title: 'DESIGNER.THRUSTER.TRIANGLE_T3',
+                    title: 'SHIP_CALC.THRUSTER.TRIANGLE_T3',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -629,7 +629,7 @@ export default {
                 },
                 {
                     id: 'TM1',
-                    title: 'DESIGNER.THRUSTER.MANEUVER_T1',
+                    title: 'SHIP_CALC.THRUSTER.MANEUVER_T1',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -640,7 +640,7 @@ export default {
                 },
                 {
                     id: 'TM2',
-                    title: 'DESIGNER.THRUSTER.MANEUVER_T2',
+                    title: 'SHIP_CALC.THRUSTER.MANEUVER_T2',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -651,7 +651,7 @@ export default {
                 },
                 {
                     id: 'TM3',
-                    title: 'DESIGNER.THRUSTER.MANEUVER_T3',
+                    title: 'SHIP_CALC.THRUSTER.MANEUVER_T3',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -662,7 +662,7 @@ export default {
                 },
                 {
                     id: 'TPB',
-                    title: 'DESIGNER.THRUSTER.PLASMA_BODY',
+                    title: 'SHIP_CALC.THRUSTER.PLASMA_BODY',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -673,7 +673,7 @@ export default {
                 },
                 {
                     id: 'TPR',
-                    title: 'DESIGNER.THRUSTER.PLASMA_RING',
+                    title: 'SHIP_CALC.THRUSTER.PLASMA_RING',
                     forwardCount: 0,
                     backwardCount: 0,
                     maneuverCount: 0,
@@ -686,21 +686,21 @@ export default {
             propellantTanks: [
                 {
                     id: 'PT1',
-                    title: 'DESIGNER.PROPELLANT.PROPELLANT_T1',
+                    title: 'SHIP_CALC.PROPELLANT.PROPELLANT_T1',
                     count: 0,
                     propellant: 1000000,
                     mass: 4638
                 },
                 {
                     id: 'PT2',
-                    title: 'DESIGNER.PROPELLANT.PROPELLANT_T2',
+                    title: 'SHIP_CALC.PROPELLANT.PROPELLANT_T2',
                     count: 0,
                     propellant: 4000000,
                     mass: 10984
                 },
                 {
                     id: 'PT3',
-                    title: 'DESIGNER.PROPELLANT.PROPELLANT_T3',
+                    title: 'SHIP_CALC.PROPELLANT.PROPELLANT_T3',
                     count: 0,
                     propellant: 9000000,
                     mass: 24413
@@ -709,7 +709,7 @@ export default {
             fuelChambers: [
                 {
                     id: 'FC1',
-                    title: 'DESIGNER.FUEL_CHAMBER.FUEL_CHAMBER_T1',
+                    title: 'SHIP_CALC.FUEL_CHAMBER.FUEL_CHAMBER_T1',
                     count: 0,
                     fuel: 300000,
                     input: 135,
@@ -719,7 +719,7 @@ export default {
                 },
                 {
                     id: 'FC2',
-                    title: 'DESIGNER.FUEL_CHAMBER.FUEL_CHAMBER_T2',
+                    title: 'SHIP_CALC.FUEL_CHAMBER.FUEL_CHAMBER_T2',
                     count: 0,
                     fuel: 300000,
                     input: 60,
@@ -729,7 +729,7 @@ export default {
                 },
                 {
                     id: 'FC3',
-                    title: 'DESIGNER.FUEL_CHAMBER.FUEL_CHAMBER_T3',
+                    title: 'SHIP_CALC.FUEL_CHAMBER.FUEL_CHAMBER_T3',
                     count: 0,
                     fuel: 300000,
                     input: 60,
@@ -741,7 +741,7 @@ export default {
             generators: [
                 {
                     id: 'G1',
-                    title: 'DESIGNER.GENERATOR.GENERATOR_T1',
+                    title: 'SHIP_CALC.GENERATOR.GENERATOR_T1',
                     count: 0,
                     output: 1000,
                     input: 25,
@@ -750,7 +750,7 @@ export default {
                 },
                 {
                     id: 'G2',
-                    title: 'DESIGNER.GENERATOR.GENERATOR_T2',
+                    title: 'SHIP_CALC.GENERATOR.GENERATOR_T2',
                     count: 0,
                     output: 1000,
                     input: 25,
@@ -759,7 +759,7 @@ export default {
                 },
                 {
                     id: 'G3',
-                    title: 'DESIGNER.GENERATOR.GENERATOR_T3',
+                    title: 'SHIP_CALC.GENERATOR.GENERATOR_T3',
                     count: 0,
                     output: 1250,
                     input: 25,
@@ -770,7 +770,7 @@ export default {
             batteries: [
                 {
                     id: 'B1',
-                    title: 'DESIGNER.BATTERY.BATTERY_T1',
+                    title: 'SHIP_CALC.BATTERY.BATTERY_T1',
                     count: 0,
                     energy: 10000,
                     mass: 3236
@@ -779,7 +779,7 @@ export default {
             coolings: [
                 {
                     id: 'RB',
-                    title: 'DESIGNER.COOLING.RADIATOR_BASE',
+                    title: 'SHIP_CALC.COOLING.RADIATOR_BASE',
                     count: 0,
                     energy: 5,
                     cooling: 90,
@@ -787,7 +787,7 @@ export default {
                 },
                 {
                     id: 'RE',
-                    title: 'DESIGNER.COOLING.RADIATOR_EXTENSION',
+                    title: 'SHIP_CALC.COOLING.RADIATOR_EXTENSION',
                     count: 0,
                     energy: 5,
                     cooling: 90,
@@ -795,7 +795,7 @@ export default {
                 },
                 {
                     id: 'CR',
-                    title: 'DESIGNER.COOLING.COOLING_RACK',
+                    title: 'SHIP_CALC.COOLING.COOLING_RACK',
                     count: 0,
                     energy: 0,
                     cooling: 300,
@@ -805,7 +805,7 @@ export default {
             tools: [
                 {
                     id: 'ML',
-                    title: 'DESIGNER.TOOLS.MINING_LASER',
+                    title: 'SHIP_CALC.TOOLS.MINING_LASER',
                     count: 0,
                     energy: 6000,
                     battery_time: 30,
@@ -813,28 +813,28 @@ export default {
                 },
                 {
                     id: 'OC',
-                    title: 'DESIGNER.TOOLS.ORE_COLLECTOR',
+                    title: 'SHIP_CALC.TOOLS.ORE_COLLECTOR',
                     count: 0,
                     energy: 1000,
                     mass: 2159
                 },
                 {
                     id: 'MPS',
-                    title: 'DESIGNER.TOOLS.MATERIAL_SCANNER',
+                    title: 'SHIP_CALC.TOOLS.MATERIAL_SCANNER',
                     count: 0,
                     energy: 300,
                     mass: 1569
                 },
                 {
                     id: 'LD',
-                    title: 'DESIGNER.TOOLS.LASER_DESIGNATOR',
+                    title: 'SHIP_CALC.TOOLS.LASER_DESIGNATOR',
                     count: 0,
                     energy: 0,
                     mass: 500
                 },
                 {
                     id: 'RF',
-                    title: 'DESIGNER.TOOLS.RANGEFINDER',
+                    title: 'SHIP_CALC.TOOLS.RANGEFINDER',
                     count: 0,
                     energy: 1,
                     mass: 282
@@ -843,7 +843,7 @@ export default {
             weapons: [
                 {
                     id: 'AC',
-                    title: 'DESIGNER.WEAPON.AUTO_CANNON',
+                    title: 'SHIP_CALC.WEAPON.AUTO_CANNON',
                     count: '0',
                     energy_idle: 250,
                     energy_fire: 330,
@@ -851,7 +851,7 @@ export default {
                 },
                 {
                     id: 'LC',
-                    title: 'DESIGNER.WEAPON.LASER_CANNON',
+                    title: 'SHIP_CALC.WEAPON.LASER_CANNON',
                     count: '0',
                     energy_idle: 250,
                     energy_fire: 400,
@@ -859,7 +859,7 @@ export default {
                 },
                 {
                     id: 'PC',
-                    title: 'DESIGNER.WEAPON.PLASMA_CANNON',
+                    title: 'SHIP_CALC.WEAPON.PLASMA_CANNON',
                     count: '0',
                     energy_idle: 250,
                     energy_fire: 2500,
@@ -867,7 +867,7 @@ export default {
                 },
                 {
                     id: 'RC',
-                    title: 'DESIGNER.WEAPON.RAIL_CANNON',
+                    title: 'SHIP_CALC.WEAPON.RAIL_CANNON',
                     count: '0',
                     energy_idle: 1501,
                     energy_fire: 20000,
@@ -1906,8 +1906,8 @@ export default {
                 this.$swal({
                     icon: 'success',
                     title: '<i>SAVED!</i>',
-                    html: this.$t('DESIGNER.SAVE.SHIP_CALC_SAVE_TEXT'),
-                    confirmButtonText: this.$t('DESIGNER.SAVE.SHIP_CALC_COPY_CLIPBOARD'),
+                    html: this.$t('SHIP_CALC.SAVE.SHIP_CALC_SAVE_TEXT'),
+                    confirmButtonText: this.$t('SHIP_CALC.SAVE.SHIP_CALC_COPY_CLIPBOARD'),
                     focusConfirm: false
                 }).then((res) => {
                     this.$copyText(buildUrl);

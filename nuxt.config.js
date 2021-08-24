@@ -17,11 +17,11 @@ export default {
         htmlAttrs: {
             lang: 'en'
         },
-        title: 'Starbase Tools — JLN',
+        title: 'Starbase Codes — JLN',
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-            { name: 'author', content: 'Just-Look Network' },
+            { name: 'author', content: 'Tim Pollerhof' },
             {
                 hid: 'description',
                 name: 'description',
@@ -30,21 +30,21 @@ export default {
             {
                 name: 'keywords',
                 content:
-                    'starbase tools, community web tools, interactive map, database, ship builder, calculator, open world, game'
+                    'starbase Codes, community web tools, interactive map, database, ship builder, calculator, open world, game'
             },
 
             // Twitter Meta Tags
             { name: 'twitter:card', content: 'summary' },
             { name: 'twitter:site', content: '@JL_PoLLi' },
             { name: 'twitter:image', content: 'http://starbase.codes/sb_tools.png' },
-            { name: 'twitter:title', content: 'Starbase Tools — JLN' },
+            { name: 'twitter:title', content: 'Starbase Codes — JLN' },
             {
                 name: 'twitter:description',
                 content: 'Unofficial Starbase Tools. Everything you need to survive in Starbase.'
             },
 
             // Open Graph Meta Tags
-            { property: 'og:title', content: 'Starbase Tools — JLN' },
+            { property: 'og:title', content: 'Starbase Codes — JLN' },
             { property: 'og:type', content: 'website' },
             { property: 'og:url', content: 'http://starbase.codes' },
             { property: 'og:image', content: 'http://starbase.codes/sb_tools.png' },

@@ -6,7 +6,7 @@
                     <b-col lg="10">
                         <img src="~/assets/images/sb_logo.png" alt="Starbase Tools" class="mainhead-logo img-fluid" />
                         <h2 class="text-uppercase text-white font-weight-medium">{{ $t('START.HEADLINE_TITLE') }}</h2>
-                        <p>( unofficial )</p>
+                        <p>{{ $t('START.HEADLINE_SUB') }}</p>
                         <hr class="my-4" />
                     </b-col>
                     <b-col lg="8" class="text-white mb-5">
@@ -14,13 +14,14 @@
                     </b-col>
                     <b-col lg="12 mt-5">
                         <p class="font-weight-light m-0">
-                            Tools made with <b-icon icon="heart" class="text-primary"></b-icon> by
+                            {{ $t('START.DEVELOPER_NOTE') }} <b-icon icon="heart" class="text-primary"></b-icon>
+                            {{ $t('START.DEVELOPER_NOTE_BY') }}
                             <span class="underline">PoLLi</span>
                         </p>
                         <p class="font-weight-light">
-                            Like my work?
+                            {{ $t('START.DEVELOPER_NOTE_LIKE') }}
                             <a class="" href="https://paypal.me/TPollerhof" target="_blank" rel="noopener">
-                                Buy me a Coffee
+                                {{ $t('START.DEVELOPER_NOTE_COFFEE') }}
                             </a>
                         </p>
                         <a

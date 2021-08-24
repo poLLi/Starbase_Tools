@@ -2,42 +2,37 @@
     <section class="full-height">
         <b-container>
             <div class="mb-5">
-                <h2 class="title text-primary">Contact</h2>
-                <p class="desc pl-4">Yep thats me...</p>
+                <h2 class="title text-primary">{{ $t('CONTACT.HEADLINE_TITLE') }}</h2>
+                <p class="desc pl-4">{{ $t('CONTACT.HEADLINE_SUB') }}</p>
             </div>
 
             <div class="info">
-                <h2 class="title">About Me</h2>
+                <h2 class="title">{{ $t('CONTACT.ABOUT_TITLE') }}</h2>
                 <p>
-                    Hey, I´m PoLLi. I made this somewhat functional website... <br />
-                    If u would like to get in contact with me you can do so by the following details listed below.
+                    {{ $t('CONTACT.ABOUT_TEXT') }} <br />
+                    {{ $t('CONTACT.CONTACT_TEXT') }}
                 </p>
-                <h3 class="title mt-5">Channels</h3>
-                <p>Personal Discord: <span class="text-primary">PoLLi#4969</span><br /></p>
+                <h3 class="title mt-5">{{ $t('CONTACT.CHANNELS') }}</h3>
+                <p>{{ $t('CONTACT.PERSONAL_DISCORD') }}<span class="text-primary">PoLLi#4969</span><br /></p>
                 <hr />
-                <h2>Github</h2>
+                <h2>{{ $t('CONTACT.GITHUB') }}</h2>
                 <p>
-                    Personal:
+                    {{ $t('CONTACT.PERSONAL_GITHUB') }}
                     <a href="https://github.com/poLLi/" target="_blank" rel="noopener noreferrer">
                         github.com/poLLi/
                     </a>
                     <br />
-                    Just-Look Network:
+                    {{ $t('CONTACT.NETWORK_GITHUB') }}
                     <a href="https://github.com/Just-Look-Network/" target="_blank" rel="noopener noreferrer">
                         github.com/Just-Look-Network/
                     </a>
                 </p>
                 <hr />
-                <h2 class="title">Social</h2>
+                <h2 class="title">{{ $t('CONTACT.SOCIAL') }}</h2>
                 <p>
-                    Personal:
+                    {{ $t('CONTACT.PERSONAL_SOCIAL') }}
                     <a href="https://twitter.com/JL_PoLLi" target="_blank" rel="noopener noreferrer">
                         twitter.com/JL_PoLLi
-                    </a>
-                    <br />
-                    Just-Look Network:
-                    <a href="https://twitter.com/justlooknetwork" target="_blank" rel="noopener noreferrer">
-                        twitter.com/justlooknetwork
                     </a>
                 </p>
             </div>
