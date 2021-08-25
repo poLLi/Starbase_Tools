@@ -7,6 +7,42 @@
             </div>
 
             <div class="info">
+                <h2 class="title text-monospace">Version 0.1.1</h2>
+                <p class="text-muted">Translation Update</p>
+                <div class="pl-4">
+                    <p class="text-primary h5">✨ Updates</p>
+                    <ul>
+                        <li>
+                            Updated French translation (Thanks to
+                            <a href="https://github.com/kikilefada" target="_blank" rel="noopener">kikilefada</a> from
+                            <a href="https://starbasefrance.fr" target="_blank" rel="noopener">starbasefrance.fr</a>)
+                        </li>
+                        <li>
+                            Updated Chinese translation (Thanks to
+                            <a href="https://github.com/meglinge" target="_blank" rel="noopener">meglinge</a>)
+                        </li>
+                        <li>
+                            Updated Portuguese Brazil translaion (Thanks to
+                            <a href="https://github.com/yLordMagnus" target="_blank" rel="noopener">Magnânimo</a> -
+                            Discord: ᵈᵉᵛMagnus#0001 )
+                        </li>
+                        <li>
+                            Updated Russian translation (Thanks to
+                            <a href="https://github.com/vabka" target="_blank" rel="noopener">vabka</a> from
+                            <a href="https://discord.gg/ngCnEQ4QDs" target="_blank" rel="noopener">[North Order].fr</a>)
+                        </li>
+                    </ul>
+                    <p class="text-primary h5">✏️ Improvements</p>
+                    <ul>
+                        <li>
+                            Added Chinese (Traditional) translation (Thanks to
+                            <a href="https://github.com/meglinge" target="_blank" rel="noopener">meglinge</a>)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info">
                 <h2 class="title text-monospace">Version 0.1.0</h2>
                 <p class="text-muted">Major Framework Update</p>
                 <div class="pl-4">

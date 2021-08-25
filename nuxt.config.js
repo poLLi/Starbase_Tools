@@ -119,8 +119,14 @@ export default {
             {
                 name: 'Chinese',
                 code: 'cn',
-                iso: 'cn-ZH',
-                file: 'cn-ZH.js'
+                iso: 'zh-CN',
+                file: 'zh-CN.js'
+            },
+            {
+                name: 'Chinese (Traditional)',
+                code: 'tw',
+                iso: 'zh-TW',
+                file: 'zh-TW.js'
             }
         ],
         lazy: true,
