@@ -12,7 +12,7 @@
                 >
                     <b-icon icon="exclamation-circle" variant="danger" font-scale="1.5" class="mr-2"></b-icon>
                     <strong>{{ $t('SHIP_CALC.WARNING.HEADLINE') }}</strong> {{ $t('SHIP_CALC.WARNING.SUBLINE') }}
-                    <small>{{ $t('SHIP_CALC.WARNING.VERSION') }} EA BUILD 560</small>
+                    <small>{{ $t('SHIP_CALC.WARNING.VERSION') }} EA BUILD 572</small>
                     <b-progress
                         variant="danger"
                         :max="alert.dismissSecs"
