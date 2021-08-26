@@ -667,7 +667,7 @@ export default {
                     backwardCount: 0,
                     maneuverCount: 0,
                     energy: 913.3,
-                    propellant: 290,
+                    propellant: 248,
                     thrust: 4000000,
                     mass: 687479
                 },

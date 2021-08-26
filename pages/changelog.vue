@@ -7,6 +7,17 @@
             </div>
 
             <div class="info">
+                <h2 class="title text-monospace">Version 0.1.2</h2>
+                <p class="text-muted">EA update 572</p>
+                <div class="pl-4">
+                    <p class="text-primary h5">✨ Updates</p>
+                    <ul>
+                        <li>Plasma Thruster base propellant consumption reduced from 290 to 248</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info">
                 <h2 class="title text-monospace">Version 0.1.1</h2>
                 <p class="text-muted">Translation Update</p>
                 <div class="pl-4">
