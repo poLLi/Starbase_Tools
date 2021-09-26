@@ -2,24 +2,11 @@
     <b-container class="first-container mb-5">
         <b-row>
             <b-col sm="12">
-                <b-alert
-                    :show="alert.dismissSecs"
-                    dismissible
-                    fade
-                    variant="primary"
-                    @dismissed="alert.dismissCountDown = 0"
-                    @dismiss-count-down="countDownChanged"
-                >
+                <b-alert :show="alert.dismissSecs" dismissible fade variant="primary" @dismissed="alert.dismissCountDown = 0" @dismiss-count-down="countDownChanged">
                     <b-icon icon="exclamation-circle" variant="danger" font-scale="1.5" class="mr-2"></b-icon>
                     <strong>{{ $t('SHIP_CALC.WARNING.HEADLINE') }}</strong> {{ $t('SHIP_CALC.WARNING.SUBLINE') }}
-                    <small>{{ $t('SHIP_CALC.WARNING.VERSION') }} EA BUILD 572</small>
-                    <b-progress
-                        variant="danger"
-                        :max="alert.dismissSecs"
-                        :value="alert.dismissCountDown"
-                        height="4px"
-                        class="mt-2 ml-4"
-                    ></b-progress>
+                    <small>{{ $t('SHIP_CALC.WARNING.VERSION') }} EA BUILD 627</small>
+                    <b-progress variant="danger" :max="alert.dismissSecs" :value="alert.dismissCountDown" height="4px" class="mt-2 ml-4"></b-progress>
                 </b-alert>
             </b-col>
 
@@ -33,21 +20,9 @@
                         <div class="h3">
                             {{ $t('SHIP_CALC.THRUSTER.EFFICIENCY_HEADLINE') }}
                             <span class="float-right">
-                                <b-icon
-                                    id="efficiencyTooltip"
-                                    icon="ExclamationTriangle"
-                                    class="text-primary"
-                                    font-scale="0.85"
-                                ></b-icon>
+                                <b-icon id="efficiencyTooltip" icon="ExclamationTriangle" class="text-primary" font-scale="0.85"></b-icon>
                             </span>
-                            <b-tooltip
-                                v-if="isDesktop"
-                                target="efficiencyTooltip"
-                                placement="left"
-                                boundary="viewport"
-                                noninteractive
-                                :delay="tooltip.delay"
-                            >
+                            <b-tooltip v-if="isDesktop" target="efficiencyTooltip" placement="left" boundary="viewport" noninteractive :delay="tooltip.delay">
                                 <p class="m-0 p-1">
                                     {{ $t('SHIP_CALC.THRUSTER.EFFICIENCY_TOOLTIP') }}
                                 </p>
@@ -57,13 +32,7 @@
                             <b-col sm="5">{{ $t('SHIP_CALC.THRUSTER.EFFICIENCY_THRUSTER') }}</b-col>
                             <b-col sm="2 text-primary">{{ efficiency }}%</b-col>
                             <b-col sm="5">
-                                <b-form-input
-                                    v-model="efficiency"
-                                    type="range"
-                                    min="0"
-                                    max="100"
-                                    step="1"
-                                ></b-form-input>
+                                <b-form-input v-model="efficiency" type="range" min="0" max="100" step="1"></b-form-input>
                             </b-col>
                         </b-row>
                     </div>
@@ -82,21 +51,10 @@
                     <div class="backwardThruster">
                         <div class="h3">{{ $t('SHIP_CALC.THRUSTER.BACKWARD_THRUSTER') }}</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'backwardThruster_' + i">
-                            <b-col
-                                sm="8"
-                                v-if="
-                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_BODY' &&
-                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_RING'
-                                "
-                                >{{ $t(thruster.title) }}</b-col
-                            >
-                            <b-col
-                                sm="4"
-                                v-if="
-                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_BODY' &&
-                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_RING'
-                                "
-                            >
+                            <b-col sm="8" v-if="thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_BODY' && thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_RING'">{{
+                                $t(thruster.title)
+                            }}</b-col>
+                            <b-col sm="4" v-if="thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_BODY' && thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_RING'">
                                 <b-form-input type="number" v-model="thrusters[i].backwardCount" min="0"></b-form-input>
                             </b-col>
                         </b-row>
@@ -105,21 +63,10 @@
                     <div class="maneuverThruster">
                         <div class="h3">{{ $t('SHIP_CALC.THRUSTER.MANEUVER_THRUSTER') }}</div>
                         <b-row v-for="(thruster, i) in thrusters" :key="'maneuverThruster_' + i">
-                            <b-col
-                                sm="8"
-                                v-if="
-                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_BODY' &&
-                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_RING'
-                                "
-                                >{{ $t(thruster.title) }}</b-col
-                            >
-                            <b-col
-                                sm="4"
-                                v-if="
-                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_BODY' &&
-                                    thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_RING'
-                                "
-                            >
+                            <b-col sm="8" v-if="thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_BODY' && thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_RING'">{{
+                                $t(thruster.title)
+                            }}</b-col>
+                            <b-col sm="4" v-if="thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_BODY' && thruster.title != 'SHIP_CALC.THRUSTER.PLASMA_RING'">
                                 <b-form-input type="number" v-model="thrusters[i].maneuverCount" min="0"></b-form-input>
                             </b-col>
                         </b-row>
@@ -141,20 +88,9 @@
                                         {{ $t('SHIP_CALC.WEIGHT_CARGO.WEIGHT') }}
 
                                         <span class="float-right">
-                                            <b-icon
-                                                id="weightTooltip"
-                                                icon="QuestionDiamond"
-                                                class="text-success"
-                                            ></b-icon>
+                                            <b-icon id="weightTooltip" icon="QuestionDiamond" class="text-success"></b-icon>
                                         </span>
-                                        <b-tooltip
-                                            v-if="isDesktop"
-                                            target="weightTooltip"
-                                            placement="left"
-                                            boundary="viewport"
-                                            noninteractive
-                                            :delay="tooltip.delay"
-                                        >
+                                        <b-tooltip v-if="isDesktop" target="weightTooltip" placement="left" boundary="viewport" noninteractive :delay="tooltip.delay">
                                             <p class="m-0 p-1">{{ $t('SHIP_CALC.WEIGHT_CARGO.WEIGHT_TOOLTIP') }}</p>
                                         </b-tooltip>
                                     </b-col>
@@ -249,15 +185,9 @@
                                         </b-col>
                                     </b-row>
                                     <b-row v-if="tool.id == 'ML' && tool.count >= 1">
-                                        <b-col sm="8 text-muted">
-                                            ↳ {{ $t('SHIP_CALC.TOOLS.MINING_BATTERY_TIME') }}
-                                        </b-col>
+                                        <b-col sm="8 text-muted"> ↳ {{ $t('SHIP_CALC.TOOLS.MINING_BATTERY_TIME') }} </b-col>
                                         <b-col sm="4">
-                                            <b-form-input
-                                                type="number"
-                                                v-model="tool.battery_time"
-                                                min="0"
-                                            ></b-form-input>
+                                            <b-form-input type="number" v-model="tool.battery_time" min="0"></b-form-input>
                                         </b-col>
                                     </b-row>
                                     <b-row v-if="tool.id == 'OC' && tool.count >= 1">
@@ -318,14 +248,7 @@
                                 <span class="float-right">
                                     <b-icon id="maxSpeedHalf" icon="ExclamationTriangle" class="text-primary"></b-icon>
                                 </span>
-                                <b-tooltip
-                                    v-if="isDesktop"
-                                    target="maxSpeedHalf"
-                                    placement="left"
-                                    boundary="viewport"
-                                    noninteractive
-                                    :delay="tooltip.delay"
-                                >
+                                <b-tooltip v-if="isDesktop" target="maxSpeedHalf" placement="left" boundary="viewport" noninteractive :delay="tooltip.delay">
                                     <p class="m-0 p-1">
                                         {{ $t('SHIP_CALC.CALCULATION.FORWARD_SPEED_HALF_TOOLTIP') }}
                                     </p>
@@ -339,14 +262,7 @@
                                 <span class="float-right">
                                     <b-icon id="maxSpeedFull" icon="ExclamationTriangle" class="text-primary"></b-icon>
                                 </span>
-                                <b-tooltip
-                                    v-if="isDesktop"
-                                    target="maxSpeedFull"
-                                    placement="left"
-                                    boundary="viewport"
-                                    noninteractive
-                                    :delay="tooltip.delay"
-                                >
+                                <b-tooltip v-if="isDesktop" target="maxSpeedFull" placement="left" boundary="viewport" noninteractive :delay="tooltip.delay">
                                     <p class="m-0 p-1">
                                         {{ $t('SHIP_CALC.CALCULATION.FORWARD_SPEED_FULL_TOOLTIP') }}
                                     </p>
@@ -364,21 +280,10 @@
                             <b-col sm="4">
                                 {{ forwardManeuverFlightTimeProp }} h
                                 <span class="float-right">
-                                    <b-icon
-                                        id="flightTimeTooltip"
-                                        icon="ExclamationTriangle"
-                                        class="text-primary"
-                                    ></b-icon>
+                                    <b-icon id="flightTimeTooltip" icon="ExclamationTriangle" class="text-primary"></b-icon>
                                 </span>
                             </b-col>
-                            <b-tooltip
-                                v-if="isDesktop"
-                                target="flightTimeTooltip"
-                                placement="left"
-                                boundary="viewport"
-                                noninteractive
-                                :delay="tooltip.delay"
-                            >
+                            <b-tooltip v-if="isDesktop" target="flightTimeTooltip" placement="left" boundary="viewport" noninteractive :delay="tooltip.delay">
                                 <p class="m-0 p-1">
                                     {{ $t('SHIP_CALC.CALCULATION.FLIGHT_TIME_TOOLTIP') }}
                                 </p>
@@ -392,21 +297,10 @@
                             <b-col sm="4">
                                 {{ forwardManeuverFlightTimeFuel }} h
                                 <span class="float-right">
-                                    <b-icon
-                                        id="flightTimeTooltip2"
-                                        icon="ExclamationTriangle"
-                                        class="text-primary"
-                                    ></b-icon>
+                                    <b-icon id="flightTimeTooltip2" icon="ExclamationTriangle" class="text-primary"></b-icon>
                                 </span>
                             </b-col>
-                            <b-tooltip
-                                v-if="isDesktop"
-                                target="flightTimeTooltip2"
-                                placement="left"
-                                boundary="viewport"
-                                noninteractive
-                                :delay="tooltip.delay"
-                            >
+                            <b-tooltip v-if="isDesktop" target="flightTimeTooltip2" placement="left" boundary="viewport" noninteractive :delay="tooltip.delay">
                                 <p class="m-0 p-1">
                                     {{ $t('SHIP_CALC.CALCULATION.FLIGHT_TIME_TOOLTIP') }}
                                 </p>
@@ -444,20 +338,9 @@
                             <b-col sm="4">
                                 {{ totalHeat }} °C
                                 <span class="float-right">
-                                    <b-icon
-                                        id="totalHeatTooltip"
-                                        icon="ExclamationTriangle"
-                                        class="text-primary"
-                                    ></b-icon>
+                                    <b-icon id="totalHeatTooltip" icon="ExclamationTriangle" class="text-primary"></b-icon>
                                 </span>
-                                <b-tooltip
-                                    v-if="isDesktop"
-                                    target="totalHeatTooltip"
-                                    placement="left"
-                                    boundary="viewport"
-                                    noninteractive
-                                    :delay="tooltip.delay"
-                                >
+                                <b-tooltip v-if="isDesktop" target="totalHeatTooltip" placement="left" boundary="viewport" noninteractive :delay="tooltip.delay">
                                     <p class="m-0 p-1">
                                         {{ $t('SHIP_CALC.CALCULATION.TOTAL_HEAT_TOOLTIP') }}
                                     </p>
@@ -476,39 +359,23 @@
                         </b-row>
                         <b-row>
                             <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.ENERGY_DRAIN_IDLE') }}</b-col>
-                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyIdle">
-                                {{ totalUsedEnergyIdle }} e/s
-                            </b-col>
-                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyIdle">
-                                {{ totalUsedEnergyIdle }} e/s
-                            </b-col>
+                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyIdle"> {{ totalUsedEnergyIdle }} e/s </b-col>
+                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyIdle"> {{ totalUsedEnergyIdle }} e/s </b-col>
                         </b-row>
                         <b-row>
                             <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.ENERGY_DRAIN_THRUSTER') }}</b-col>
-                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyThruster">
-                                {{ totalUsedEnergyThruster }} e/s
-                            </b-col>
-                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyThruster">
-                                {{ totalUsedEnergyThruster }} e/s
-                            </b-col>
+                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyThruster"> {{ totalUsedEnergyThruster }} e/s </b-col>
+                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyThruster"> {{ totalUsedEnergyThruster }} e/s </b-col>
                         </b-row>
                         <b-row>
                             <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.ENERGY_DRAIN_TOOLS') }}</b-col>
-                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyTools">
-                                {{ totalUsedEnergyTools }} e/s
-                            </b-col>
-                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyTools">
-                                {{ totalUsedEnergyTools }} e/s
-                            </b-col>
+                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyTools"> {{ totalUsedEnergyTools }} e/s </b-col>
+                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyTools"> {{ totalUsedEnergyTools }} e/s </b-col>
                         </b-row>
                         <b-row>
                             <b-col sm="8">{{ $t('SHIP_CALC.CALCULATION.ENERGY_DRAIN_WEAPONS') }}</b-col>
-                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyWeapons">
-                                {{ totalUsedEnergyWeapons }} e/s
-                            </b-col>
-                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyWeapons">
-                                {{ totalUsedEnergyWeapons }} e/s
-                            </b-col>
+                            <b-col sm="4 text-danger" v-if="totalEnergyOutput < totalUsedEnergyWeapons"> {{ totalUsedEnergyWeapons }} e/s </b-col>
+                            <b-col sm="4 text-primary" v-if="totalEnergyOutput >= totalUsedEnergyWeapons"> {{ totalUsedEnergyWeapons }} e/s </b-col>
                         </b-row>
                         <hr />
                         <b-row v-if="neededBatteryML > 0">
@@ -538,12 +405,8 @@
 
                         <b-row>
                             <b-col>
-                                <b-button class="" variant="primary" v-b-toggle.thrust>
-                                    <b-icon icon="tools"></b-icon> {{ $t('SHIP_CALC.CALCULATION.THRUST') }}
-                                </b-button>
-                                <b-button class="" variant="secondary" @click="resetBuild">
-                                    <b-icon icon="gear"></b-icon> {{ $t('SHIP_CALC.SAVE.RESET_BUTTON') }}
-                                </b-button>
+                                <b-button class="" variant="primary" v-b-toggle.thrust> <b-icon icon="tools"></b-icon> {{ $t('SHIP_CALC.CALCULATION.THRUST') }} </b-button>
+                                <b-button class="" variant="secondary" @click="resetBuild"> <b-icon icon="gear"></b-icon> {{ $t('SHIP_CALC.SAVE.RESET_BUTTON') }} </b-button>
                                 <b-button class="float-right" variant="primary" @click="saveBuild">
                                     <b-icon icon="clipboard-plus"></b-icon> {{ $t('SHIP_CALC.SAVE.SAVE_BUTTON') }}
                                 </b-button>
@@ -1093,10 +956,8 @@ export default {
             if (this.tools.filter((data) => data.id == 'ML')[0].count == 0) return 0;
 
             const EnergyDrain =
-                this.tools.filter((data) => data.id == 'ML')[0].count *
-                    this.tools.filter((data) => data.id == 'ML')[0].energy +
-                this.tools.filter((data) => data.id == 'OC')[0].count *
-                    this.tools.filter((data) => data.id == 'OC')[0].energy;
+                this.tools.filter((data) => data.id == 'ML')[0].count * this.tools.filter((data) => data.id == 'ML')[0].energy +
+                this.tools.filter((data) => data.id == 'OC')[0].count * this.tools.filter((data) => data.id == 'OC')[0].energy;
             res += (EnergyDrain * this.tools.filter((data) => data.id == 'ML')[0].battery_time) / 10000;
 
             if (isNaN(res)) {
@@ -1132,31 +993,19 @@ export default {
             for (let i = 0; i < this.fuelChambers.length; i++) {
                 if (this.fuelChambers[i].id == 'FC1') {
                     if (this.fuelChambers[i].count > 0) {
-                        res +=
-                            (((this.fuelChambers[i].fuel / this.fuelChambers[i].input) * this.fuelChambers[i].output) /
-                                T1input) *
-                            T1output *
-                            this.fuelChambers[i].count;
+                        res += (((this.fuelChambers[i].fuel / this.fuelChambers[i].input) * this.fuelChambers[i].output) / T1input) * T1output * this.fuelChambers[i].count;
                     }
                 }
 
                 if (this.fuelChambers[i].id == 'FC2') {
                     if (this.fuelChambers[i].count > 0) {
-                        res +=
-                            (((this.fuelChambers[i].fuel / this.fuelChambers[i].input) * this.fuelChambers[i].output) /
-                                T2input) *
-                            T2output *
-                            this.fuelChambers[i].count;
+                        res += (((this.fuelChambers[i].fuel / this.fuelChambers[i].input) * this.fuelChambers[i].output) / T2input) * T2output * this.fuelChambers[i].count;
                     }
                 }
 
                 if (this.fuelChambers[i].id == 'FC3') {
                     if (this.fuelChambers[i].count > 0) {
-                        res +=
-                            (((this.fuelChambers[i].fuel / this.fuelChambers[i].input) * this.fuelChambers[i].output) /
-                                T3input) *
-                            T3output *
-                            this.fuelChambers[i].count;
+                        res += (((this.fuelChambers[i].fuel / this.fuelChambers[i].input) * this.fuelChambers[i].output) / T3input) * T3output * this.fuelChambers[i].count;
                     }
                 }
             }
@@ -1542,11 +1391,7 @@ export default {
 
             for (let i = 0; i < this.thrusters.length; i++) {
                 if (this.thrusters[i].id == 'TB1') {
-                    if (
-                        this.thrusters[i].forwardCount > 0 ||
-                        this.thrusters[i].backwardCount > 0 ||
-                        this.thrusters[i].maneuverCount > 0
-                    ) {
+                    if (this.thrusters[i].forwardCount > 0 || this.thrusters[i].backwardCount > 0 || this.thrusters[i].maneuverCount > 0) {
                         let newSave = Object.assign(save, {
                             TB1: {
                                 F: this.thrusters[i].forwardCount,
@@ -1558,11 +1403,7 @@ export default {
                 }
 
                 if (this.thrusters[i].id == 'TB2') {
-                    if (
-                        this.thrusters[i].forwardCount > 0 ||
-                        this.thrusters[i].backwardCount > 0 ||
-                        this.thrusters[i].maneuverCount > 0
-                    ) {
+                    if (this.thrusters[i].forwardCount > 0 || this.thrusters[i].backwardCount > 0 || this.thrusters[i].maneuverCount > 0) {
                         let newSave = Object.assign(save, {
                             TB2: {
                                 F: this.thrusters[i].forwardCount,
@@ -1574,11 +1415,7 @@ export default {
                 }
 
                 if (this.thrusters[i].id == 'TB3') {
-                    if (
-                        this.thrusters[i].forwardCount > 0 ||
-                        this.thrusters[i].backwardCount > 0 ||
-                        this.thrusters[i].maneuverCount > 0
-                    ) {
+                    if (this.thrusters[i].forwardCount > 0 || this.thrusters[i].backwardCount > 0 || this.thrusters[i].maneuverCount > 0) {
                         let newSave = Object.assign(save, {
                             TB3: {
                                 F: this.thrusters[i].forwardCount,
@@ -1590,11 +1427,7 @@ export default {
                 }
 
                 if (this.thrusters[i].id == 'TT1') {
-                    if (
-                        this.thrusters[i].forwardCount > 0 ||
-                        this.thrusters[i].backwardCount > 0 ||
-                        this.thrusters[i].maneuverCount > 0
-                    ) {
+                    if (this.thrusters[i].forwardCount > 0 || this.thrusters[i].backwardCount > 0 || this.thrusters[i].maneuverCount > 0) {
                         let newSave = Object.assign(save, {
                             TT1: {
                                 F: this.thrusters[i].forwardCount,
@@ -1606,11 +1439,7 @@ export default {
                 }
 
                 if (this.thrusters[i].id == 'TT2') {
-                    if (
-                        this.thrusters[i].forwardCount > 0 ||
-                        this.thrusters[i].backwardCount > 0 ||
-                        this.thrusters[i].maneuverCount > 0
-                    ) {
+                    if (this.thrusters[i].forwardCount > 0 || this.thrusters[i].backwardCount > 0 || this.thrusters[i].maneuverCount > 0) {
                         let newSave = Object.assign(save, {
                             TT2: {
                                 F: this.thrusters[i].forwardCount,
@@ -1622,11 +1451,7 @@ export default {
                 }
 
                 if (this.thrusters[i].id == 'TT3') {
-                    if (
-                        this.thrusters[i].forwardCount > 0 ||
-                        this.thrusters[i].backwardCount > 0 ||
-                        this.thrusters[i].maneuverCount > 0
-                    ) {
+                    if (this.thrusters[i].forwardCount > 0 || this.thrusters[i].backwardCount > 0 || this.thrusters[i].maneuverCount > 0) {
                         let newSave = Object.assign(save, {
                             TT3: {
                                 F: this.thrusters[i].forwardCount,
@@ -1637,11 +1462,7 @@ export default {
                     }
                 }
                 if (this.thrusters[i].id == 'TM1') {
-                    if (
-                        this.thrusters[i].forwardCount > 0 ||
-                        this.thrusters[i].backwardCount > 0 ||
-                        this.thrusters[i].maneuverCount > 0
-                    ) {
+                    if (this.thrusters[i].forwardCount > 0 || this.thrusters[i].backwardCount > 0 || this.thrusters[i].maneuverCount > 0) {
                         let newSave = Object.assign(save, {
                             TM1: {
                                 F: this.thrusters[i].forwardCount,
@@ -1652,11 +1473,7 @@ export default {
                     }
                 }
                 if (this.thrusters[i].id == 'TM2') {
-                    if (
-                        this.thrusters[i].forwardCount > 0 ||
-                        this.thrusters[i].backwardCount > 0 ||
-                        this.thrusters[i].maneuverCount > 0
-                    ) {
+                    if (this.thrusters[i].forwardCount > 0 || this.thrusters[i].backwardCount > 0 || this.thrusters[i].maneuverCount > 0) {
                         let newSave = Object.assign(save, {
                             TM2: {
                                 F: this.thrusters[i].forwardCount,
@@ -1667,11 +1484,7 @@ export default {
                     }
                 }
                 if (this.thrusters[i].id == 'TM3') {
-                    if (
-                        this.thrusters[i].forwardCount > 0 ||
-                        this.thrusters[i].backwardCount > 0 ||
-                        this.thrusters[i].maneuverCount > 0
-                    ) {
+                    if (this.thrusters[i].forwardCount > 0 || this.thrusters[i].backwardCount > 0 || this.thrusters[i].maneuverCount > 0) {
                         let newSave = Object.assign(save, {
                             TM3: {
                                 F: this.thrusters[i].forwardCount,
