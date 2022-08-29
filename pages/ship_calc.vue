@@ -1715,7 +1715,7 @@ export default {
 
             const codec = require('json-url')('lzma');
             codec.compress(save).then((resault) => {
-                const buildUrl = `https://starbase.codes/ship_calc?d=${resault}`;
+                const buildUrl = `https://polli.github.io/Starbase_Tools/ship_calc?d=${resault}`;
                 this.$swal({
                     icon: 'success',
                     title: '<i>SAVED!</i>',
