@@ -1,4 +1,11 @@
-# JLN | Starbase Tools
+# Starbase Tools
+
+> Website: [polli.github.io/Starbase_Tools](https://polli.github.io/Starbase_Tools/)
+
+## 📌 What is Starbase Tools
+
+Starbase Tools is everything you need to survive in Starbase. Use our Ship-Calculator, Interactive Map or
+any other Tool that might be added over time.
 
 ## Build Setup
 
@@ -17,4 +24,25 @@ $ npm run start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Translations
+
+Check out [StarbaseTools - Localization](https://github.com/poLLi/SB_Tools_Localization) on Github for Translations.
+
+
+## 🤔 Stay In Touch
+
+-   Discord: PoLLi#4969
+-   Starbase: Polli
+-   [GitHub](https://github.com/poLLi)
+-   [Twitter](https://twitter.com/JL_PoLLi)
+
+## ⚙️ Core Team
+
+-   [PoLLi](https://github.com/poLLi) _(Developer)_
+  
+
+## ❤️ Contributing
+
+Please read our [Contributing Guide](./CONTRIBUTING.md) before submitting any Pull Requests.
+
+-   [Vinteo](https://github.com/vinteo)
