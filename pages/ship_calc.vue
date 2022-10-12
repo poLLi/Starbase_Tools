@@ -565,7 +565,7 @@ export default {
                     id: 'PT3',
                     title: 'SHIP_CALC.PROPELLANT.PROPELLANT_T3',
                     count: 0,
-                    propellant: 9000000,
+                    propellant: 12000000,
                     mass: 24413
                 }
             ],
